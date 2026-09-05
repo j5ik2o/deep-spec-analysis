@@ -132,4 +132,52 @@ describe("stripCode", () => {
     expect(stripped.split("\n").at(-1)).toBe("outside");
     expect(stripped).not.toContain("まだ中");
   });
+
+  test("a longer fence is not closed by a shorter one — the opening length is kept", () => {
+    const stripped = stripCode(["````", "```", "かな", "```", "````", "outside"].join("\n"));
+    expect(stripped).not.toContain("かな");
+    expect(stripped.split("\n").at(-1)).toBe("outside");
+  });
+
+  test("a span opened with several backticks closes only on the same count", () => {
+    const stripped = stripCode("before ``かな ` かな`` after");
+    expect(stripped).toBe("before  after");
+  });
+
+  test("a span may cross lines, and the newlines it spans are kept", () => {
+    const stripped = stripCode(["a `かな", "かな` b", "c"].join("\n"));
+    expect(stripped.split("\n")).toEqual(["a ", " b", "c"]);
+  });
+
+  test("an unclosed backtick is prose, not a span that swallows the rest", () => {
+    const stripped = stripCode(["a ` b", "かなの散文"].join("\n"));
+    expect(stripped).toContain("かなの散文");
+  });
+});
+
+describe("doc language lint — the two rules judge the same prose", () => {
+  test("a .ja.md whose only Japanese sits inside code is still an untranslated shell", () => {
+    const report = lintDocLanguage(
+      sandbox({
+        "docs/guide.ja.md": ["# Guide", "", "English prose only.", "", "```ts", "// かなのコメント", "```", ""].join(
+          "\n",
+        ),
+      }),
+    );
+    expect(report.diagnostics.map((d) => d.rule)).toEqual(["no-japanese-in-ja-doc"]);
+  });
+
+  test("a .ja.md whose only Japanese sits in an inline span is likewise a shell", () => {
+    const report = lintDocLanguage(sandbox({ "docs/guide.ja.md": "# Guide\n\nSee `かな` here.\n" }));
+    expect(report.diagnostics.map((d) => d.rule)).toEqual(["no-japanese-in-ja-doc"]);
+  });
+
+  test("half-width katakana is Japanese too", () => {
+    const report = lintDocLanguage(sandbox({ "docs/x.md": "# Title\n\nSee ｶﾀｶﾅ here.\n" }));
+    expect(report.diagnostics.map((d) => d.rule)).toEqual(["japanese-in-english-doc"]);
+  });
+
+  test("half-width katakana satisfies the .ja.md rule as well", () => {
+    expect(lintDocLanguage(sandbox({ "docs/x.ja.md": "# Title\n\nｶﾀｶﾅ\n" })).diagnostics).toEqual([]);
+  });
 });

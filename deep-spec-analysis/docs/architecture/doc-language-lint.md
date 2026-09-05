@@ -2,7 +2,9 @@
 
 English | [日本語](doc-language-lint.ja.md)
 
-`bun run lint:doc-language` checks that the prose of a single Markdown file is written in a single language. It is wired into `bun run check` and `bun run lint`, so it also runs in CI.
+`bun run lint:doc-language` checks that the prose of a single Markdown file does not mix English and Japanese. It is wired into `bun run check` and `bun run lint`, so it also runs in CI.
+
+The check looks only for **the presence of Japanese**; it does not detect arbitrary language mixing. Documents in this repository come as an English/Japanese pair, so those are the two languages it keeps apart.
 
 ## The discipline
 
@@ -15,13 +17,15 @@ Documents in this repository come in pairs: an English `<name>.md` and a Japanes
 
 ## What counts as prose
 
-Fenced code blocks (both ``` and ~~~) and inline code spans (text wrapped in `` ` ``) are **not** checked.
+Fenced code blocks (both ``` and ~~~) and inline code spans (text wrapped in `` ` ``) are **not** checked. **Both rules judge this same prose** — a `*.ja.md` is also read after code removal, so a shell whose only Japanese sits inside code stays a violation.
+
+A fence records its opening character and length, and only a fence of the same character and at least that length closes it. An inline span opened with N backticks closes on exactly N, and a span may cross lines (both are CommonMark rules).
 
 Source comments in this repository are written in Japanese, so it is legitimate for an English document to quote one verbatim. As long as the quotation is enclosed as code, it is not a violation. Japanese written in the running text sits outside those fences and is caught.
 
 ## Detection is by kana
 
-Japanese is detected by the presence of hiragana (U+3040–U+309F) or katakana (U+30A0–U+30FF). **Kanji is not examined.**
+Japanese is detected by the presence of hiragana (U+3040–U+309F), katakana (U+30A0–U+30FF), or half-width katakana (U+FF66–U+FF9F). **Kanji is not examined.**
 
 A kanji-only term cannot be told apart from Chinese, and may legitimately appear in an English document as a technical term or a proper noun. Japanese prose, on the other hand, always carries kana in practice, so this is enough at file granularity.
 

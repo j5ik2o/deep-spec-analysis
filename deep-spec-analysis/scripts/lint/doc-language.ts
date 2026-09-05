@@ -4,13 +4,21 @@
 //   - `*.ja.md` 以外の Markdown は日本語の散文を含まない。
 //   - `*.ja.md` は日本語の散文を含む（英語のまま置かれた未翻訳の器を検出する）。
 //
-// 「散文」はフェンス付きコードブロックとインラインコードを除いた本文を指す。
-// このリポジトリのソースコメントは日本語なので、英語の文書がそれを逐語で
-// 引用することは正当であり、コードとして囲まれている限り違反にしない。
+// この検査が見るのは日本語の有無だけで、任意の言語の混在は判定しない。この repo の
+// 文書は英語版 `<name>.md` と日本語版 `<name>.ja.md` の対で持つので、守りたいのは
+// その 2 言語の分離である。
 //
-// 判定は仮名（ひらがな・カタカナ）の有無で行う。漢字だけの語（「設計規則」など）
-// は中国語との区別がつかず、英語の文書に技術用語として現れうるため見ない。
-// 日本語の散文は実際には必ず仮名を伴うので、ファイル単位ではこれで足りる。
+// 「散文」はフェンス付きコードブロックとインラインコードを除いた本文を指す。両方の
+// 規則がこの同じ定義で判定される——`.ja.md` も除去後の本文で見るので、コードの中に
+// しか日本語が無い未翻訳の器は違反として残る。
+//
+// このリポジトリのソースコメントは日本語なので、英語の文書がそれを逐語で引用する
+// ことは正当であり、コードとして囲まれている限り違反にしない。
+//
+// 判定は仮名（ひらがな・カタカナ・半角カタカナ）の有無で行う。漢字だけの語
+// （「設計規則」など）は中国語との区別がつかず、英語の文書に技術用語として
+// 現れうるため見ない。日本語の散文は実際には必ず仮名を伴うので、ファイル単位では
+// これで足りる。
 
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative, sep } from "node:path";
@@ -27,7 +35,8 @@ const SKIPPED_DIRECTORIES: ReadonlySet<string> = new Set(["node_modules", ".git"
  */
 const EXEMPT_PREFIXES: readonly string[] = ["tests/fixtures/"];
 
-const JAPANESE_KANA = /[぀-ゟ゠-ヿ]/u;
+/** ひらがな・カタカナ・半角カタカナ。漢字は含めない（上のコメント参照）。 */
+const JAPANESE_KANA = /[぀-ゟ゠-ヿｦ-ﾟ]/u;
 
 export type DocLanguageRule = "japanese-in-english-doc" | "no-japanese-in-ja-doc";
 
@@ -47,29 +56,84 @@ export interface DocLanguageReport {
 }
 
 /**
- * フェンス付きコードブロックとインラインコードを空白へ置き換える。行数と行の
- * 対応は保つので、返り値の行番号はそのまま元ファイルの行番号になる。
+ * フェンス付きコードブロックを空行へ落とす。開始フェンスの文字と長さを覚え、
+ * 同じ文字で開始以上の長さのフェンスだけを終端として受け付ける（CommonMark）。
+ * 行数と行の対応は保つ。
  */
-export function stripCode(markdown: string): string {
-  const lines = markdown.split("\n");
+function stripFences(markdown: string): string {
   const out: string[] = [];
-  let fence: string | null = null;
-  for (const line of lines) {
-    const opening = /^\s*(`{3,}|~{3,})/.exec(line);
-    if (fence === null && opening !== null) {
-      fence = opening[1]?.[0] === "~" ? "~" : "`";
-      out.push("");
+  let fenceChar: string | null = null;
+  let fenceLength = 0;
+  for (const line of markdown.split("\n")) {
+    if (fenceChar === null) {
+      const opening = /^ {0,3}(`{3,}|~{3,})/.exec(line);
+      if (opening?.[1] !== undefined) {
+        fenceChar = opening[1][0] ?? "`";
+        fenceLength = opening[1].length;
+        out.push("");
+        continue;
+      }
+      out.push(line);
       continue;
     }
-    if (fence !== null) {
-      const closing = /^\s*(`{3,}|~{3,})\s*$/.exec(line);
-      if (closing !== null && (closing[1]?.[0] === "~" ? "~" : "`") === fence) fence = null;
-      out.push("");
-      continue;
+    const closing = /^ {0,3}(`{3,}|~{3,})\s*$/.exec(line);
+    if (closing?.[1] !== undefined && closing[1][0] === fenceChar && closing[1].length >= fenceLength) {
+      fenceChar = null;
+      fenceLength = 0;
     }
-    out.push(line.replace(/`[^`]*`/g, ""));
+    out.push("");
   }
   return out.join("\n");
+}
+
+/**
+ * インラインコードスパンを取り除く。N 個のバッククォートで開いたスパンは、
+ * ちょうど N 個の並びで閉じる（CommonMark）。スパンは行をまたぎうるので、
+ * 取り除いた範囲の改行だけは残して行番号の対応を保つ。閉じないバッククォート
+ * はコードではないので、そのまま散文として残す。
+ */
+function stripInlineCode(text: string): string {
+  const out: string[] = [];
+  let index = 0;
+  while (index < text.length) {
+    if (text[index] !== "`") {
+      out.push(text[index] ?? "");
+      index++;
+      continue;
+    }
+    let run = 0;
+    while (text[index + run] === "`") run++;
+
+    let scan = index + run;
+    let closing = -1;
+    while (scan < text.length) {
+      if (text[scan] !== "`") {
+        scan++;
+        continue;
+      }
+      let candidate = 0;
+      while (text[scan + candidate] === "`") candidate++;
+      if (candidate === run) {
+        closing = scan;
+        break;
+      }
+      scan += candidate;
+    }
+
+    if (closing === -1) {
+      out.push("`".repeat(run));
+      index += run;
+      continue;
+    }
+    for (let position = index; position < closing + run; position++) if (text[position] === "\n") out.push("\n");
+    index = closing + run;
+  }
+  return out.join("");
+}
+
+/** フェンスとインラインコードを取り除いた散文を返す。行番号の対応は保つ。 */
+export function stripCode(markdown: string): string {
+  return stripInlineCode(stripFences(markdown));
 }
 
 function isExempt(relativePath: string): boolean {
@@ -109,14 +173,14 @@ export function lintDocLanguage(root: string): DocLanguageReport {
     if (isExempt(relativePath)) continue;
     checkedFiles++;
 
-    const source = readFileSync(absolute, "utf-8");
+    const prose = stripCode(readFileSync(absolute, "utf-8"));
     if (relativePath.endsWith(".ja.md")) {
-      if (!JAPANESE_KANA.test(source))
+      if (!JAPANESE_KANA.test(prose))
         diagnostics.push({ rule: "no-japanese-in-ja-doc", path: relativePath, line: 0, excerpt: "" });
       continue;
     }
 
-    const hit = firstJapaneseLine(stripCode(source));
+    const hit = firstJapaneseLine(prose);
     if (hit !== null)
       diagnostics.push({
         rule: "japanese-in-english-doc",

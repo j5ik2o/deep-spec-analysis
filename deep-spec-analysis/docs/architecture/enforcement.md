@@ -133,7 +133,7 @@ For each `PUBLISHED_LANGUAGE` row, it further cross-validates that the target fi
 | `tests/coverage-gate.test.ts` | CI's coverage gate (an absolute 90%, relative to base, with a 0.01 tolerance) |
 | `tests/kind-rank.test.ts` | Freezing the domain type's output contract (the 11-kind canonical order of `FindingKind`) |
 | `tests/usecase-getter-lint.test.ts` | Domain getters, representation conversions, and `Result` unwrapping reached from the use case layer, with call targets resolved through type information (`bun run lint:usecase-getters`). A mechanisation of part of D8. See [`usecase-getter-lint.md`](usecase-getter-lint.md) |
-| `tests/doc-language-lint.test.ts` | That the prose of a single Markdown file is in one language — no Japanese outside `*.ja.md`, and Japanese present inside `*.ja.md` (`bun run lint:doc-language`). See [`doc-language-lint.md`](doc-language-lint.md) |
+| `tests/doc-language-lint.test.ts` | That the prose of a single Markdown file does not mix English and Japanese — no Japanese in the prose outside `*.ja.md`, and Japanese present in the prose of `*.ja.md` (`bun run lint:doc-language`). Both are judged after code removal. See [`doc-language-lint.md`](doc-language-lint.md) |
 
 The rest of the tests under `tests/` are golden comparisons, domain unit tests, persistence contracts, and solver consistency — none of them check design discipline. **Checks that look at naming, line counts, or public-type counts exist only in `architecture.test.ts`.**
 
