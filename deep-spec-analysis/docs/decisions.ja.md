@@ -2365,3 +2365,10 @@ exit 1 し何も公開せず、design IR を読めなくすると凍結の降格
 `SiblingVerdictDocument` は独立したnullableフィールド群をやめ、クラス内部の判別共用体で変種と材料を束ねた。decoderが読めた文書は `method` が必須なので、readable／unavailableの生成口と `match` の引数は `string` とする。remapの成功結果も `method: string` に絞り、読めなかった結果だけがmethodの不在を表せる。
 
 省略項目の `undefined`、集約の明示的な不在の `null`、成功時の `void`、失敗の `Result`、業務判定の値オブジェクトを設計規則D10に明記した。既存のJSON契約と判定内容は変えない。回帰テストでは三つの到達性がusecaseまで区別されることと、読み取り成功の型がnull／undefinedのmethodを受け付けないことを確認する。
+
+
+## ワークスペーススコープの統一（2026-09-06）
+
+現行のパッケージスコープをプロジェクト名と同じ `@deep-spec-analysis` に統一した。18パッケージのname/dependencies、import、Bun lockfile、境界検査を同時に変更した。パッケージ間は公開facadeのスコープ参照、同一パッケージ内は相対参照というL7の規則を適用し、内部をスコープ名で参照していた12件を是正した。旧スコープは実行時・型検査時とも拒否し、互換aliasは置かない。
+
+上の過去記録に含まれる旧スコープは当時の名称を示す。現行の規則と既存チェックアウトの更新手順は[パッケージ名の説明](architecture/package-namespace.ja.md)を参照する。
