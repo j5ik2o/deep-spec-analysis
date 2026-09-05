@@ -1,8 +1,7 @@
 import { FenceCount } from "@deep-spec-analysis/refcheck-domain";
 
-// functional-design 三点セットと XS 用 components.md の解析 — 形式知識を
-// ここに封じ、型付き outcome へ解く。抽出ロジックは旧センサーの逐語移動
-//（AttributeDeclaration の生 Json フィールドのみ、検査が区別する意味論へ無損失に写像）。
+// functional-design三点セットとXS用components.mdのfence・YAML・Jsonを解析し、
+// 型付き宣言と解析結果へ変換する。宣言間の意味的な整合性はドメインが検査する。
 
 import { extractFences, parseYamlSubset } from "@deep-spec-analysis/kernel-adapter";
 import { RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";

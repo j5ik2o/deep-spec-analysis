@@ -118,9 +118,6 @@ export { RefinementQueryVerdict } from "./refinement-query-verdict.ts";
 export { RefinementQueryVerdicts } from "./refinement-query-verdicts.ts";
 export { RefinementQuintInvariant } from "./refinement-quint-invariant.ts";
 export { RefinementQuintInvariants } from "./refinement-quint-invariants.ts";
-// refinement（旧 src/refinement/domain/）から統合された公開 symbol。
-// このコンテキストは adapter を持たない：design のユースケースが消費する
-// ドメインサービス群で、I/O・SMT-LIB という形式は design の ports / adapters が担う。
 export { RefinementRequirements } from "./refinement-requirements.ts";
 export { RefinementScenario } from "./refinement-scenario.ts";
 export { RefinementScenarios } from "./refinement-scenarios.ts";

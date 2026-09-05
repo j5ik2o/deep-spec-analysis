@@ -8,12 +8,11 @@ import {
   TargetIdentifiers,
 } from "@deep-spec-analysis/kernel-domain";
 
-// ReferenceCheckReport 集約・serializer・Repository の契約テスト（PR2b、#15）。
+// ReferenceCheckReport集約・serializer・Repositoryの契約テスト。
 //
-// ドメインは型付き語彙のみ（Json 追放後）。直列化・契約適合・降格文言は
-// adapter の serializer が持ち、文言は golden バイトに載るため逐語で固定する。
-// Repository は save→findById の往復（書かれた真実の再構成→再描画のバイト
-// 同一）と、不在・破損の RepositoryError 変種を契約として検証する。
+// 文書形・キー順・契約適合・降格文言はドメインが所有し、adapterがJSONと改行へ描画する。
+// Repositoryのstore→findByIdの往復で再描画バイトが一致することと、
+// 不在・破損のRepositoryError変種を検証する。
 
 import { describe, expect, test } from "bun:test";
 import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
@@ -118,7 +117,7 @@ describe("ReferenceCheckReportIdentifier", () => {
   });
 });
 
-describe("ReferenceCheckReport (domain, no serialization knowledge)", () => {
+describe("ReferenceCheckReport domain contract", () => {
   test("open starts with every family checked, in canonical order, and answers the verdict queries", () => {
     const report = ReferenceCheckReport.open(
       ReferenceCheckReportIdentifier.of(ap("/tmp/r"), "components"),
@@ -203,7 +202,7 @@ describe("ReferenceCheckReport (domain, no serialization knowledge)", () => {
   });
 });
 
-describe("serializer (adapter owns the format knowledge)", () => {
+describe("serializer renders the domain report document", () => {
   test("a conforming report renders the canonical document and survives conformance untouched", () => {
     const report = seed("/tmp/r");
     expect(report.conformedTo(findingsSchema)).toBe(report);
