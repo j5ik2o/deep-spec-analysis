@@ -19,14 +19,14 @@
 
 import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseFlags, readFindingsSchema, renderVerdictLine } from "@deep-spec/kernel-adapter";
-import { ArtifactPath } from "@deep-spec/kernel-domain";
+import { parseFlags, readFindingsSchema, renderVerdictLine } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import {
   DesignRecordRepositoryImplementation,
   ReferenceCheckReportRepositoryImplementation,
-} from "@deep-spec/refcheck-adapter";
-import { DesignRecordIdentifier } from "@deep-spec/refcheck-domain";
-import { CheckFunctionalDesignUseCase } from "@deep-spec/refcheck-usecase";
+} from "@deep-spec-analysis/refcheck-adapter";
+import { DesignRecordIdentifier } from "@deep-spec-analysis/refcheck-domain";
+import { CheckFunctionalDesignUseCase } from "@deep-spec-analysis/refcheck-usecase";
 
 function main(): void {
   const flags = parseFlags(process.argv.slice(2));

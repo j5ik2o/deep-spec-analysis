@@ -1,4 +1,4 @@
-import type { UnitName } from "@deep-spec/kernel-domain";
+import type { UnitName } from "@deep-spec-analysis/kernel-domain";
 import type { ArtifactModifiedAt } from "./artifact-modified-at.ts";
 
 export class FunctionalUnitObservation {

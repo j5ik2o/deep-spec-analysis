@@ -2712,3 +2712,9 @@ At the owner's request, `ReachabilityVerdict` replaces `boolean | null`. Named f
 `SiblingVerdictDocument` now stores a private discriminated union instead of independent nullable fields. The decoder requires `method` on decoded documents, so both readable and unavailable factories and their `match` handlers take `string`. Successful remapping also guarantees `method: string`; only an unreadable result can lack the method.
 
 Design rule D10 documents optional-field `undefined`, explicit aggregate absence as `null`, command success as `void`, failure as `Result`, and domain verdicts as value objects. JSON contracts and verdict behavior are unchanged. Regression tests cover all three verdicts through the use case and reject nullable or optional methods at the type boundary.
+
+## ワークスペーススコープの統一（2026-09-06）
+
+現行のパッケージスコープをプロジェクト名と同じ `@deep-spec-analysis` に統一した。18パッケージのname/dependencies、import、Bun lockfile、境界検査を同時に変更した。パッケージ間は公開facadeのスコープ参照、同一パッケージ内は相対参照というL7の規則を適用し、内部をスコープ名で参照していた12件を是正した。旧スコープは実行時・型検査時とも拒否し、互換aliasは置かない。
+
+上の過去記録に含まれる旧スコープは当時の名称を示す。現行の規則と既存チェックアウトの更新手順は[パッケージ名の説明](architecture/package-namespace.md)を参照する。

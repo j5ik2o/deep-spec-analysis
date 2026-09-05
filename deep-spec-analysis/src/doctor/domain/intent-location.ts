@@ -1,4 +1,4 @@
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 // ワークスペース内のintentの所在。表示ラベルはadapterが投影する。
 export class IntentLocation {

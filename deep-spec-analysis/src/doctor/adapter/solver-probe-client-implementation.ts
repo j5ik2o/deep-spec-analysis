@@ -2,8 +2,8 @@ import { spawnSync } from "node:child_process";
 import { existsSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { SolverAvailability } from "@deep-spec/doctor-domain";
-import type { SolverProbeClient } from "@deep-spec/doctor-usecase";
+import { SolverAvailability } from "@deep-spec-analysis/doctor-domain";
+import type { SolverProbeClient } from "@deep-spec-analysis/doctor-usecase";
 import type { SolverProbeClientConfiguration } from "./solver-probe-client-configuration.ts";
 
 // 127.0.0.1:<port> に繋がるかだけを答える子スクリプト（exit 0 = 待ち受けあり）。

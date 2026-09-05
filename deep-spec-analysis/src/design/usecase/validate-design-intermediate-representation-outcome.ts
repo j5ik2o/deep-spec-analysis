@@ -1,5 +1,5 @@
-import type { ValidationAssessment } from "@deep-spec/kernel-domain";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { ValidationAssessment } from "@deep-spec-analysis/kernel-domain";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 export type ValidateDesignIntermediateRepresentationOutcome =
   | { readonly kind: "not-applicable" }

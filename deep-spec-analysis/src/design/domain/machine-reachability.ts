@@ -1,10 +1,10 @@
-import { SkipReason, UnitName } from "@deep-spec/kernel-domain";
+import { SkipReason, UnitName } from "@deep-spec-analysis/kernel-domain";
 import {
   IllegalArgumentException,
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import { DesignFindings } from "./design-findings.ts";
 import type { DesignMachine } from "./design-machine.ts";
 import type { DesignReport } from "./design-report.ts";

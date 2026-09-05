@@ -101,6 +101,10 @@
 - 初回承認版の Wave 4／5（Repository port に `conformedOf`・`storeConformed(report, model)`・`storeConformedWithoutCrossCheck` を置く設計）をオーナー裁定で撤回した。裁定: Repository の語彙は保存・検索・取得・削除だけで、interface はこの語彙にしか依存できない。他の語彙が要るなら集約の設計を見直す。集約は一塊で、可変部（cross-check の有無）は `Option` として集約自身が持ち、Repository のメソッド変種で吸収しない。functional-spec の Decisions 表「Schema conformance owner: Repository の `conformedOf` を維持」と project.md の「`conformedOf` を既存裁定として維持」は本裁定で覆る。置き換えは集約ルート `DesignVerifyDirectory`（`crossCheck: DesignReport | null` を持つ）＋ `FindingsSchema` 値オブジェクト＋ `DesignReport.conformedTo(schema)`、port は `findByDirectory` と `store(aggregate)` のみ。Wave 4／5 で書いた実装は作り直しになる（実装済みの `DirectoryFinalizationLock`・typed failure・Acquirer は流用）。 (learned 2026-09-04) <!-- cid:260904-ddd-clean-architecture:code-generation:e69297cf8c6f80fec8714deeba602f40aece0575c5e4d656e3cef89b7ed4f721 -->
 - 作業ツリーに既にあったゼロ Unit 修正を破棄せず土台として採用した（Q1=A）。7 harness の配布物まで生成済みで、いま動いているこのステージ自体がその修正の上に乗っているため、破棄の損失が作り直しの利得を上回る。 (learned 2026-09-04) <!-- cid:260904-ddd-clean-architecture:code-generation:545fa85ae1626617a9f2ba44e0eb768ca4f2a7a398a451006e2c962764480bf2 -->
 
+## パッケージ名とimportの規則（2026-09-06）
+
+- 現行のワークスペーススコープは `@deep-spec-analysis`。パッケージ間はこのスコープの公開facade、同一パッケージ内は相対importへ統一する。以前の学習記録に含まれる旧スコープ名は当時の実測名であり、現行のimportには使わない。
+
 ## 生成契約の補正（2026-09-05、ユーザー指示）
 
 - コンストラクタの具体的な引数型を維持する。TypeScriptで保証する型の実行時検査を追加しない。

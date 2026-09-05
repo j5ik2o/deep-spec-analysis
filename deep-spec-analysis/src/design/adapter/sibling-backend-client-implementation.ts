@@ -10,17 +10,17 @@ import { spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import type { DesignUnit } from "@deep-spec/design-domain";
+import type { DesignUnit } from "@deep-spec-analysis/design-domain";
 import {
   type LoweredUnit,
   type ReachabilityProbe,
   ReachabilityVerdict,
   SiblingVerificationResult,
   type UnitRefinementPlan,
-} from "@deep-spec/design-domain";
-import type { SiblingBackendClient } from "@deep-spec/design-usecase";
-import { ErrorMessage } from "@deep-spec/kernel-domain";
-import type { Json } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/design-domain";
+import type { SiblingBackendClient } from "@deep-spec-analysis/design-usecase";
+import { ErrorMessage } from "@deep-spec-analysis/kernel-domain";
+import type { Json } from "@deep-spec-analysis/kernel-infrastructure";
 import { renderLoweredDocument } from "./lowered-document-serializer.ts";
 import { reachabilityVariant } from "./reachability-variant.ts";
 import type { SiblingBackendClientConfiguration } from "./sibling-backend-client-configuration.ts";

@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // ファイルシステムが観測した更新時刻（UNIX epochからのミリ秒）。
 export class ArtifactModifiedAt {

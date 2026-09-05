@@ -7,7 +7,7 @@ import {
   DoctorPresenter,
   GitHubReleaseTagsClientImplementation,
   InstallationProvenanceClientImplementation,
-} from "@deep-spec/doctor-adapter";
+} from "@deep-spec-analysis/doctor-adapter";
 import {
   CheckSeverity,
   HealthVerdict,
@@ -20,14 +20,14 @@ import {
   ReleaseCatalog,
   SolverAvailability,
   StableReleases,
-} from "@deep-spec/doctor-domain";
+} from "@deep-spec-analysis/doctor-domain";
 import {
   CheckVersionAdvisoryUseCase,
   type InstallationProvenanceClient,
   type ReleaseTagsClient,
-} from "@deep-spec/doctor-usecase";
-import { ArtifactPath, ErrorMessage } from "@deep-spec/kernel-domain";
-import { IllegalArgumentException } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/doctor-usecase";
+import { ArtifactPath, ErrorMessage } from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException } from "@deep-spec-analysis/kernel-infrastructure";
 
 class FixedProvenanceClient implements InstallationProvenanceClient {
   readonly #result: InstallationProvenance;

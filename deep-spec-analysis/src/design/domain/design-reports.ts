@@ -6,7 +6,7 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 import { DesignCrossCheckedEntries } from "./design-cross-checked-entries.ts";
 import { DesignCrossCheckedEntry } from "./design-cross-checked-entry.ts";

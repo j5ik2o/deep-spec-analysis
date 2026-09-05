@@ -1,4 +1,4 @@
-import { type ArtifactPath, FindingKind, type RequirementIdentifiers } from "@deep-spec/kernel-domain";
+import { type ArtifactPath, FindingKind, type RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { DeclaredEntities } from "./declared-entities.ts";
 import { FenceCount } from "./fence-count.ts";
 import { FD_R1, FD_R2, FD_R3, FD_R4, FD_R5 } from "./functional-check-families.ts";

@@ -5,7 +5,7 @@ import {
   SkipReason,
   TargetIdentifier,
   UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 import type { RefinementAttributeParam } from "./refinement-attribute-param.ts";
 
@@ -21,7 +21,7 @@ import type { RefinementAttributeParam } from "./refinement-attribute-param.ts";
 // 旧 refinement-lib の designSmtCtx / smtOfExpr / designBase / assembleQuery /
 // decodeDesignModel とクエリ構築部からの逐語移植。
 
-import type { DesignUnit } from "@deep-spec/design-domain";
+import type { DesignUnit } from "@deep-spec-analysis/design-domain";
 import {
   type DesignEvent,
   DesignEventCatalog,
@@ -34,9 +34,9 @@ import {
   RefinementSolverPlan,
   ScenarioIdentifier,
   type UnitRefinementPlan,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 
-import { smtIntOf, smtLit, smtName, smtVar } from "@deep-spec/kernel-adapter";
+import { smtIntOf, smtLit, smtName, smtVar } from "@deep-spec-analysis/kernel-adapter";
 
 import type { RefinementChildQuery } from "./refinement-child-query.ts";
 import type { RefinementSatisfiabilityModuloTheoriesContext } from "./refinement-satisfiability-modulo-theories-context.ts";

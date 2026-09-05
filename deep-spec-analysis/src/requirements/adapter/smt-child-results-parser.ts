@@ -1,4 +1,4 @@
-import { err, isObject, type Json, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import { err, isObject, type Json, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { SatisfiabilityModuloTheoriesChildResult } from "./satisfiability-modulo-theories-child-result.ts";
 
 // 子プロセスの応答を、発行済みクエリと一対一に対応する結果集合へ復号する。

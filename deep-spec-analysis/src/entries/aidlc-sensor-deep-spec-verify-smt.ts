@@ -20,17 +20,22 @@
 
 import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DirectoryFinalizationLock, parseFlags, readFindingsSchema, SystemClock } from "@deep-spec/kernel-adapter";
-import { ArtifactPath } from "@deep-spec/kernel-domain";
+import {
+  DirectoryFinalizationLock,
+  parseFlags,
+  readFindingsSchema,
+  SystemClock,
+} from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import {
   FormalModelRepositoryImplementation,
   solveSmtChild,
   VERIFICATION_LOCK_BASENAME,
   VerificationDirectoryRepositoryImplementation,
   Z3SolverClientImplementation,
-} from "@deep-spec/requirements-adapter";
-import { FormalModelIdentifier } from "@deep-spec/requirements-domain";
-import { VerifyRequirementsSatisfiabilityModuloTheoriesUseCase } from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-adapter";
+import { FormalModelIdentifier } from "@deep-spec-analysis/requirements-domain";
+import { VerifyRequirementsSatisfiabilityModuloTheoriesUseCase } from "@deep-spec-analysis/requirements-usecase";
 
 const FORMAL_MODEL_BASENAME = "deep-spec-analysis-formal-model.md";
 const VERIFY_DIRNAME = "deep-spec-verify";

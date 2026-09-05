@@ -1,5 +1,5 @@
-import type { DesignReport, DesignVerifyDirectory } from "@deep-spec/design-domain";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { DesignReport, DesignVerifyDirectory } from "@deep-spec-analysis/design-domain";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 export type VerifyDesignOutcome =
   | { readonly kind: "not-applicable" }

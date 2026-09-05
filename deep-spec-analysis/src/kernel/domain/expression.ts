@@ -1,4 +1,4 @@
-import type { ValueSnapshotParam } from "@deep-spec/kernel-infrastructure";
+import type { ValueSnapshotParam } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 契約1/契約3 が共有する式ツリー（kernel 語彙）。演算子の集合は契約スキーマの
 // Published Language そのもの。SMT-LIB/Quint への写像は形式知識なのでアダプタが

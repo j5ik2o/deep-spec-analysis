@@ -1,10 +1,10 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   compareCanonically,
   IllegalArgumentException,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 export class DesignTransitionIdentifier {
   readonly #value: string;

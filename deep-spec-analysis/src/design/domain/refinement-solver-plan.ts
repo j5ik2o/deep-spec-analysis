@@ -7,7 +7,7 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // refinement ソルバ実行の型付き判定と計画（対応表）。SMT-LIB スクリプト・z3 の生
 // 表現はアダプタ（第 2 コンパイラ＋クライアント）が持ち、ドメインへは
@@ -17,13 +17,17 @@ import {
 // detail 文言は golden 凍結）は plan 自身の振る舞い（OOUI 裁定——旧
 // interpretRefinementVerdicts の逐語移植）。
 
-import { DesignFinding, DesignFindings, DesignSkipped, DesignSkips, DesignWitness } from "@deep-spec/design-domain";
 import {
   IllegalArgumentException,
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
+import { DesignFinding } from "./design-finding.ts";
+import { DesignFindings } from "./design-findings.ts";
+import { DesignSkipped } from "./design-skipped.ts";
+import { DesignSkips } from "./design-skips.ts";
+import { DesignWitness } from "./design-witness.ts";
 import type { RefinementProbe } from "./refinement-probe.ts";
 import type { RefinementQueryVerdicts } from "./refinement-query-verdicts.ts";
 import type { UnitRefinementPlan } from "./unit-refinement-plan.ts";

@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // ArtifactPath — 記録ワークスペース内の成果物・配置先を指すパスの語彙。
 // 全コンテキストが「成果物パス（識別）」として話すため kernel が所有する。
 // 通常の入力は境界（entry の flags）でparseし、再構成にはofを使う。

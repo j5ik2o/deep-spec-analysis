@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { StageScopes } from "./stage-scopes.ts";
 import type { VerificationObservation } from "./verification-observation.ts";
 

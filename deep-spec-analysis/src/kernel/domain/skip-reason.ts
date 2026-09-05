@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 検証を省略した理由。findings スキーマの閉集合9値を生成時に保証する。
 // 業務が選ぶ理由には名前付きファクトリを使う。

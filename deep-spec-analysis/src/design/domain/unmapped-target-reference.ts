@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // unmapped[].target の宣言トークン——要件属性パス・義務 id・シナリオ id の
 // どれをも指しうる契約4 の waiver 語彙。

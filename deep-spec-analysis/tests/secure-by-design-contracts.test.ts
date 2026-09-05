@@ -6,8 +6,8 @@ import {
   DesignObligationIdentifier,
   DesignScenarioIdentifier,
   DesignTransitionIdentifier,
-} from "@deep-spec/design-domain";
-import { PluginVersion } from "@deep-spec/doctor-domain";
+} from "@deep-spec-analysis/design-domain";
+import { PluginVersion } from "@deep-spec-analysis/doctor-domain";
 import {
   AttributeBound,
   AttributeKind,
@@ -23,8 +23,8 @@ import {
   SkipReason,
   TargetIdentifier,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
-import { IllegalArgumentException, type ParseError, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException, type ParseError, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   BlockIndex,
   BusinessRuleIdentifier,
@@ -33,13 +33,13 @@ import {
   FenceCount,
   LineNumber,
   NumericBound,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 import {
   BackgroundAssumptionIdentifier,
   ObligationIdentifier,
   ScenarioIdentifier,
   SourceAnchor,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 // 型違反を偽造せず、同じ型の契約違反値を通常生成と再構成の両方へ渡す。
 function rejects<R>(factory: { of(value: R): object; parse(value: R): Result<object, ParseError> }, value: R): void {

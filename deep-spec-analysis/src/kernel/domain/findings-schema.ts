@@ -17,7 +17,7 @@ import {
   type Result,
   type Schema,
   validateSchema,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 const CONTRACT_BASENAME = "deep-spec-findings-schema.json";
 

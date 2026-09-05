@@ -8,7 +8,7 @@
 // 実行結果の到達性判断は SiblingVerdictDocument が所有する。
 // 旧 aidlc-sensor-deep-spec-design-verify-quint.ts からの逐語移植。
 
-import { isObject, type Json } from "@deep-spec/kernel-infrastructure";
+import { isObject, type Json } from "@deep-spec-analysis/kernel-infrastructure";
 
 export function reachabilityVariant(base: Json, attrPath: string, state: string): Json {
   if (!isObject(base)) return base;

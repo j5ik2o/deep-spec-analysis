@@ -4064,6 +4064,46 @@ class VerificationDirectory {
     return this.#crossCheck;
   }
 }
+// src/design/domain/design-skipped.ts
+class DesignSkipped {
+  #target;
+  #reason;
+  #unit;
+  #detail;
+  constructor(props) {
+    this.#target = props.target;
+    this.#reason = props.reason;
+    this.#unit = props.unit;
+    this.#detail = props.detail;
+  }
+  static of(props) {
+    return new DesignSkipped(props);
+  }
+  target() {
+    return this.#target;
+  }
+  reason() {
+    return this.#reason.asString();
+  }
+  unit() {
+    return this.#unit.asString();
+  }
+  detail() {
+    return this.#detail;
+  }
+  isFor(target) {
+    return this.#target.equals(target);
+  }
+  compareTo(other) {
+    if (!this.#unit.equals(other.#unit))
+      return this.#unit.asString() < other.#unit.asString() ? -1 : 1;
+    const c = this.#target.compareTo(other.#target);
+    if (c !== 0)
+      return c;
+    return this.#reason.compareTo(other.#reason);
+  }
+}
+
 // src/design/domain/refinement-map-defect.ts
 class RefinementMapDefect {
   #kind;
@@ -4783,6 +4823,38 @@ class DesignEvent {
     return this.#effectAssign.rhsOf(AttributePath.of(path));
   }
 }
+// src/design/domain/design-machines.ts
+class DesignMachines {
+  #values;
+  constructor(values) {
+    this.#values = Object.freeze([...values]);
+  }
+  static of(values) {
+    return new DesignMachines(values);
+  }
+  add(value) {
+    return new DesignMachines([...this.#values, value]);
+  }
+  *[Symbol.iterator]() {
+    yield* this.#values;
+  }
+  transitionIds() {
+    return this.#values.flatMap((m) => [...m.transitions().ids()]);
+  }
+  sortedById() {
+    return new DesignMachines([...this.#values].sort((a, b) => a.id().asString() < b.id().asString() ? -1 : 1));
+  }
+  sortedCanonically() {
+    return new DesignMachines([...this.#values].sort((a, b) => a.id().compareTo(b.id())));
+  }
+  static attrPathOf(sm) {
+    return `${sm.entity().asString()}.${sm.attribute().asString()}`;
+  }
+  toArray() {
+    return this.#values;
+  }
+}
+
 // src/design/domain/effect-assignments.ts
 class EffectAssignments {
   #values;
@@ -5215,46 +5287,6 @@ class DesignInputAnchors {
     return this.#values;
   }
 }
-// src/design/domain/design-skipped.ts
-class DesignSkipped {
-  #target;
-  #reason;
-  #unit;
-  #detail;
-  constructor(props) {
-    this.#target = props.target;
-    this.#reason = props.reason;
-    this.#unit = props.unit;
-    this.#detail = props.detail;
-  }
-  static of(props) {
-    return new DesignSkipped(props);
-  }
-  target() {
-    return this.#target;
-  }
-  reason() {
-    return this.#reason.asString();
-  }
-  unit() {
-    return this.#unit.asString();
-  }
-  detail() {
-    return this.#detail;
-  }
-  isFor(target) {
-    return this.#target.equals(target);
-  }
-  compareTo(other) {
-    if (!this.#unit.equals(other.#unit))
-      return this.#unit.asString() < other.#unit.asString() ? -1 : 1;
-    const c = this.#target.compareTo(other.#target);
-    if (c !== 0)
-      return c;
-    return this.#reason.compareTo(other.#reason);
-  }
-}
-
 // src/design/domain/design-skips.ts
 function sortDesignSkipped(skipped) {
   return [...skipped].sort((a, b) => a.compareTo(b));
@@ -5282,38 +5314,6 @@ class DesignSkips {
   }
   count() {
     return this.#values.length;
-  }
-  toArray() {
-    return this.#values;
-  }
-}
-
-// src/design/domain/design-machines.ts
-class DesignMachines {
-  #values;
-  constructor(values) {
-    this.#values = Object.freeze([...values]);
-  }
-  static of(values) {
-    return new DesignMachines(values);
-  }
-  add(value) {
-    return new DesignMachines([...this.#values, value]);
-  }
-  *[Symbol.iterator]() {
-    yield* this.#values;
-  }
-  transitionIds() {
-    return this.#values.flatMap((m) => [...m.transitions().ids()]);
-  }
-  sortedById() {
-    return new DesignMachines([...this.#values].sort((a, b) => a.id().asString() < b.id().asString() ? -1 : 1));
-  }
-  sortedCanonically() {
-    return new DesignMachines([...this.#values].sort((a, b) => a.id().compareTo(b.id())));
-  }
-  static attrPathOf(sm) {
-    return `${sm.entity().asString()}.${sm.attribute().asString()}`;
   }
   toArray() {
     return this.#values;

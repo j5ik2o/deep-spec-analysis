@@ -1,10 +1,10 @@
-import { FenceCount } from "@deep-spec/refcheck-domain";
+import { FenceCount } from "@deep-spec-analysis/refcheck-domain";
 // components.md の解析 — 形式（fence/YAML/Json 歩き）の知識をここに封じ、
 // 型付きの ComponentCatalogOutcome へ解く。抽出ロジックは旧センサーの
 // extractComponents の逐語移動。
 
-import { extractFences, parseYamlSubset } from "@deep-spec/kernel-adapter";
-import { combineResults, isObject, type Json, ok } from "@deep-spec/kernel-infrastructure";
+import { extractFences, parseYamlSubset } from "@deep-spec-analysis/kernel-adapter";
+import { combineResults, isObject, type Json, ok } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   AttributeName,
   Component,
@@ -22,7 +22,7 @@ import {
   EntityReference,
   EntityReferences,
   LineNumber,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 
 function str(v: Json): string | null {
   return typeof v === "string" ? v : null;

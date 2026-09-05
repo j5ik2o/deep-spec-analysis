@@ -5,7 +5,7 @@ import {
   FunctionalRequirementReferences,
   TargetIdentifiers,
   UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { DesignFinding } from "./design-finding.ts";
 import type { DesignMachine } from "./design-machine.ts";
 import type { DesignUnit } from "./design-unit.ts";

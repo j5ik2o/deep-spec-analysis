@@ -3,11 +3,11 @@
 // 混成）、内側は KeyedIndex（裁定 3-1、2026-09-03）。効果は属性パス → 右辺式に
 // 解いて持つ（明示効果が代入の連言でなければその項を落とす——凍結挙動）。
 
-import type { DesignUnit } from "@deep-spec/design-domain";
-import { DesignMachines } from "@deep-spec/design-domain";
-import { AttributePath, type Expression, KeyedIndex, TargetIdentifier } from "@deep-spec/kernel-domain";
+import { AttributePath, type Expression, KeyedIndex, TargetIdentifier } from "@deep-spec-analysis/kernel-domain";
 import { DesignAssignments } from "./design-assignments.ts";
 import { DesignEvent } from "./design-event.ts";
+import { DesignMachines } from "./design-machines.ts";
+import type { DesignUnit } from "./design-unit.ts";
 import { EffectAssignments } from "./effect-assignments.ts";
 
 function rhsOf(term: Expression): Expression | undefined {

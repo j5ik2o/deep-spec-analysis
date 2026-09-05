@@ -1,4 +1,4 @@
-import { type AttributePath, KeyedIndex } from "@deep-spec/kernel-domain";
+import { type AttributePath, KeyedIndex } from "@deep-spec-analysis/kernel-domain";
 import type { RequirementAttributeDeclaration } from "./requirement-attribute-declaration.ts";
 
 // 属性宣言のファーストクラスコレクション。パス索引という集合の知識を所有し、

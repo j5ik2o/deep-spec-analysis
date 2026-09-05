@@ -5,7 +5,7 @@ import {
   SkipReason,
   UnitName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // DesignReport 集約 — 設計バックエンド（smt / quint / cross-check）の検証結果
 // 文書（契約2 拡張：unit 帰属つき finding・inputs/checked 任意）のドメイン表現。
@@ -15,7 +15,7 @@ import {
 // （findings/skipped/inputs/checked/crossChecked を空にして unavailable 理由
 // だけ残す——旧 writeDesignDoc の自己検証降格と同じ姿）。
 
-import type { Json } from "@deep-spec/kernel-infrastructure";
+import type { Json } from "@deep-spec-analysis/kernel-infrastructure";
 import { CheckedUnits } from "./checked-units.ts";
 import type { DesignCrossCheckedEntries } from "./design-cross-checked-entries.ts";
 import { DesignFindings } from "./design-findings.ts";

@@ -10,12 +10,12 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { writeFileAtomically } from "@deep-spec/kernel-adapter";
-import { ArtifactPath, ContentHash, RequirementIdentifiers } from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import { RequirementsSource, type RequirementsSourceIdentifier } from "@deep-spec/requirements-domain";
-import type { RequirementsSourceRepository } from "@deep-spec/requirements-usecase";
+import { writeFileAtomically } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath, ContentHash, RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import { RequirementsSource, type RequirementsSourceIdentifier } from "@deep-spec-analysis/requirements-domain";
+import type { RequirementsSourceRepository } from "@deep-spec-analysis/requirements-usecase";
 
 type RequirementsFileSearch =
   | { readonly kind: "found"; readonly path: string }

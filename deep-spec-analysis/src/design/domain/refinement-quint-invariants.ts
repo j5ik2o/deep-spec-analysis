@@ -1,4 +1,4 @@
-import { SkipReason, UnitName } from "@deep-spec/kernel-domain";
+import { SkipReason, UnitName } from "@deep-spec-analysis/kernel-domain";
 
 // Quint 側の refinement 追加不変量 — checkable な invariant/numeric 要件義務
 // ごとの alpha(P)。ユニットの lowering に追加不変量として合流し、違反成分が

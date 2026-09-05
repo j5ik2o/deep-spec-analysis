@@ -1,8 +1,8 @@
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { type DesignArtifactReference, FindingCount, StructuralObservation } from "@deep-spec/doctor-domain";
-import type { ReferenceCheckBackendClient } from "@deep-spec/doctor-usecase";
+import { type DesignArtifactReference, FindingCount, StructuralObservation } from "@deep-spec-analysis/doctor-domain";
+import type { ReferenceCheckBackendClient } from "@deep-spec-analysis/doctor-usecase";
 import type { ReferenceCheckBackendClientConfiguration } from "./reference-check-backend-client-configuration.ts";
 
 // refcheck report-only 実行の実 Gateway——spawn 維持（故障隔離・15s timeout

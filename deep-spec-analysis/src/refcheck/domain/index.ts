@@ -1,6 +1,6 @@
 // refcheck/domain の公開 facade — 明示列挙のみ（export * 禁止）。
 
-export { UnitName } from "@deep-spec/kernel-domain";
+export { UnitName } from "@deep-spec-analysis/kernel-domain";
 export { AllowedValue } from "./allowed-value.ts";
 export { AllowedValues } from "./allowed-values.ts";
 export { AppliesTo } from "./applies-to.ts";

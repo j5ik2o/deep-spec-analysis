@@ -4,13 +4,13 @@
 // corrupt.cause の文言は降格文書（golden 凍結）に逐語で載る。
 
 import { existsSync, readFileSync } from "node:fs";
-import { extractFences, writeFileAtomically } from "@deep-spec/kernel-adapter";
-import { ContentHash } from "@deep-spec/kernel-domain";
-import { canonicalStringify, err, type Json, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import { extractFences, writeFileAtomically } from "@deep-spec-analysis/kernel-adapter";
+import { ContentHash } from "@deep-spec-analysis/kernel-domain";
+import { canonicalStringify, err, type Json, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import { type FormalModelIdentifier, RequirementsModel } from "@deep-spec/requirements-domain";
-import type { FormalModelRepository } from "@deep-spec/requirements-usecase";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import { type FormalModelIdentifier, RequirementsModel } from "@deep-spec-analysis/requirements-domain";
+import type { FormalModelRepository } from "@deep-spec-analysis/requirements-usecase";
 import { parseFormalModel } from "./formal-model-parser.ts";
 
 export class FormalModelRepositoryImplementation implements FormalModelRepository {

@@ -1,9 +1,9 @@
 import { expect, test } from "bun:test";
-import * as Design from "@deep-spec/design-domain";
-import * as Kernel from "@deep-spec/kernel-domain";
-import { IllegalArgumentException, type ParseError, type Result } from "@deep-spec/kernel-infrastructure";
-import * as ReferenceCheck from "@deep-spec/refcheck-domain";
-import * as Requirements from "@deep-spec/requirements-domain";
+import * as Design from "@deep-spec-analysis/design-domain";
+import * as Kernel from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException, type ParseError, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import * as ReferenceCheck from "@deep-spec-analysis/refcheck-domain";
+import * as Requirements from "@deep-spec-analysis/requirements-domain";
 
 function rejects<P>(
   factory: { readonly name: string; of(value: P): object; parse(value: P): Result<object, ParseError> },

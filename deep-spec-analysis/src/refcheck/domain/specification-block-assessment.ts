@@ -1,4 +1,4 @@
-import { type ArtifactPath, FindingKind } from "@deep-spec/kernel-domain";
+import { type ArtifactPath, FindingKind } from "@deep-spec-analysis/kernel-domain";
 import type { BlockIndex } from "./block-index.ts";
 import { CD_2 } from "./contract-check-families.ts";
 import type { LineNumber } from "./line-number.ts";

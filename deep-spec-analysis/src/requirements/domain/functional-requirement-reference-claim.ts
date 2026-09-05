@@ -1,4 +1,4 @@
-import type { FunctionalRequirementReferences } from "@deep-spec/kernel-domain";
+import type { FunctionalRequirementReferences } from "@deep-spec-analysis/kernel-domain";
 
 // functionalRequirementReferences の主張 1 件——owner（義務／シナリオ／unformalized の id か位置）が
 // 参照する FR 群。逆引き索引は主張自身に owner を積ませる（#71 波25）。

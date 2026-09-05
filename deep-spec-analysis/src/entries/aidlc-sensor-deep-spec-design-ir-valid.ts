@@ -26,11 +26,11 @@
 
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { DesignIntermediateRepresentationValidationMaterialsRepositoryImplementation } from "@deep-spec/design-adapter";
-import { DesignModelIdentifier } from "@deep-spec/design-domain";
-import { ValidateDesignIntermediateRepresentationUseCase } from "@deep-spec/design-usecase";
-import { parseFlags } from "@deep-spec/kernel-adapter";
-import { ArtifactPath } from "@deep-spec/kernel-domain";
+import { DesignIntermediateRepresentationValidationMaterialsRepositoryImplementation } from "@deep-spec-analysis/design-adapter";
+import { DesignModelIdentifier } from "@deep-spec-analysis/design-domain";
+import { ValidateDesignIntermediateRepresentationUseCase } from "@deep-spec-analysis/design-usecase";
+import { parseFlags } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 const MAX_REPORTED_ERRORS = 25;
 

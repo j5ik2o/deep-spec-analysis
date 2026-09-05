@@ -1,5 +1,5 @@
-import { ArtifactPath, type ContentHash } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import { ArtifactPath, type ContentHash } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 設計検証入力の錨——記録相対の成果物名と読んだ時点の sha256。成果物名順
 // （inputs[] の凍結順）と「同じ成果物か」「内容が変わったか」は錨自身の知識

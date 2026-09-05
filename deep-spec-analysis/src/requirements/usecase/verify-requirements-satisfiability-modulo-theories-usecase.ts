@@ -1,6 +1,6 @@
-import { type FindingsSchema, VerificationMethod } from "@deep-spec/kernel-domain";
-import { matchResult } from "@deep-spec/kernel-infrastructure";
-import { VerificationReport, VerificationReportIdentifier } from "@deep-spec/requirements-domain";
+import { type FindingsSchema, VerificationMethod } from "@deep-spec-analysis/kernel-domain";
+import { matchResult } from "@deep-spec-analysis/kernel-infrastructure";
+import { VerificationReport, VerificationReportIdentifier } from "@deep-spec-analysis/requirements-domain";
 import type { FormalModelRepository } from "./port/formal-model-repository.ts";
 import type { VerificationDirectoryRepository } from "./port/verification-directory-repository.ts";
 import type { Z3SolverClient } from "./port/z3-solver-client.ts";

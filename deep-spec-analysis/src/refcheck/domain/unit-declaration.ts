@@ -1,4 +1,4 @@
-import type { UnitName } from "@deep-spec/kernel-domain";
+import type { UnitName } from "@deep-spec-analysis/kernel-domain";
 import type { UnitDeclarations } from "./unit-declarations.ts";
 import type { UnitNames } from "./unit-names.ts";
 

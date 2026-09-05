@@ -1,4 +1,4 @@
-import { type ErrorMessage, SkipReason, UnitName } from "@deep-spec/kernel-domain";
+import { type ErrorMessage, SkipReason, UnitName } from "@deep-spec-analysis/kernel-domain";
 import { DesignFindings } from "./design-findings.ts";
 import type { DesignModel } from "./design-model.ts";
 import type { DesignReport } from "./design-report.ts";

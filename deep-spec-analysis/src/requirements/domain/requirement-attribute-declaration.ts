@@ -1,8 +1,8 @@
-import type { EnumerationMembers } from "@deep-spec/kernel-domain";
+import type { EnumerationMembers } from "@deep-spec-analysis/kernel-domain";
 
-export { AttributeBound } from "@deep-spec/kernel-domain";
+export { AttributeBound } from "@deep-spec-analysis/kernel-domain";
 
-import type { AttributeBound, AttributePath } from "@deep-spec/kernel-domain";
+import type { AttributeBound, AttributePath } from "@deep-spec-analysis/kernel-domain";
 
 // 要件 IR の属性宣言——パス・種類（bool／int／enum）・int の上下限・enum の
 // 宣言値。コンパイラは種類で分岐する代わりに `match` で種類ごとの材料を

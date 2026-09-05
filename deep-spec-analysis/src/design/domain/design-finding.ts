@@ -9,7 +9,7 @@ import {
   type FunctionalRequirementReferences,
   TargetIdentifiers,
   type UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import type { DesignWitness } from "./design-witness.ts";
 
 // 未検証の構築引数。VO・エンティティ本体とは区別する。

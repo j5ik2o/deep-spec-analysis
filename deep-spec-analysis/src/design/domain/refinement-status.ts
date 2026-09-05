@@ -1,5 +1,5 @@
-import { DesignSkipped } from "@deep-spec/design-domain";
-import { SkipReason, type TargetIdentifier, UnitName } from "@deep-spec/kernel-domain";
+import { SkipReason, type TargetIdentifier, UnitName } from "@deep-spec-analysis/kernel-domain";
+import { DesignSkipped } from "./design-skipped.ts";
 
 // 要件義務／シナリオ 1 件の refinement 被覆状態。checkable（検査へ進む）、
 // waived（unmapped[] による人間の免除——理由つき）、gap（マップの欠落——

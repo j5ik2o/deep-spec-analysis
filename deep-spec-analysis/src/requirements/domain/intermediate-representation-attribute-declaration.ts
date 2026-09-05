@@ -1,4 +1,9 @@
-import type { AttributeKind, DeclaredBindingValue, DeclaredBound, EnumerationMembers } from "@deep-spec/kernel-domain";
+import type {
+  AttributeKind,
+  DeclaredBindingValue,
+  DeclaredBound,
+  EnumerationMembers,
+} from "@deep-spec-analysis/kernel-domain";
 import type { IntermediateRepresentationAttributeName } from "./intermediate-representation-attribute-name.ts";
 
 // 属性宣言。型宣言が欠けた属性は kind: "" として届く（旧実装は type 欠落でも

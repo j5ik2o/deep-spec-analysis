@@ -1,5 +1,5 @@
-import { type Expression, ExpressionTree, type TriggerName } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import { type Expression, ExpressionTree, type TriggerName } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { BusinessRuleReferences } from "./business-rule-references.ts";
 import type { DesignTransitionIdentifier } from "./design-transition-identifier.ts";
 

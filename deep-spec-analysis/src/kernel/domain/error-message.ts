@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // 1件の検査診断。文言が同じ診断も別々の発生としてコレクションに保持する。
 export class ErrorMessage {

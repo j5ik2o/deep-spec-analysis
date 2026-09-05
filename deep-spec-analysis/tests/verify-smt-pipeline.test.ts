@@ -17,7 +17,7 @@ import {
   TargetIdentifiers,
   TriggerName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { scenarioBindings } from "./binding-fixtures.ts";
 
 // レイヤード verify-smt パイプラインの in-process 検証（PR3、#16）。
@@ -36,10 +36,10 @@ import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { readContractSchema } from "@deep-spec/kernel-adapter";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import { readContractSchema } from "@deep-spec-analysis/kernel-adapter";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 // テスト用: 検証済みパス VO の短縮構築（fixture パスは常に非空）。
 function ap(raw: string): ArtifactPath {
@@ -55,7 +55,7 @@ import {
   renderVerificationReportBytes,
   VerificationDirectoryRepositoryImplementation,
   Z3SolverClientImplementation,
-} from "@deep-spec/requirements-adapter";
+} from "@deep-spec-analysis/requirements-adapter";
 import {
   AttributeBound,
   AttributePath,
@@ -88,12 +88,12 @@ import {
   VerificationSkipped,
   VerificationSkips,
   VerificationWitness,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 import {
   type FormalModelRepository,
   VerifyRequirementsSatisfiabilityModuloTheoriesUseCase,
   type Z3SolverClient,
-} from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-usecase";
 import { InMemoryVerificationDirectoryRepository } from "./doubles/in-memory-verification-directory-repository.ts";
 
 // 判定レコードは class（#71 波18）——期待値は平文へ射影して比較する（bun の toEqual は #private を見ない）。

@@ -20,8 +20,8 @@ import {
   InstallationProvenanceClientImplementation,
   ReferenceCheckBackendClientImplementation,
   SolverProbeClientImplementation,
-} from "@deep-spec/doctor-adapter";
-import { HealthVerdict } from "@deep-spec/doctor-domain";
+} from "@deep-spec-analysis/doctor-adapter";
+import { HealthVerdict } from "@deep-spec-analysis/doctor-domain";
 import {
   CheckFunctionalCoverageUseCase,
   CheckInstallationUseCase,
@@ -29,7 +29,7 @@ import {
   CheckStructuralDebtUseCase,
   CheckVerificationCoverageUseCase,
   CheckVersionAdvisoryUseCase,
-} from "@deep-spec/doctor-usecase";
+} from "@deep-spec-analysis/doctor-usecase";
 
 async function main(): Promise<void> {
   const projectDir = process.env.AIDLC_PROJECT_DIR || process.cwd();

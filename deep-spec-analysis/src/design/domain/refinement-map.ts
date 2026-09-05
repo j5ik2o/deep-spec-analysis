@@ -6,8 +6,8 @@
 // alpha 到達時は RefinementMapDefect）。ユニットの帰属は DesignUnitIdentifier（集約 ID）で運び、
 // 集まりはファーストクラスコレクションで運ぶ。
 
-import type { DesignUnitIdentifier } from "@deep-spec/design-domain";
-import type { ContentHash } from "@deep-spec/kernel-domain";
+import type { ContentHash } from "@deep-spec-analysis/kernel-domain";
+import type { DesignUnitIdentifier } from "./design-unit-identifier.ts";
 import type { RefinementMapIdentifier } from "./refinement-map-identifier.ts";
 import type { RefinementUnitMap } from "./refinement-unit-map.ts";
 import type { RefinementUnitMaps } from "./refinement-unit-maps.ts";

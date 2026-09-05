@@ -6,7 +6,7 @@ import {
   FunctionalRequirementReferences,
   TargetIdentifier,
   TargetIdentifiers,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // ReferenceCheckReport 集約・serializer・Repository の契約テスト（PR2b、#15）。
 //
@@ -20,7 +20,7 @@ import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { readContractSchema } from "@deep-spec/kernel-adapter";
+import { readContractSchema } from "@deep-spec-analysis/kernel-adapter";
 
 // テスト用: 検証済みパス VO の短縮構築（fixture パスは常に非空）。
 function ap(raw: string): ArtifactPath {
@@ -33,7 +33,7 @@ import {
   parseContractsTable,
   ReferenceCheckReportRepositoryImplementation,
   renderReportBytes,
-} from "@deep-spec/refcheck-adapter";
+} from "@deep-spec-analysis/refcheck-adapter";
 
 import {
   CheckFamilies,
@@ -48,7 +48,7 @@ import {
   Skips,
   UnitName,
   WitnessReferences,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 
 const schemaPath = join(
   dirname(fileURLToPath(import.meta.url)),

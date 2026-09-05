@@ -1,4 +1,4 @@
-import { RequirementIdentifier, type RequirementIdentifiers } from "@deep-spec/kernel-domain";
+import { RequirementIdentifier, type RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { SourceIdentifier } from "./source-identifier.ts";
 
 export class SourceIdentifiers {

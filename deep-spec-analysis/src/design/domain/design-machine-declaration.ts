@@ -1,4 +1,4 @@
-import type { EnumerationMembers } from "@deep-spec/kernel-domain";
+import type { EnumerationMembers } from "@deep-spec-analysis/kernel-domain";
 
 import type { DesignIgnoreDeclarations } from "./design-ignore-declarations.ts";
 import type { DesignMachineIdentifier } from "./design-machine-identifier.ts";

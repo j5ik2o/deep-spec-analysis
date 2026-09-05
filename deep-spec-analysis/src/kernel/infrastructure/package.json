@@ -1,5 +1,5 @@
 {
-  "name": "@deep-spec/kernel-infrastructure",
+  "name": "@deep-spec-analysis/kernel-infrastructure",
   "version": "0.0.0",
   "private": true,
   "type": "module",

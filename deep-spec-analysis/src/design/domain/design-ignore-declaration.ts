@@ -1,4 +1,4 @@
-import type { EnumerationMembers, TriggerName } from "@deep-spec/kernel-domain";
+import type { EnumerationMembers, TriggerName } from "@deep-spec-analysis/kernel-domain";
 
 // 契約3 設計 IR の ignore 宣言（well-formedness 検査材料）。状態の所属判定と
 // (state, trigger) セルのキーは宣言自身の知識（#71 波13）。state は enum

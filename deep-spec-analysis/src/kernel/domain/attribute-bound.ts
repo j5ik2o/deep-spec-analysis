@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // int 属性の有界境界（Quint バックエンドの有限領域要件）。要件 IR と
 // 設計 IR の decl 束が共有する語彙のため kernel に置く（FunctionalRequirementReferences と同じ扱い）。
 

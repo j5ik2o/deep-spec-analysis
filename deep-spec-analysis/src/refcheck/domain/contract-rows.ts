@@ -2,7 +2,7 @@
 // 解析（markdown テーブル/fence/YAML 歩き）はアダプタのパーサが行う。
 // フィールドはドメインプリミティブ、集まりはファーストクラスコレクション。
 
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import type { ContractRow } from "./contract-row.ts";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";
 import type { UnitDeclarations } from "./unit-declarations.ts";

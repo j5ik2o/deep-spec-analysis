@@ -2,15 +2,15 @@ import { describe, expect, spyOn, test } from "bun:test";
 import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { parseDesignModel } from "@deep-spec/design-adapter";
-import { parseFindingsValues } from "@deep-spec/kernel-adapter";
+import { parseDesignModel } from "@deep-spec-analysis/design-adapter";
+import { parseFindingsValues } from "@deep-spec-analysis/kernel-adapter";
 import {
   ArtifactPath,
   ContentHash,
   IntermediateRepresentationVersion,
   SkipReason,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import {
   combineResults,
   err,
@@ -19,14 +19,14 @@ import {
   matchResult,
   ok,
   traverseResult,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import {
   parseFormalModel,
   parseSiblingReportDocument,
   RequirementsSourceRepositoryImplementation,
   VERIFICATION_LOCK_BASENAME,
   VerificationDirectoryRepositoryImplementation,
-} from "@deep-spec/requirements-adapter";
+} from "@deep-spec-analysis/requirements-adapter";
 import {
   RequirementsSource,
   RequirementsSourceIdentifier,
@@ -36,7 +36,7 @@ import {
   VerificationReportIdentifier,
   VerificationReports,
   VerificationSkips,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 function document() {
   return {

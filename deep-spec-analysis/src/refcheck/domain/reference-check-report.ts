@@ -8,7 +8,7 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   type UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // ReferenceCheckReport 集約 — 契約2 の refcheck 文書のドメイン表現。
 //
@@ -33,7 +33,7 @@ import {
 //                    アダプタが組んで渡す。inputs は保持、内容は空になる——凍結挙動）
 //   - of … 書かれた真実（アダプタが型付きに解いた状態）からの再構成
 
-import { canonicalStringify, type Json } from "@deep-spec/kernel-infrastructure";
+import { canonicalStringify, type Json } from "@deep-spec-analysis/kernel-infrastructure";
 import { CATALOG_VERSION } from "./catalog-version.ts";
 import type { CheckFamilies } from "./check-families.ts";
 import type { CheckFamily } from "./check-family.ts";

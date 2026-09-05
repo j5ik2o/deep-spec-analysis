@@ -1,10 +1,10 @@
-import { ErrorMessage } from "@deep-spec/kernel-domain";
+import { ErrorMessage } from "@deep-spec-analysis/kernel-domain";
 import {
   IllegalArgumentException,
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { InstalledRelease } from "./installed-release.ts";
 import type { PluginVersion } from "./plugin-version.ts";
 import { VersionAdvisory } from "./version-advisory.ts";

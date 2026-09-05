@@ -1,7 +1,7 @@
 // RefinementMapIdentifier — RefinementMap 集約（契約4 の refinement map 文書）の
 // 識別子。map は 1 記録に 1 つで、恒等はその成果物パス。
 
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 export class RefinementMapIdentifier {
   readonly #path: ArtifactPath;

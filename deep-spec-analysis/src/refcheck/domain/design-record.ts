@@ -14,9 +14,9 @@
 // 各ファミリーの判定は宣言・コレクション・解析結果の不変条件（裁定 11〜13）
 // で、門はそれらを凍結の順に呼び、読んだ文書を inputs に記録するだけ。
 
-import type { UnitName } from "@deep-spec/kernel-domain";
-import { ArtifactPath, type RequirementIdentifiers } from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import type { UnitName } from "@deep-spec-analysis/kernel-domain";
+import { ArtifactPath, type RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { ComponentCatalogOutcome } from "./component-catalog-outcome.ts";
 import { COMPONENT_FAMILIES } from "./component-check-families.ts";
 import { CONTRACT_FAMILIES } from "./contract-check-families.ts";

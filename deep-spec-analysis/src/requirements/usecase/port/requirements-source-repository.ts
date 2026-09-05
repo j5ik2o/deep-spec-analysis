@@ -1,6 +1,6 @@
-import type { Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import type { RequirementsSource, RequirementsSourceIdentifier } from "@deep-spec/requirements-domain";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import type { RequirementsSource, RequirementsSourceIdentifier } from "@deep-spec-analysis/requirements-domain";
 
 // 集約 ID による解決。記録ルート配下のどのフェーズに requirements.md が
 // あるかの探索は Repository の解決詳細で、恒等には含まれない。

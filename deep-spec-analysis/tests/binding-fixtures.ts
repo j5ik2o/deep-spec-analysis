@@ -1,4 +1,4 @@
-import { AttributePath, BindingValue, ScenarioBinding, ScenarioBindings } from "@deep-spec/kernel-domain";
+import { AttributePath, BindingValue, ScenarioBinding, ScenarioBindings } from "@deep-spec-analysis/kernel-domain";
 
 // テスト文書からの構築。製品の公開APIには生のマップを受ける互換口を置かない。
 export function scenarioBindings(values: Readonly<Record<string, boolean | number | string>>): ScenarioBindings {

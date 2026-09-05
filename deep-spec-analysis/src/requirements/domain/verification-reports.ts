@@ -5,7 +5,7 @@ import {
   FunctionalRequirementReferences,
   TargetIdentifier,
   TargetIdentifiers,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 import { CrossCheckedEntries } from "./cross-checked-entries.ts";
 import { CrossCheckedEntry } from "./cross-checked-entry.ts";

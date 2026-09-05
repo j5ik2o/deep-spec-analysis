@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { StructuralObservation } from "./structural-observation.ts";
 
 // 診断観測から母数と負債を算定する。取得不能は未走査として保持する。

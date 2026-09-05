@@ -9,7 +9,7 @@
 
 [install]
 # 層パッケージ間の依存は宣言したものだけを解決可能にする（pnpm 形式の
-# 分離レイアウト）。未宣言の @deep-spec/* は import 時点で解決に失敗する。
+# 分離レイアウト）。未宣言の @deep-spec-analysis/* は import 時点で解決に失敗する。
 linker = "isolated"
 
 [test]

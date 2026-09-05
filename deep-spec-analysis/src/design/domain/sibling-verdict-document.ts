@@ -5,7 +5,7 @@ import {
   TargetIdentifiers,
   UnitName,
   type VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { DesignFinding } from "./design-finding.ts";
 import { DesignFindings } from "./design-findings.ts";
 import { DesignSkipped } from "./design-skipped.ts";

@@ -1,8 +1,8 @@
 import {
   DesignIntermediateRepresentationValidationMaterialsIdentifier,
   type DesignModelIdentifier,
-} from "@deep-spec/design-domain";
-import { matchResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/design-domain";
+import { matchResult } from "@deep-spec-analysis/kernel-infrastructure";
 import type { DesignIntermediateRepresentationValidationMaterialsRepository } from "./port/design-intermediate-representation-validation-materials-repository.ts";
 import type { ValidateDesignIntermediateRepresentationOutcome } from "./validate-design-intermediate-representation-outcome.ts";
 

@@ -1,5 +1,5 @@
-import { parseFindingsValues } from "@deep-spec/kernel-adapter";
-import { ArtifactPath, TargetIdentifier, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import { parseFindingsValues } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath, TargetIdentifier, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import {
   combineResults,
   err,
@@ -8,7 +8,7 @@ import {
   ok,
   type Result,
   traverseResult,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import {
   ElementPath,
   Finding,
@@ -21,7 +21,7 @@ import {
   Skips,
   WitnessReference,
   WitnessReferences,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 
 export function renderReportBytes(report: ReferenceCheckReport): string {
   return `${JSON.stringify(report.toDocument(), null, 2)}\n`;

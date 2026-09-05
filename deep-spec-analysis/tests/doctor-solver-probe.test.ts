@@ -20,7 +20,7 @@ import { existsSync, mkdirSync, mkdtempSync, rmSync, symlinkSync } from "node:fs
 import { createServer, type Server } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { SolverProbeClientImplementation } from "@deep-spec/doctor-adapter";
+import { SolverProbeClientImplementation } from "@deep-spec-analysis/doctor-adapter";
 
 const TRUE_BIN = ["/usr/bin/true", "/bin/true"].find((path) => existsSync(path));
 const unsupported = process.platform === "win32" || TRUE_BIN === undefined;

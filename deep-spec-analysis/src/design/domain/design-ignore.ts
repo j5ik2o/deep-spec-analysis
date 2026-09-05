@@ -3,7 +3,7 @@
 // 所有する（#71 波5b）。承認理由（reason）は design IR 上の必須注記として
 // 文書に残るが、domain から読む者はいないので運ばない（#71 波9）。
 
-import { type Expression, FunctionalRequirementReferences, type TriggerName } from "@deep-spec/kernel-domain";
+import { type Expression, FunctionalRequirementReferences, type TriggerName } from "@deep-spec-analysis/kernel-domain";
 import type { LoweredIdentifier } from "./lowered-identifier.ts";
 import { LoweredObligation } from "./lowered-obligation.ts";
 

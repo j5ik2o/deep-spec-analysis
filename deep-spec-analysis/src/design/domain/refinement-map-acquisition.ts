@@ -1,5 +1,5 @@
-import type { DesignInputAnchor } from "@deep-spec/design-domain";
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
+import type { DesignInputAnchor } from "./design-input-anchor.ts";
 import type { RefinementMap } from "./refinement-map.ts";
 
 // refinement map の取得結果——無い（absent：読めなかった理由つき）か、

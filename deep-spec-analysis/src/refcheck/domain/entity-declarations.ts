@@ -1,5 +1,5 @@
-import type { NormalizedName } from "@deep-spec/kernel-domain";
-import { KeySet } from "@deep-spec/kernel-domain";
+import type { NormalizedName } from "@deep-spec-analysis/kernel-domain";
+import { KeySet } from "@deep-spec-analysis/kernel-domain";
 import type { AppliesTo } from "./applies-to.ts";
 import type { EntityDeclaration } from "./entity-declaration.ts";
 import { EntityName } from "./entity-name.ts";

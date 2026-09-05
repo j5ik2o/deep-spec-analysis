@@ -1,4 +1,4 @@
-import type { ErrorMessage } from "@deep-spec/kernel-domain";
+import type { ErrorMessage } from "@deep-spec-analysis/kernel-domain";
 import type { InstalledRelease } from "./installed-release.ts";
 import { VersionAdvisory } from "./version-advisory.ts";
 

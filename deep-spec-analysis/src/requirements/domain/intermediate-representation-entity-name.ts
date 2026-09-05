@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // decl 束のエンティティ名（well-formedness の重複・座標文言が使う）。
 export class IntermediateRepresentationEntityName {

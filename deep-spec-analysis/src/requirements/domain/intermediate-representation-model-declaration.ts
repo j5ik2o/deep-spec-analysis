@@ -10,7 +10,7 @@
 // ときの黙殺条件（isObject / typeof チェック）はパーサ側へ移り、ここに来る
 // 時点で型は確定している。
 
-import { type Expression, ExpressionTree } from "@deep-spec/kernel-domain";
+import { type Expression, ExpressionTree } from "@deep-spec-analysis/kernel-domain";
 import type { IntermediateRepresentationAttributeDeclaration } from "./intermediate-representation-attribute-declaration.ts";
 import type { IntermediateRepresentationBackgroundDeclarations } from "./intermediate-representation-background-declarations.ts";
 import type { IntermediateRepresentationEntityDeclarations } from "./intermediate-representation-entity-declarations.ts";

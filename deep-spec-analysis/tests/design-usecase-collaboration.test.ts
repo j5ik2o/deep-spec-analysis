@@ -18,7 +18,7 @@ import { fileURLToPath } from "node:url";
 import {
   DesignModelRepositoryImplementation,
   DesignVerifyDirectoryRepositoryImplementation,
-} from "@deep-spec/design-adapter";
+} from "@deep-spec-analysis/design-adapter";
 import {
   type DesignModel,
   DesignModelIdentifier,
@@ -30,7 +30,7 @@ import {
   RefinementMaterials,
   type RefinementMaterialsIdentifier,
   SiblingVerificationResult,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 import {
   type DesignAcquisitionTerminal,
   type DesignModelRepository,
@@ -43,11 +43,11 @@ import {
   type VerifyDesignOutcome,
   VerifyDesignQuintUseCase,
   VerifyDesignSatisfiabilityModuloTheoriesUseCase,
-} from "@deep-spec/design-usecase";
-import { readContractSchema } from "@deep-spec/kernel-adapter";
-import { ArtifactPath, ErrorMessage, FindingsSchema, VerificationMethod } from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { Clock, RepositoryError } from "@deep-spec/kernel-usecase";
+} from "@deep-spec-analysis/design-usecase";
+import { readContractSchema } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath, ErrorMessage, FindingsSchema, VerificationMethod } from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { Clock, RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const schemaPath = join(pluginRoot, "src", "entries", "data", "deep-spec-findings-schema.json");

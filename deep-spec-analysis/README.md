@@ -131,6 +131,11 @@ Biome の書換対象から除きます。整形規約は 2 スペース・120 �
 byte-for-byte, twice; it also exercises degradation (missing solver,
 IR-version mismatch) and a forged cross-check disagreement.
 
+Workspace packages use the `@deep-spec-analysis` scope, for example
+`@deep-spec-analysis/kernel-domain`. Imports between layers use these package
+facades; imports within a package use relative paths.
+For an existing checkout, see the [namespace migration steps](docs/architecture/package-namespace.md).
+
 Source and shipped artifact are separate trees. `src/` holds the TypeScript:
 five bounded contexts (kernel / requirements / design / refinement / refcheck)
 × four layers (infrastructure / domain / usecase / adapter), plus

@@ -1,4 +1,4 @@
-import type { UnitName } from "@deep-spec/kernel-domain";
+import type { UnitName } from "@deep-spec-analysis/kernel-domain";
 import type { CoverageState } from "./coverage-state.ts";
 import type { IntentLocation } from "./intent-location.ts";
 

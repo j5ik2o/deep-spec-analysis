@@ -3,7 +3,7 @@ import {
   type FunctionalRequirementReferences,
   type TargetIdentifier,
   type TargetIdentifiers,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import type { VerificationWitness } from "./verification-witness.ts";
 
 // v1 検証 finding（契約2）——kind・要件参照・対象・witness・説明。契約2 の

@@ -1,4 +1,4 @@
-import type { ErrorMessage, VerificationMethod } from "@deep-spec/kernel-domain";
+import type { ErrorMessage, VerificationMethod } from "@deep-spec-analysis/kernel-domain";
 import type { QuintMachinePlan } from "./quint-machine-plan.ts";
 import type { QuintRuns } from "./quint-runs.ts";
 import type { RequirementsModel } from "./requirements-model.ts";

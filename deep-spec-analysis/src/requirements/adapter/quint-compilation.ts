@@ -1,4 +1,4 @@
-import { type Expression, ExpressionTree, SkipReason } from "@deep-spec/kernel-domain";
+import { type Expression, ExpressionTree, SkipReason } from "@deep-spec-analysis/kernel-domain";
 
 // IR → Quint モジュールのコンパイラ。Quint という形式の知識（変数名符号化・
 // 式構文・action/temporal/init の台本）はすべてここに封じ、判定解釈に必要な
@@ -19,7 +19,7 @@ import {
   type RequirementsModel,
   type ScenarioIdentifier,
   VerificationSkipped,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 import type { CompiledQuintMachine } from "./compiled-quint-machine.ts";
 
 class CompileError extends Error {}

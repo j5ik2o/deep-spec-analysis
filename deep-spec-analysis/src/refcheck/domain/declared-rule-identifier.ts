@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import { BusinessRuleIdentifier } from "./business-rule-identifier.ts";
 
 // 文書が記述した規則IDの原文。正当な BusinessRuleIdentifier とは別の概念であり、

@@ -11,10 +11,10 @@ import {
   DesignSkipped,
   DesignSkips,
   DesignWitness,
-} from "@deep-spec/design-domain";
-import { parseFindingsValues } from "@deep-spec/kernel-adapter";
-import { type ArtifactPath, UnitName } from "@deep-spec/kernel-domain";
-import { err, type Json, ok, type Result, traverseResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/design-domain";
+import { parseFindingsValues } from "@deep-spec-analysis/kernel-adapter";
+import { type ArtifactPath, UnitName } from "@deep-spec-analysis/kernel-domain";
+import { err, type Json, ok, type Result, traverseResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 export function renderDesignReportBytes(report: DesignReport): string {
   return `${JSON.stringify(report.toDocument(), null, 2)}\n`;

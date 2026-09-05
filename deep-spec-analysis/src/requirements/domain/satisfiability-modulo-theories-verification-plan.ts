@@ -6,7 +6,7 @@ import {
   type TargetIdentifier,
   TargetIdentifiers,
   type TriggerName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // SMT 検証計画——コンパイラが要件モデルを SMT クエリに変換したときの対応表
 // （形式 SMT-LIB を含まない面）。計画は値オブジェクト（種別規律の裁定 7、

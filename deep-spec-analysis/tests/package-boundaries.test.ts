@@ -55,7 +55,7 @@ afterAll(() => rmSync(fixtureDir, { recursive: true, force: true }));
 
 function buildFixture(): void {
   // 宣言した層だけを張る——isolated linker が作る形をそのまま再現する。
-  const linkRoot = join(fixtureDir, "node_modules", "@deep-spec");
+  const linkRoot = join(fixtureDir, "node_modules", "@deep-spec-analysis");
   mkdirSync(linkRoot, { recursive: true });
   symlinkSync(join(pluginRoot, "src", "kernel", "domain"), join(linkRoot, "kernel-domain"), "dir");
   // 実ツリーでは root の devDependencies が上位探索で見えるので、fixture でも
@@ -67,10 +67,10 @@ function buildFixture(): void {
     join(fixtureDir, "package.json"),
     `${JSON.stringify(
       {
-        name: "@deep-spec/package-boundaries-fixture",
+        name: "@deep-spec-analysis/package-boundaries-fixture",
         private: true,
         type: "module",
-        dependencies: { "@deep-spec/kernel-domain": "workspace:*" },
+        dependencies: { "@deep-spec-analysis/kernel-domain": "workspace:*" },
       },
       null,
       2,
@@ -102,17 +102,22 @@ function buildFixture(): void {
   // 宣言済みの層をファサード経由で使う——通るべき例。
   writeFileSync(
     join(fixtureDir, "declared.ts"),
-    'import { ArtifactPath } from "@deep-spec/kernel-domain";\nexport const probe = ArtifactPath;\n',
+    'import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";\nexport const probe = ArtifactPath;\n',
   );
   // 宣言していない層——解決できないべき例。
   writeFileSync(
     join(fixtureDir, "undeclared.ts"),
-    'import { DesignModelIdentifier } from "@deep-spec/design-domain";\nexport const probe = DesignModelIdentifier;\n',
+    'import { DesignModelIdentifier } from "@deep-spec-analysis/design-domain";\nexport const probe = DesignModelIdentifier;\n',
   );
   // exports に無い深いパス——宣言済みの層でも解決できないべき例。
   writeFileSync(
     join(fixtureDir, "deep-path.ts"),
-    'import type { Expression } from "@deep-spec/kernel-domain/expression.ts";\nexport type Probe = Expression;\n',
+    'import type { Expression } from "@deep-spec-analysis/kernel-domain/expression.ts";\nexport type Probe = Expression;\n',
+  );
+  // 廃止したスコープへの互換リンクは作らない。
+  writeFileSync(
+    join(fixtureDir, "retired-scope.ts"),
+    'import { ArtifactPath } from "@deep-spec/kernel-domain";\nexport const probe = ArtifactPath;\n',
   );
 }
 
@@ -148,9 +153,16 @@ const diagnostics = parseDiagnostics(typeCheckOutput);
 const diagnosticsFor = (file: string): Diagnostic[] => diagnostics.filter((d) => d.file === file);
 
 describe("declared package boundaries (FR1.3 / NFR5)", () => {
-  test("a declared layer resolves — at import time and at type-check time", () => {
-    // requirements/domain は package.json で @deep-spec/kernel-domain を宣言している。
+  test("the retired scope resolves at neither runtime nor type-check time", () => {
     const runtime = resolveFrom("src/requirements/domain", "@deep-spec/kernel-domain");
+    expect(runtime.resolved).toBe(false);
+    expect(runtime.stderr).toContain("Cannot find module '@deep-spec/kernel-domain'");
+    expect(diagnosticsFor("retired-scope.ts").map((diagnostic) => diagnostic.code)).toEqual(["TS2307"]);
+  });
+
+  test("a declared layer resolves — at import time and at type-check time", () => {
+    // requirements/domain は package.json で @deep-spec-analysis/kernel-domain を宣言している。
+    const runtime = resolveFrom("src/requirements/domain", "@deep-spec-analysis/kernel-domain");
     expect(runtime.resolved).toBe(true);
     // fixture 側でも declared.ts には診断が出ない。
     expect(diagnosticsFor("declared.ts")).toEqual([]);
@@ -158,16 +170,16 @@ describe("declared package boundaries (FR1.3 / NFR5)", () => {
 
   test("an undeclared layer does not resolve — at import time and at type-check time", () => {
     // kernel/infrastructure は最内層で依存を 1 つも宣言していない。
-    const runtime = resolveFrom("src/kernel/infrastructure", "@deep-spec/kernel-domain");
+    const runtime = resolveFrom("src/kernel/infrastructure", "@deep-spec-analysis/kernel-domain");
     expect(runtime.resolved).toBe(false);
-    expect(runtime.stderr).toContain("Cannot find module '@deep-spec/kernel-domain'");
+    expect(runtime.stderr).toContain("Cannot find module '@deep-spec-analysis/kernel-domain'");
     expect(diagnosticsFor("undeclared.ts").map((d) => d.code)).toEqual(["TS2307"]);
   });
 
   test("a deep path outside exports does not resolve — at import time and at type-check time", () => {
-    const runtime = resolveFrom("src/requirements/domain", "@deep-spec/kernel-domain/expression.ts");
+    const runtime = resolveFrom("src/requirements/domain", "@deep-spec-analysis/kernel-domain/expression.ts");
     expect(runtime.resolved).toBe(false);
-    expect(runtime.stderr).toContain("Cannot find module '@deep-spec/kernel-domain/expression.ts'");
+    expect(runtime.stderr).toContain("Cannot find module '@deep-spec-analysis/kernel-domain/expression.ts'");
     expect(diagnosticsFor("deep-path.ts").map((d) => d.code)).toEqual(["TS2307"]);
   });
 });

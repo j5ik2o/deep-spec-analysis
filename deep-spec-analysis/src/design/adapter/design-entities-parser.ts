@@ -1,5 +1,5 @@
-import { AttributeKind, EnumerationMember, EnumerationMembers } from "@deep-spec/kernel-domain";
-import { flatMapResult, type ParseError } from "@deep-spec/kernel-infrastructure";
+import { AttributeKind, EnumerationMember, EnumerationMembers } from "@deep-spec-analysis/kernel-domain";
+import { flatMapResult, type ParseError } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 設計 IR（契約3）の `schema.entities` と型付き宣言（DesignEntityDeclarations）の往復。
 // parse は寛容（名前の無い実体・属性は落とす——旧 buildUnitView の凍結挙動）、
@@ -14,9 +14,9 @@ import {
   DesignEntityDeclaration,
   DesignEntityDeclarations,
   DesignEntityName,
-} from "@deep-spec/design-domain";
-import { DeclaredBound } from "@deep-spec/kernel-domain";
-import { isObject, type Json, ok, type Result, traverseResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/design-domain";
+import { DeclaredBound } from "@deep-spec-analysis/kernel-domain";
+import { isObject, type Json, ok, type Result, traverseResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 export function parseDesignEntities(schema: {
   readonly [k: string]: Json;

@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { AttributePath } from "./attribute-path.ts";
 import type { BindingValue } from "./binding-value.ts";
 import type { ScenarioBinding } from "./scenario-binding.ts";

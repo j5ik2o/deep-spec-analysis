@@ -1,8 +1,8 @@
-import { matchResult } from "@deep-spec/kernel-infrastructure";
+import { matchResult } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   type FormalModelIdentifier,
   IntermediateRepresentationValidationMaterialsIdentifier,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 import type { IntermediateRepresentationValidationMaterialsRepository } from "./port/intermediate-representation-validation-materials-repository.ts";
 import type { RequirementsSourceRepository } from "./port/requirements-source-repository.ts";
 import type { ValidateIntermediateRepresentationOutcome } from "./validate-intermediate-representation-outcome.ts";

@@ -1,7 +1,7 @@
 // requirements/domain の公開 facade — 明示列挙のみ（export * 禁止）。
 
 // FunctionalRequirementReferences は kernel 所有の共有語彙（requirements の facade からも見える）。
-export { AttributePath, FunctionalRequirementReferences, ObligationNature } from "@deep-spec/kernel-domain";
+export { AttributePath, FunctionalRequirementReferences, ObligationNature } from "@deep-spec-analysis/kernel-domain";
 export { BackgroundAssumption } from "./background-assumption.ts";
 export { BackgroundAssumptionIdentifier } from "./background-assumption-identifier.ts";
 export { BackgroundAssumptions } from "./background-assumptions.ts";

@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import { ErrorMessage } from "./error-message.ts";
 
 // 診断の発生順と所有権を保持する。文字列の構築契約はErrorMessageが担う。

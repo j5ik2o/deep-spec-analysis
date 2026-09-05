@@ -11,8 +11,15 @@ import {
   TargetIdentifiers,
   UnitName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
-import { combineResults, err, flatMapResult, type Json, ok, traverseResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import {
+  combineResults,
+  err,
+  flatMapResult,
+  type Json,
+  ok,
+  traverseResult,
+} from "@deep-spec-analysis/kernel-infrastructure";
 import { decodeFindingsDocument } from "./findings-document.ts";
 
 // 外部文書の生値は各DPのparseへ渡す。ofのpanicを入力エラーに読み替えない。

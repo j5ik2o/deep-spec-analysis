@@ -10,9 +10,9 @@
 import type {
   DesignIntermediateRepresentationValidationMaterials,
   DesignIntermediateRepresentationValidationMaterialsIdentifier,
-} from "@deep-spec/design-domain";
-import type { Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+} from "@deep-spec-analysis/design-domain";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 export interface DesignIntermediateRepresentationValidationMaterialsRepository {
   findById(

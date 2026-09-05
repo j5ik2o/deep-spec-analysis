@@ -1,4 +1,4 @@
-import type { ArtifactPath, UnitName } from "@deep-spec/kernel-domain";
+import type { ArtifactPath, UnitName } from "@deep-spec-analysis/kernel-domain";
 import type { DomainEntitySketches } from "./domain-entity-sketches.ts";
 import { XS_1, XS_2, XS_3 } from "./functional-check-families.ts";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";

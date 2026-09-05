@@ -1,4 +1,4 @@
-import { SkipReason, type TargetIdentifier } from "@deep-spec/kernel-domain";
+import { SkipReason, type TargetIdentifier } from "@deep-spec-analysis/kernel-domain";
 
 import { VerificationSkipped } from "./verification-skipped.ts";
 

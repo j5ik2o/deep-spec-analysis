@@ -7,7 +7,7 @@
 // of は契約違反を送出し、parse は同じ違反を Result に変換する。
 
 import { describe, expect, test } from "bun:test";
-import { FindingKind } from "@deep-spec/kernel-domain";
+import { FindingKind } from "@deep-spec-analysis/kernel-domain";
 
 const FROZEN_ORDER = [
   "conflict",

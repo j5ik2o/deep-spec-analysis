@@ -1,4 +1,4 @@
-import type { ArtifactPath, ErrorMessage } from "@deep-spec/kernel-domain";
+import type { ArtifactPath, ErrorMessage } from "@deep-spec-analysis/kernel-domain";
 import { CD_1, CD_3 } from "./contract-check-families.ts";
 import type { ContractRows } from "./contract-rows.ts";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";

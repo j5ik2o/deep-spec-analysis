@@ -1,4 +1,4 @@
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import type { DeclaredEntities } from "./declared-entities.ts";
 import { FD_S1, FD_S2 } from "./functional-check-families.ts";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";

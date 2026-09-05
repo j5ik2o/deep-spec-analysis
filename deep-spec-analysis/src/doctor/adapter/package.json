@@ -1,5 +1,5 @@
 {
-  "name": "@deep-spec/doctor-adapter",
+  "name": "@deep-spec-analysis/doctor-adapter",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,9 +7,9 @@
     ".": "./index.ts"
   },
   "dependencies": {
-    "@deep-spec/doctor-domain": "workspace:*",
-    "@deep-spec/doctor-usecase": "workspace:*",
-    "@deep-spec/kernel-domain": "workspace:*",
-    "@deep-spec/kernel-infrastructure": "workspace:*"
+    "@deep-spec-analysis/doctor-domain": "workspace:*",
+    "@deep-spec-analysis/doctor-usecase": "workspace:*",
+    "@deep-spec-analysis/kernel-domain": "workspace:*",
+    "@deep-spec-analysis/kernel-infrastructure": "workspace:*"
   }
 }

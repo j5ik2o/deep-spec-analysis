@@ -1,4 +1,4 @@
-import type { RequirementIdentifiers } from "@deep-spec/kernel-domain";
+import type { RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { AppliesTo } from "./applies-to.ts";
 import type { DeclaredRuleIdentifier } from "./declared-rule-identifier.ts";
 import type { ElementPath } from "./element-path.ts";

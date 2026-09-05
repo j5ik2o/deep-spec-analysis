@@ -1,6 +1,6 @@
-import type { Expression, FunctionalRequirementReferences, TriggerName } from "@deep-spec/kernel-domain";
-import { ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { Expression, FunctionalRequirementReferences, TriggerName } from "@deep-spec-analysis/kernel-domain";
+import { ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // 設計義務。分類、rules 起源の参照要件、event 完全性、式の役割を所有する。
 
 import type { BusinessRuleReferences } from "./business-rule-references.ts";

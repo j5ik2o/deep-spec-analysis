@@ -10,8 +10,8 @@ import { spawnSync } from "node:child_process";
 import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { ErrorMessage, KeyedIndex, VerificationMethod } from "@deep-spec/kernel-domain";
-import type { RequirementsModel } from "@deep-spec/requirements-domain";
+import { ErrorMessage, KeyedIndex, VerificationMethod } from "@deep-spec-analysis/kernel-domain";
+import type { RequirementsModel } from "@deep-spec-analysis/requirements-domain";
 import {
   ObligationIdentifier,
   QuintCheckResult,
@@ -22,8 +22,8 @@ import {
   ScenarioIdentifier,
   TraceStates,
   VerificationSkips,
-} from "@deep-spec/requirements-domain";
-import type { QuintClient } from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-domain";
+import type { QuintClient } from "@deep-spec-analysis/requirements-usecase";
 import type { CompiledQuintMachine } from "./compiled-quint-machine.ts";
 import { decodeItfTrace, itfStatus } from "./itf-decoder.ts";
 import type { QuintClientConfiguration } from "./quint-client-configuration.ts";

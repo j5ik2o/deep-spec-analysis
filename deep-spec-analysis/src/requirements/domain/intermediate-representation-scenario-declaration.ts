@@ -1,6 +1,6 @@
-import type { Expression } from "@deep-spec/kernel-domain";
-import { type DeclaredBindings, ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { Expression } from "@deep-spec-analysis/kernel-domain";
+import { type DeclaredBindings, ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { ScenarioIdentifier } from "./scenario-identifier.ts";
 
 // 未検証の構築引数。VO・エンティティ本体とは区別する。

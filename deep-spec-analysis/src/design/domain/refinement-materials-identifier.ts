@@ -2,7 +2,7 @@
 // 設計形式モデルに 1:1 で錨着するため、恒等は「どの設計モデルの文脈か」。
 // ofはモデル識別子を受け取り、この1:1の関係を型で表す。
 
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import type { DesignModelIdentifier } from "./design-model-identifier.ts";
 
 export class RefinementMaterialsIdentifier {

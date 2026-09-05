@@ -7,11 +7,11 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { writeFileAtomically } from "@deep-spec/kernel-adapter";
-import { err, type Json, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import type { ReferenceCheckReport, ReferenceCheckReportIdentifier } from "@deep-spec/refcheck-domain";
-import type { ReferenceCheckReportRepository } from "@deep-spec/refcheck-usecase";
+import { writeFileAtomically } from "@deep-spec-analysis/kernel-adapter";
+import { err, type Json, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import type { ReferenceCheckReport, ReferenceCheckReportIdentifier } from "@deep-spec-analysis/refcheck-domain";
+import type { ReferenceCheckReportRepository } from "@deep-spec-analysis/refcheck-usecase";
 import { parseReportDocument, renderReportBytes } from "./reference-check-report-serializer.ts";
 
 const encoder = new TextEncoder();

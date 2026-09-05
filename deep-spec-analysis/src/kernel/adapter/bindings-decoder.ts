@@ -7,8 +7,8 @@ import {
   DeclaredBindingValue,
   ScenarioBinding,
   ScenarioBindings,
-} from "@deep-spec/kernel-domain";
-import { err, type Json, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { err, type Json, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 export function decodeDeclaredBindings(raw: Readonly<Record<string, Json>>): Result<DeclaredBindings, string> {
   const values: Parameters<typeof DeclaredBindings.of>[0][number][] = [];

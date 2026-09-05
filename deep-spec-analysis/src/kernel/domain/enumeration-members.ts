@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { EnumerationMember } from "./enumeration-member.ts";
 // enum 宣言値のファーストクラスコレクション。宣言順＝SMT の序数符号化・
 // Quint の集合リテラル順という凍結面なので順序を所有する。

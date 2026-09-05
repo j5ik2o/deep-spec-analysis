@@ -25,17 +25,17 @@ import {
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { ProcessLiveness } from "@deep-spec/kernel-adapter";
-import { DirectoryFinalizationLock, readContractSchema } from "@deep-spec/kernel-adapter";
-import { ArtifactPath, FindingsSchema } from "@deep-spec/kernel-domain";
-import { IllegalArgumentException, type Result } from "@deep-spec/kernel-infrastructure";
-import type { Clock, RepositoryError } from "@deep-spec/kernel-usecase";
+import type { ProcessLiveness } from "@deep-spec-analysis/kernel-adapter";
+import { DirectoryFinalizationLock, readContractSchema } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath, FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { Clock, RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import {
   FormalModelRepositoryImplementation,
   renderVerificationReportBytes,
   VERIFICATION_LOCK_BASENAME,
   VerificationDirectoryRepositoryImplementation,
-} from "@deep-spec/requirements-adapter";
+} from "@deep-spec-analysis/requirements-adapter";
 import {
   FormalModelIdentifier,
   type RequirementsModel,
@@ -45,8 +45,8 @@ import {
   VerificationReportIdentifier,
   VerificationReports,
   VerificationSkips,
-} from "@deep-spec/requirements-domain";
-import { VerificationReportFinalizer } from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-domain";
+import { VerificationReportFinalizer } from "@deep-spec-analysis/requirements-usecase";
 
 const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const schemaPath = join(pluginRoot, "src", "entries", "data", "deep-spec-findings-schema.json");

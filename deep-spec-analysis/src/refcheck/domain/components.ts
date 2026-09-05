@@ -4,7 +4,7 @@
 // 運ぶ。DD-1 の重複検出・DD-5 の所有競合・DD-7 の閉路検出は集まり＝
 // Components の知識。
 
-import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { Component } from "./component.ts";
 import { DD_1, DD_2, DD_3, DD_4, DD_5, DD_6, DD_7 } from "./component-check-families.ts";
 import type { ComponentEntity } from "./component-entity.ts";

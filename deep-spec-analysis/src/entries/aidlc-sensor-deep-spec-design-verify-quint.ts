@@ -19,11 +19,16 @@ import {
   DesignVerifyDirectoryRepositoryImplementation,
   RefinementMaterialsRepositoryImplementation,
   SiblingBackendClientImplementation,
-} from "@deep-spec/design-adapter";
-import { DesignModelIdentifier } from "@deep-spec/design-domain";
-import { VerifyDesignQuintUseCase } from "@deep-spec/design-usecase";
-import { DirectoryFinalizationLock, parseFlags, readFindingsSchema, SystemClock } from "@deep-spec/kernel-adapter";
-import { ArtifactPath } from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/design-adapter";
+import { DesignModelIdentifier } from "@deep-spec-analysis/design-domain";
+import { VerifyDesignQuintUseCase } from "@deep-spec-analysis/design-usecase";
+import {
+  DirectoryFinalizationLock,
+  parseFlags,
+  readFindingsSchema,
+  SystemClock,
+} from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 const DESIGN_MODEL_BASENAME = "deep-spec-analysis-functional-formal-model.md";
 const DESIGN_VERIFY_DIRNAME = "deep-spec-design-verify";

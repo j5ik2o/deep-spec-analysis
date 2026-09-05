@@ -10,16 +10,16 @@
 // 末尾の 2 つはテスト専用の読み取り面であってポートの一部ではない：書かれた
 // 個々の文書を検査するために、ダブルのキー空間をそのまま覗く。
 
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import {
   VerificationDirectory,
   type VerificationReport,
   type VerificationReportIdentifier,
   VerificationReports,
-} from "@deep-spec/requirements-domain";
-import type { VerificationDirectoryRepository } from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-domain";
+import type { VerificationDirectoryRepository } from "@deep-spec-analysis/requirements-usecase";
 
 const CROSS_CHECK_FILENAME = "cross-check.json";
 

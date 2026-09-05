@@ -1,4 +1,4 @@
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import type { InstallationSource } from "./installation-source.ts";
 import type { PluginVersion } from "./plugin-version.ts";
 import { VersionAdvisory } from "./version-advisory.ts";

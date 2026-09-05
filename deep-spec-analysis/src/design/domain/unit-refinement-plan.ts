@@ -9,7 +9,7 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // map 検査と被覆分類 — ソルバ不要の決定論部。閉包規則：要件の全義務・全
 // シナリオ・全属性は「写像済み／waive 済み／unmapped[] 記載」のどれかで、
@@ -18,12 +18,16 @@ import {
 // からの逐語移植——自由関数は UnitRefinementPlan.of（構築）と plan 自身の
 // 照会・skip 導出メソッドになった（OOUI 裁定）。
 
-import type { DesignUnit } from "@deep-spec/design-domain";
-import { DesignFinding, DesignFindings, DesignSkipped, DesignSkips, DesignWitness } from "@deep-spec/design-domain";
-import { ObligationIdentifier, ScenarioIdentifier } from "@deep-spec/requirements-domain";
+import { ObligationIdentifier, ScenarioIdentifier } from "@deep-spec-analysis/requirements-domain";
 import type { AttributeMapping } from "./attribute-mapping.ts";
 import type { AttributeMappings } from "./attribute-mappings.ts";
+import { DesignFinding } from "./design-finding.ts";
+import { DesignFindings } from "./design-findings.ts";
 import type { DesignReport } from "./design-report.ts";
+import { DesignSkipped } from "./design-skipped.ts";
+import { DesignSkips } from "./design-skips.ts";
+import type { DesignUnit } from "./design-unit.ts";
+import { DesignWitness } from "./design-witness.ts";
 import type { LoweredUnit } from "./lowered-unit.ts";
 import { RefinementQuintInvariant } from "./refinement-quint-invariant.ts";
 import { RefinementQuintInvariants } from "./refinement-quint-invariants.ts";

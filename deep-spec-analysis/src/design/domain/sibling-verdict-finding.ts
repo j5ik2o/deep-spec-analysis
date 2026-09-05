@@ -1,4 +1,4 @@
-import { FindingKind, type FunctionalRequirementReferences } from "@deep-spec/kernel-domain";
+import { FindingKind, type FunctionalRequirementReferences } from "@deep-spec-analysis/kernel-domain";
 import type { DesignWitness } from "./design-witness.ts";
 import type { LoweredIdentifier } from "./lowered-identifier.ts";
 

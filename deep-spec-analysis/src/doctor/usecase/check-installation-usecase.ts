@@ -1,4 +1,4 @@
-import { InstallationManifest, InstalledStatus } from "@deep-spec/doctor-domain";
+import { InstallationManifest, InstalledStatus } from "@deep-spec-analysis/doctor-domain";
 import type { HarnessFileClient } from "./port/harness-file-client.ts";
 
 // マニフェスト全行の実在判定（checks 配列の先頭ブロック——凍結順）。

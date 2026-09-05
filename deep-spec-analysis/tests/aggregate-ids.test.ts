@@ -1,4 +1,4 @@
-import { InitialState } from "@deep-spec/design-domain";
+import { InitialState } from "@deep-spec-analysis/design-domain";
 import {
   ArtifactPath,
   BackendName,
@@ -14,7 +14,7 @@ import {
   TargetIdentifiers,
   TriggerName,
   UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { scenarioBindings } from "./binding-fixtures.ts";
 
 // 集約 ID と ArtifactPath の DP 検査（Repository 裁定・補遺の証人）。
@@ -67,9 +67,9 @@ import {
   LoweredOriginReference,
   RefinementMapIdentifier,
   RefinementMaterialsIdentifier,
-} from "@deep-spec/design-domain";
-import { IllegalArgumentException } from "@deep-spec/kernel-infrastructure";
-import { DesignRecordIdentifier } from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/design-domain";
+import { IllegalArgumentException } from "@deep-spec-analysis/kernel-infrastructure";
+import { DesignRecordIdentifier } from "@deep-spec-analysis/refcheck-domain";
 import {
   AttributeBound,
   AttributePath,
@@ -96,7 +96,7 @@ import {
   VerificationSkipped,
   VerificationSkips,
   VerificationWitness,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 function ap(raw: string): ArtifactPath {
   const parsed = ArtifactPath.parse(raw);

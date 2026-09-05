@@ -1,4 +1,4 @@
-import type { VersionAdvisory } from "@deep-spec/doctor-domain";
+import type { VersionAdvisory } from "@deep-spec-analysis/doctor-domain";
 import type { InstallationProvenanceClient } from "./port/installation-provenance-client.ts";
 import type { ReleaseTagsClient } from "./port/release-tags-client.ts";
 

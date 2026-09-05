@@ -1,5 +1,5 @@
-import type { TargetIdentifier } from "@deep-spec/kernel-domain";
-import type { ObligationIdentifier, ScenarioIdentifier } from "@deep-spec/requirements-domain";
+import type { TargetIdentifier } from "@deep-spec-analysis/kernel-domain";
+import type { ObligationIdentifier, ScenarioIdentifier } from "@deep-spec-analysis/requirements-domain";
 import type { TransitionReference } from "./transition-reference.ts";
 
 // refinement ソルバへ発行した問い 1 件の帰属——どの要件義務／シナリオの、

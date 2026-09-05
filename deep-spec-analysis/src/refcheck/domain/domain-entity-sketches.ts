@@ -1,5 +1,5 @@
-import type { UnitName } from "@deep-spec/kernel-domain";
-import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import type { UnitName } from "@deep-spec-analysis/kernel-domain";
+import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { DomainEntitySketch } from "./domain-entity-sketch.ts";
 import { XS_1, XS_2, XS_3 } from "./functional-check-families.ts";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";

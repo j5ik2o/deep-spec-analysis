@@ -3,7 +3,7 @@ import type {
   FunctionalRequirementReferences,
   TargetIdentifiers,
   UnitName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import type { WitnessReferences } from "./witness-references.ts";
 
 // refcheck finding（無沈黙台帳の 1 行）——kind・要件参照・対象・witness ref

@@ -1,10 +1,10 @@
 import { describe, expect, test } from "bun:test";
-import * as Design from "@deep-spec/design-domain";
-import * as Doctor from "@deep-spec/doctor-domain";
-import * as Kernel from "@deep-spec/kernel-domain";
-import { IllegalArgumentException } from "@deep-spec/kernel-infrastructure";
-import * as Refcheck from "@deep-spec/refcheck-domain";
-import * as Requirements from "@deep-spec/requirements-domain";
+import * as Design from "@deep-spec-analysis/design-domain";
+import * as Doctor from "@deep-spec-analysis/doctor-domain";
+import * as Kernel from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException } from "@deep-spec-analysis/kernel-infrastructure";
+import * as Refcheck from "@deep-spec-analysis/refcheck-domain";
+import * as Requirements from "@deep-spec-analysis/requirements-domain";
 
 // 全文字列VOのサイズ契約。字句的に不正な長大入力も、サイズで先に拒否する。
 const cases = [

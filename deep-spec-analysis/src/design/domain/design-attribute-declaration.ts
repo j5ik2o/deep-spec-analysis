@@ -1,4 +1,9 @@
-import type { AttributeKind, DeclaredBindingValue, DeclaredBound, EnumerationMembers } from "@deep-spec/kernel-domain";
+import type {
+  AttributeKind,
+  DeclaredBindingValue,
+  DeclaredBound,
+  EnumerationMembers,
+} from "@deep-spec-analysis/kernel-domain";
 
 import type { DesignAttributeName } from "./design-attribute-name.ts";
 

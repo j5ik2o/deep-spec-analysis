@@ -1,4 +1,4 @@
-import { FindingKind, KeySet, SkipReason, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import { FindingKind, KeySet, SkipReason, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 
 // Quint 状態機械の計画——コンパイラが機械を組んだときの対応表で、形式
 // （Quint テキスト）を含まない面（種別規律の裁定 8——値オブジェクト）。旧名

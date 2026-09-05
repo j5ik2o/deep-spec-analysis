@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // contracts テーブルの Provider / Consumer / Owner セルの値。空欄・
 // `External: …` 宣言の判別はセル自身の知識（CD-1 の凍結挙動）。
 export class ContractParty {

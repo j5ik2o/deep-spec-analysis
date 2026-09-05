@@ -1,11 +1,11 @@
-import { FenceCount } from "@deep-spec/refcheck-domain";
+import { FenceCount } from "@deep-spec-analysis/refcheck-domain";
 
 // functional-design 三点セットと XS 用 components.md の解析 — 形式知識を
 // ここに封じ、型付き outcome へ解く。抽出ロジックは旧センサーの逐語移動
 //（AttributeDeclaration の生 Json フィールドのみ、検査が区別する意味論へ無損失に写像）。
 
-import { extractFences, parseYamlSubset } from "@deep-spec/kernel-adapter";
-import { RequirementIdentifiers } from "@deep-spec/kernel-domain";
+import { extractFences, parseYamlSubset } from "@deep-spec-analysis/kernel-adapter";
+import { RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import {
   combineResults,
   err,
@@ -14,7 +14,7 @@ import {
   ok,
   type Result,
   traverseResult,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 import {
   AllowedValue,
@@ -58,7 +58,7 @@ import {
   StateName,
   StateNames,
   TypeName,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 
 function str(v: Json): string | null {
   return typeof v === "string" ? v : null;

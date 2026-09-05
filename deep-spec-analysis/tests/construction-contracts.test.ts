@@ -13,8 +13,8 @@ import {
   LoweredOriginReference,
   TransitionReference,
   UnmappedTargetReference,
-} from "@deep-spec/design-domain";
-import { PluginVersion } from "@deep-spec/doctor-domain";
+} from "@deep-spec-analysis/design-domain";
+import { PluginVersion } from "@deep-spec-analysis/doctor-domain";
 import {
   ArtifactPath,
   AttributeBound,
@@ -32,9 +32,9 @@ import {
   TriggerName,
   UnitName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   AllowedValue,
   AppliesTo,
@@ -56,14 +56,14 @@ import {
   SourceIdentifier,
   StateName,
   TypeName,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 import {
   BackgroundAssumptionIdentifier,
   IntermediateRepresentationAttributeName,
   IntermediateRepresentationEntityName,
   ObligationIdentifier,
   ScenarioIdentifier,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 // 同じ型の有効値・契約違反値を両方の生成口に渡す。型違反を作るキャストは使わない。
 function contract<R extends string | number, V>(

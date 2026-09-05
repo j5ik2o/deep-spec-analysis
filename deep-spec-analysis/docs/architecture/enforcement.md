@@ -25,12 +25,12 @@ Lexical analysis uses a lightweight, hand-rolled tokenizer (`stripComments` / `s
 | Rule | Mechanical check | What counts as a violation |
 |---|---|---|
 | L1 Split by context × layer | `one-public-type-per-file` + the assertion that `locationOf` unclassified is zero | A file sits somewhere that cannot be classified |
-| L2 A layer is a package; dependencies are declared | **`manifest-dependency-direction`** | `package.json`'s `name` is not `@deep-spec/<context>-<layer>` / a `dependencies` version is not `"workspace:*"` / a self-dependency is declared / an edge outside the allowed set is declared |
+| L2 A layer is a package; dependencies are declared | **`manifest-dependency-direction`** | `package.json`'s `name` is not `@deep-spec-analysis/<context>-<layer>` / a `dependencies` version is not `"workspace:*"` / a self-dependency is declared / an edge outside the allowed set is declared |
 | L3 Dependencies point inward only | **`layer-direction`** | The imported layer is absent from the allow table `ALLOWED_LAYER_TARGETS` and also does not match the cross-context allow table `SANCTIONED_CROSS_CONTEXT` |
 | L4 kernel/infrastructure has zero dependencies | **`no-io-in-pure-layers`** (partial) | `infrastructure` imports `node:*` |
 | L5 I/O is confined to adapter and entry | **`no-io-in-pure-layers`** + **`process-only-in-entries`** | `domain` imports a `node:*` module other than `node:crypto` / `usecase` imports `node:fs`, `node:child_process`, or `node:os` / a layer file references `process.` or `import.meta` |
 | L6 The composition root is entry only | **`no-entry-imports`** + `process-only-in-entries` | A relative import resolves to one of the 10 entry files |
-| L7 The public surface is an explicit facade enumeration | **`no-export-star`** + **`no-cross-package-relative-imports`** | An `export *` declaration exists / a relative import escapes its own package |
+| L7 The public surface is an explicit facade enumeration | **`no-export-star`** + **`no-cross-package-relative-imports`** + **`no-same-package-scoped-imports`** | An `export *` declaration exists / a relative import escapes its own package / a scoped import points back into its own package |
 
 ### Domain layer (D)
 
@@ -93,7 +93,7 @@ Lexical analysis uses a lightweight, hand-rolled tokenizer (`stripComments` / `s
 | Path | Mechanism | Effect of importing an undeclared layer |
 |---|---|---|
 | **Declaration** | Listed as `"workspace:*"` in the `dependencies` of `src/<context>/<layer>/package.json` | `manifest-dependency-direction` fails |
-| **Runtime** | `bunfig.toml`'s `[install] linker = "isolated"` links only the declared layers into the `node_modules` directly under each package | Exits non-zero with `Cannot find module '@deep-spec/…'` |
+| **Runtime** | `bunfig.toml`'s `[install] linker = "isolated"` links only the declared layers into the `node_modules` directly under each package | Exits non-zero with `Cannot find module '@deep-spec-analysis/…'` |
 | **Type checking** | tsc sees the same `node_modules` | `TS2307` (module not found) |
 
 `tests/package-boundaries.test.ts` **pins the behavior of these three paths with measured evidence** — it builds a fixture in a temp directory containing nothing but symlinks to the real packages, and runs the three cases (declared / undeclared / deep-path) through both execution and type checking.

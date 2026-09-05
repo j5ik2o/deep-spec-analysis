@@ -9,9 +9,15 @@ import {
   DesignScenarioIdentifier,
   DesignTransitionIdentifier,
   LoweringIndex,
-} from "@deep-spec/design-domain";
-import { ArtifactPath, ContentHash, KeyedIndex, QueryLabel, TargetIdentifiers } from "@deep-spec/kernel-domain";
-import { IllegalArgumentException, type Json } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/design-domain";
+import {
+  ArtifactPath,
+  ContentHash,
+  KeyedIndex,
+  QueryLabel,
+  TargetIdentifiers,
+} from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException, type Json } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   AttributeDeclaration,
   AttributeDeclarations,
@@ -39,13 +45,13 @@ import {
   StateMachineSketch,
   StateNames,
   TypeName,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 import {
   buildSmtPlan,
   parseFormalModel,
   parseSmtChildResults,
   Z3SolverClientImplementation,
-} from "@deep-spec/requirements-adapter";
+} from "@deep-spec-analysis/requirements-adapter";
 import {
   BackgroundAssumptionIdentifier,
   FormalModelIdentifier,
@@ -55,7 +61,7 @@ import {
   SatisfiabilityModuloTheoriesQueryVerdicts,
   ScenarioIdentifier,
   VerificationReportIdentifier,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 type Mutable<T> = { -readonly [K in keyof T]: T[K] };
 

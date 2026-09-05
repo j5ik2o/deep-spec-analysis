@@ -1,8 +1,8 @@
-import type { Expression, FunctionalRequirementReferences, TriggerName } from "@deep-spec/kernel-domain";
-import { ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { Expression, FunctionalRequirementReferences, TriggerName } from "@deep-spec-analysis/kernel-domain";
+import { ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
-import type { ObligationIdentifier, ObligationNature } from "@deep-spec/requirements-domain";
+import type { ObligationIdentifier, ObligationNature } from "@deep-spec-analysis/requirements-domain";
 
 // 未検証の構築引数。VO・エンティティ本体とは区別する。
 type RefinementObligationParam = {

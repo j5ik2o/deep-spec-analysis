@@ -1,5 +1,5 @@
-import type { EnumerationMembers } from "@deep-spec/kernel-domain";
-import type { AttributePath } from "@deep-spec/requirements-domain";
+import type { EnumerationMembers } from "@deep-spec-analysis/kernel-domain";
+import type { AttributePath } from "@deep-spec-analysis/requirements-domain";
 
 // 要件 IR の属性宣言の refinement 面——パス・種類・enum の宣言値。計画は
 // パスの一致と enum かどうかを問い、enumMap の値域検査に宣言値を渡す

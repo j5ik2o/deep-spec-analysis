@@ -1,10 +1,10 @@
-import { KeySet, type UnitName } from "@deep-spec/kernel-domain";
+import { KeySet, type UnitName } from "@deep-spec-analysis/kernel-domain";
 import {
   IllegalArgumentException,
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { ArtifactModifiedAt } from "./artifact-modified-at.ts";
 import { CoverageState } from "./coverage-state.ts";
 import type { FunctionalUnitObservation } from "./functional-unit-observation.ts";

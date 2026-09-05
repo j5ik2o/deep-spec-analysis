@@ -1,6 +1,6 @@
-import { parseFindingsValues } from "@deep-spec/kernel-adapter";
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
-import { err, type Json, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import { parseFindingsValues } from "@deep-spec-analysis/kernel-adapter";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
+import { err, type Json, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   CrossCheckedEntries,
   CrossCheckedEntry,
@@ -11,7 +11,7 @@ import {
   VerificationSkipped,
   VerificationSkips,
   VerificationWitness,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 export function renderVerificationReportBytes(report: VerificationReport): string {
   return `${JSON.stringify(report.toDocument(), null, 2)}\n`;

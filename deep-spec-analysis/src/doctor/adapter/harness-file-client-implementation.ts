@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import type { ManifestEntry } from "@deep-spec/doctor-domain";
-import type { HarnessFileClient } from "@deep-spec/doctor-usecase";
+import type { ManifestEntry } from "@deep-spec-analysis/doctor-domain";
+import type { HarnessFileClient } from "@deep-spec-analysis/doctor-usecase";
 
 // マニフェスト実在検査の実 Gateway——harness ルート相対の existsSync。
 export class HarnessFileClientImplementation implements HarnessFileClient {

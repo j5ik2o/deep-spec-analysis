@@ -1,4 +1,4 @@
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";
 import type { SpecificationBlockAssessment } from "./specification-block-assessment.ts";
 

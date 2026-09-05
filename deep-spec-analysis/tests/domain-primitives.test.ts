@@ -10,7 +10,7 @@ import {
   TargetIdentifiers,
   UnitName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // of は契約違反を送出し、parse は同じ違反を Result に変換する。
 
@@ -29,9 +29,9 @@ import {
   DesignSkips,
   DesignVerifyDirectory,
   DesignWitness,
-} from "@deep-spec/design-domain";
-import { readContractSchema } from "@deep-spec/kernel-adapter";
-import { ReferenceCheckReportRepositoryImplementation } from "@deep-spec/refcheck-adapter";
+} from "@deep-spec-analysis/design-domain";
+import { readContractSchema } from "@deep-spec-analysis/kernel-adapter";
+import { ReferenceCheckReportRepositoryImplementation } from "@deep-spec-analysis/refcheck-adapter";
 import {
   Finding,
   Findings,
@@ -40,7 +40,7 @@ import {
   ReferenceCheckReportIdentifier,
   Skips,
   WitnessReferences,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 import {
   VerificationDirectory,
   VerificationFinding,
@@ -50,7 +50,7 @@ import {
   VerificationReports,
   VerificationSkips,
   VerificationWitness,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 const findingsSchemaPath = join(
   dirname(fileURLToPath(import.meta.url)),

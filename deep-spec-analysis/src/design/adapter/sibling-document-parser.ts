@@ -6,9 +6,9 @@ import {
   SiblingVerdictFindings,
   SiblingVerdictSkip,
   SiblingVerdictSkips,
-} from "@deep-spec/design-domain";
-import { parseFindingsValues } from "@deep-spec/kernel-adapter";
-import { combineResults, type Json, traverseResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/design-domain";
+import { parseFindingsValues } from "@deep-spec-analysis/kernel-adapter";
+import { combineResults, type Json, traverseResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 export function parseSiblingVerdictDocument(raw: Json): SiblingVerdictDocument {
   const decoded = parseFindingsValues(raw);

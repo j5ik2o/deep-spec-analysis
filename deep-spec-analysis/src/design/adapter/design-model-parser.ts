@@ -27,8 +27,8 @@ import {
   DesignUnits,
   InitialState,
   InitialStates,
-} from "@deep-spec/design-domain";
-import { decodeScenarioBindings } from "@deep-spec/kernel-adapter";
+} from "@deep-spec-analysis/design-domain";
+import { decodeScenarioBindings } from "@deep-spec-analysis/kernel-adapter";
 import {
   type Expression,
   FunctionalRequirementReferences,
@@ -36,8 +36,8 @@ import {
   RequirementIdentifier,
   TriggerName,
   UnitName,
-} from "@deep-spec/kernel-domain";
-import { flatMapResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { flatMapResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 契約3 設計 IR（生 Json）→ Parameters<typeof DesignModel.compose>[0] の寛容パース。欠損・型不一致
 // のエントリは黙って落とす（旧 parseDesignIr の凍結挙動——design-ir-valid
@@ -53,7 +53,7 @@ import {
   type Result,
   strArr,
   traverseResult,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 import { parseDesignEntities } from "./design-entities-parser.ts";
 

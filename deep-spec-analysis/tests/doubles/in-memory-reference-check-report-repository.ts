@@ -4,10 +4,10 @@
 // 持つ。契約適合は usecase が保存前に一度だけ済ませるので、ダブルは schema を
 // 持たない。
 
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import type { ReferenceCheckReport, ReferenceCheckReportIdentifier } from "@deep-spec/refcheck-domain";
-import type { ReferenceCheckReportRepository } from "@deep-spec/refcheck-usecase";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import type { ReferenceCheckReport, ReferenceCheckReportIdentifier } from "@deep-spec-analysis/refcheck-domain";
+import type { ReferenceCheckReportRepository } from "@deep-spec-analysis/refcheck-usecase";
 
 export class InMemoryReferenceCheckReportRepository implements ReferenceCheckReportRepository {
   readonly #store = new Map<string, ReferenceCheckReport>();

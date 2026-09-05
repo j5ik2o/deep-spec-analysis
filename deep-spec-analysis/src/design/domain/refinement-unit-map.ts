@@ -1,6 +1,6 @@
-import type { DesignUnitIdentifier } from "@deep-spec/design-domain";
-import type { TriggerName } from "@deep-spec/kernel-domain";
+import type { TriggerName } from "@deep-spec-analysis/kernel-domain";
 import type { AttributeMappings } from "./attribute-mappings.ts";
+import type { DesignUnitIdentifier } from "./design-unit-identifier.ts";
 import type { EventMapping } from "./event-mapping.ts";
 import type { EventMappings } from "./event-mappings.ts";
 import type { UnmappedDeclarations } from "./unmapped-declarations.ts";

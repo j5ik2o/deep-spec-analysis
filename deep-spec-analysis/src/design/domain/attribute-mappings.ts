@@ -1,5 +1,5 @@
-import type { Expression } from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import type { Expression } from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { AttributeMapping } from "./attribute-mapping.ts";
 import { RefinementMapDefect } from "./refinement-map-defect.ts";
 

@@ -1,4 +1,4 @@
-import { decodeScenarioBindings } from "@deep-spec/kernel-adapter";
+import { decodeScenarioBindings } from "@deep-spec-analysis/kernel-adapter";
 import {
   EnumerationMember,
   EnumerationMembers,
@@ -6,8 +6,8 @@ import {
   IntermediateRepresentationVersion,
   RequirementIdentifier,
   TriggerName,
-} from "@deep-spec/kernel-domain";
-import { flatMapResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { flatMapResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 契約1 IR（生 Json）→ Parameters<typeof RequirementsModel.of>[0] の寛容パース。欠損・型不一致の
 // エントリは黙って落とす（旧 parseIr の凍結挙動——ir-valid センサーが別途
@@ -23,7 +23,7 @@ import {
   type Result,
   strArr,
   traverseResult,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 import {
   AttributeBound,
@@ -42,7 +42,7 @@ import {
   Scenario,
   ScenarioIdentifier,
   Scenarios,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 // 恒等（FormalModelIdentifier）は Repository が findById の引数から注入する——
 // パーサは文書の中身しか知らない。

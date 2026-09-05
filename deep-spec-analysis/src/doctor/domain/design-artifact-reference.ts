@@ -1,4 +1,4 @@
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import type { IntentLocation } from "./intent-location.ts";
 
 type DesignArtifactReferenceParam = {

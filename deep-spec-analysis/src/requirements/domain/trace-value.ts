@@ -1,11 +1,11 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
 // TraceValue — 復号済みトレース（ITF）と scenario binding が運ぶ 1 つの値の
 // 値オブジェクト（種別規律の裁定 2、2026-09-03）。値の意味論——真偽（`true`
 // そのものだけが真）、数値化（number 以外は NaN）、等価（JSON の逐語比較）——は
 // 値自身の知識で、評価器（QuintMachineComponent）はこれを問うだけ。中身の形
 // は ITF が決める JSON 値で、文書へは `toDocument` で逐語に降りる。
 
-import { boundedValueSnapshot, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import { boundedValueSnapshot, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 type TraceValueParam =
   | null
