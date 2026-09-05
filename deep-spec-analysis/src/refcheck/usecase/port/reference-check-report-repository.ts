@@ -10,9 +10,9 @@
 // 同じ `conformedTo` の戻り値から導くことで、stdout とファイルの矛盾を
 // 構造的に防ぐ（責務は移っただけで、不変条件そのものは変わらない）。
 
-import type { Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import type { ReferenceCheckReport, ReferenceCheckReportIdentifier } from "@deep-spec/refcheck-domain";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import type { ReferenceCheckReport, ReferenceCheckReportIdentifier } from "@deep-spec-analysis/refcheck-domain";
 
 export interface ReferenceCheckReportRepository {
   findById(aggregateId: ReferenceCheckReportIdentifier): Result<ReferenceCheckReport, RepositoryError>;

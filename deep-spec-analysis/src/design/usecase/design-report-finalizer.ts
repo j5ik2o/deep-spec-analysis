@@ -1,7 +1,7 @@
-import type { DesignModel, DesignReport, DesignVerifyDirectory } from "@deep-spec/design-domain";
-import type { ArtifactPath, FindingsSchema } from "@deep-spec/kernel-domain";
-import { err, matchResult, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { DesignModel, DesignReport, DesignVerifyDirectory } from "@deep-spec-analysis/design-domain";
+import type { ArtifactPath, FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { err, matchResult, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import type { DesignVerifyDirectoryRepository } from "./port/design-verify-directory-repository.ts";
 
 // 取得・不変な最終化・保存だけを調整する。保存した集約が出力境界へ届く。

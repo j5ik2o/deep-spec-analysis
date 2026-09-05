@@ -3,8 +3,8 @@ import {
   ExpressionTree,
   FunctionalRequirementReferences,
   type TriggerName,
-} from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // 状態機械の遷移（契約3）。id はドメインプリミティブで運ぶ。
 // compile-down の暗黙部（ガード = state==from ∧ 明示ガード、効果 = state'=to
 // ∧ 明示効果、代入表の state 遷移代入）は遷移自身が所有する——lowering と

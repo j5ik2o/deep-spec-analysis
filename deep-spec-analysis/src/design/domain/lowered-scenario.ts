@@ -3,9 +3,9 @@ import type {
   FunctionalRequirementReferences,
   ScenarioBindings,
   TriggerName,
-} from "@deep-spec/kernel-domain";
-import { ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 import type { LoweredIdentifier } from "./lowered-identifier.ts";
 

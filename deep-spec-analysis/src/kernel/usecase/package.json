@@ -1,5 +1,5 @@
 {
-  "name": "@deep-spec/kernel-usecase",
+  "name": "@deep-spec-analysis/kernel-usecase",
   "version": "0.0.0",
   "private": true,
   "type": "module",

@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import { DesignFindings } from "./design-findings.ts";
 import type { DesignInputAnchors } from "./design-input-anchors.ts";
 import type { DesignReport } from "./design-report.ts";

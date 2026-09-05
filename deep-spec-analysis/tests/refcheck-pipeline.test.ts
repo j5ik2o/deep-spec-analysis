@@ -8,7 +8,7 @@ import {
   RequirementIdentifiers,
   TargetIdentifier,
   TargetIdentifiers,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // レイヤード refcheck パイプラインの in-process 検証（PR2b/PR3 前段、#15）。
 //
@@ -26,7 +26,7 @@ import { cpSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { readContractSchema } from "@deep-spec/kernel-adapter";
+import { readContractSchema } from "@deep-spec-analysis/kernel-adapter";
 
 // テスト用: 検証済みパス VO の短縮構築（fixture パスは常に非空）。
 function ap(raw: string): ArtifactPath {
@@ -35,7 +35,7 @@ function ap(raw: string): ArtifactPath {
   return parsed.value;
 }
 
-import type { Result } from "@deep-spec/kernel-infrastructure";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   DesignRecordRepositoryImplementation,
   parseComponentCatalog,
@@ -45,7 +45,7 @@ import {
   parseRulesDocument,
   ReferenceCheckReportRepositoryImplementation,
   renderReportBytes,
-} from "@deep-spec/refcheck-adapter";
+} from "@deep-spec-analysis/refcheck-adapter";
 import {
   AttributeName,
   AttributeNames,
@@ -73,12 +73,12 @@ import {
   SpecificationBlockAssessments,
   UnitName,
   WitnessReferences,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 import {
   CheckContractSummaryUseCase,
   CheckDomainComponentsUseCase,
   CheckFunctionalDesignUseCase,
-} from "@deep-spec/refcheck-usecase";
+} from "@deep-spec-analysis/refcheck-usecase";
 import { InMemoryReferenceCheckReportRepository } from "./doubles/in-memory-reference-check-report-repository.ts";
 
 const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..");

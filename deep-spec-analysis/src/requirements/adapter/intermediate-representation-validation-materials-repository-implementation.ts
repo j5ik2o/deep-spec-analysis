@@ -3,7 +3,7 @@ import {
   extractFences,
   readContractSchema,
   writeFileAtomically,
-} from "@deep-spec/kernel-adapter";
+} from "@deep-spec-analysis/kernel-adapter";
 import {
   ArtifactPath,
   AttributeKind,
@@ -16,8 +16,8 @@ import {
   type Expression,
   IntermediateRepresentationVersion,
   RequirementIdentifier,
-} from "@deep-spec/kernel-domain";
-import { flatMapResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { flatMapResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 契約1 IR の検査材料ゲートウェイ。markdown フェンスの抽出、JSON 解釈、
 // 契約スキーマの適用、そして「生 Json をどう寛容に読むか」をここに閉じ込め、
@@ -38,9 +38,9 @@ import {
   type Result,
   traverseResult,
   validateSchema,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import {
   BackgroundAssumptionIdentifier,
   FunctionalRequirementReferenceClaim,
@@ -65,8 +65,8 @@ import {
   ObligationIdentifier,
   RequirementsSourceIdentifier,
   ScenarioIdentifier,
-} from "@deep-spec/requirements-domain";
-import type { IntermediateRepresentationValidationMaterialsRepository } from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-domain";
+import type { IntermediateRepresentationValidationMaterialsRepository } from "@deep-spec-analysis/requirements-usecase";
 import type { IntermediateRepresentationValidationMaterialsConfiguration } from "./intermediate-representation-validation-materials-configuration.ts";
 
 const FORMAL_MODEL_BASENAME = "deep-spec-analysis-formal-model.md";

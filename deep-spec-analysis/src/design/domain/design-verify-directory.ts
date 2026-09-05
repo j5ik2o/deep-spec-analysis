@@ -14,8 +14,8 @@
 //     瞬間に古いクロスチェックは「いまの reports から導いたもの」でなくなる
 //     ので、finalizing は必ずそれを落とす（BR2.2／BR2.5）
 
-import type { ArtifactPath, ContentHash, FindingsSchema } from "@deep-spec/kernel-domain";
-import { IllegalArgumentException } from "@deep-spec/kernel-infrastructure";
+import type { ArtifactPath, ContentHash, FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException } from "@deep-spec-analysis/kernel-infrastructure";
 import type { DesignModel } from "./design-model.ts";
 import type { DesignReport } from "./design-report.ts";
 import { DesignReportIdentifier } from "./design-report-identifier.ts";

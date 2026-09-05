@@ -1,4 +1,4 @@
-import { TargetIdentifier, TargetIdentifiers, UnitName } from "@deep-spec/kernel-domain";
+import { TargetIdentifier, TargetIdentifiers, UnitName } from "@deep-spec-analysis/kernel-domain";
 
 // CheckedUnits — 設計レポートの checked[]（検査済みユニット名）のファースト
 // クラスコレクション。要素は UnitName（裁定 3-1、2026-09-03）。正準一意化は

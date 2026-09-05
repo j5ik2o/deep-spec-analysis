@@ -4,7 +4,7 @@ import {
   IntermediateRepresentationVersion,
   SkipReason,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // VerificationReport 集約 — v1 バックエンド（smt / quint / cross-check）の
 // 検証結果文書（契約2）のドメイン表現。compose が正準ソートを所有し、
@@ -13,7 +13,7 @@ import {
 // degraded は契約適合の降格形（findings/skipped/crossChecked を空にして
 // unavailable 理由だけ残す——旧 writeFindingsDoc の自己検証降格と同じ姿）。
 
-import type { Json } from "@deep-spec/kernel-infrastructure";
+import type { Json } from "@deep-spec-analysis/kernel-infrastructure";
 import type { CrossCheckedEntries } from "./cross-checked-entries.ts";
 import type { RequirementsModel } from "./requirements-model.ts";
 import { VerificationFindings } from "./verification-findings.ts";

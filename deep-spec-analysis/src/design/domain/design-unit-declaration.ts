@@ -1,4 +1,4 @@
-import { type Expression, ExpressionTree, TargetIdentifier } from "@deep-spec/kernel-domain";
+import { type Expression, ExpressionTree, TargetIdentifier } from "@deep-spec-analysis/kernel-domain";
 import { BusinessRuleReference } from "./business-rule-reference.ts";
 import { BusinessRuleReferenceIndex } from "./business-rule-reference-index.ts";
 import type { BusinessRuleReferences } from "./business-rule-references.ts";

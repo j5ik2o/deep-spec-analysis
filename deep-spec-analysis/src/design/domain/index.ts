@@ -11,7 +11,7 @@ export {
   ObligationIdentifier,
   ObligationNature,
   ScenarioIdentifier,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 export { AttributeMapping } from "./attribute-mapping.ts";
 export { AttributeMappings } from "./attribute-mappings.ts";
 export { AttributePaths } from "./attribute-paths.ts";

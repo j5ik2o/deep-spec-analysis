@@ -13,9 +13,9 @@ import {
   StageScopes,
   UnitCoverage,
   VerificationObservation,
-} from "@deep-spec/doctor-domain";
-import type { DoctorWorkspaceClient } from "@deep-spec/doctor-usecase";
-import { ArtifactPath, ContentHash, UnitName } from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/doctor-domain";
+import type { DoctorWorkspaceClient } from "@deep-spec-analysis/doctor-usecase";
+import { ArtifactPath, ContentHash, UnitName } from "@deep-spec-analysis/kernel-domain";
 import type { DoctorWorkspaceClientConfiguration } from "./doctor-workspace-client-configuration.ts";
 
 // aidlc ワークスペース走査の実 Gateway。旧 doctor の scopesOfStage /

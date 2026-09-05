@@ -1,4 +1,4 @@
-import type { SkipReason } from "@deep-spec/kernel-domain";
+import type { SkipReason } from "@deep-spec-analysis/kernel-domain";
 import type { LoweredIdentifier } from "./lowered-identifier.ts";
 
 // 兄弟バックエンドの v1 文書が運ぶ skip（lowered 語彙）。remap が設計語彙へ

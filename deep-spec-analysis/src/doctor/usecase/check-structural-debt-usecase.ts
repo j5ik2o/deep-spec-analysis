@@ -1,4 +1,4 @@
-import { StructuralDebt, type StructuralObservation } from "@deep-spec/doctor-domain";
+import { StructuralDebt, type StructuralObservation } from "@deep-spec-analysis/doctor-domain";
 import type { DoctorWorkspaceClient } from "./port/doctor-workspace-client.ts";
 import type { ReferenceCheckBackendClient } from "./port/reference-check-backend-client.ts";
 

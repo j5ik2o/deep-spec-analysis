@@ -3,9 +3,9 @@ import {
   type DesignModelIdentifier,
   DesignReport,
   type DesignReportIdentifier,
-} from "@deep-spec/design-domain";
-import type { ArtifactPath, VerificationMethod } from "@deep-spec/kernel-domain";
-import { err, matchResult, ok, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/design-domain";
+import type { ArtifactPath, VerificationMethod } from "@deep-spec-analysis/kernel-domain";
+import { err, matchResult, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { DesignAcquisitionTerminal } from "./design-acquisition-terminal.ts";
 import type { DesignReportFinalizer } from "./design-report-finalizer.ts";
 import type { DesignModelRepository } from "./port/design-model-repository.ts";

@@ -3,7 +3,7 @@ import { FunctionalRequirementReferenceClaims } from "./functional-requirement-r
 //（逆引き検証の材料）。キーは RequirementIdentifier、値は FunctionalRequirementReferenceClaims、内側は KeyedIndex
 //（裁定 3-1、2026-09-03）。claim の集約は構築の門で行い、索引は不変。
 
-import { KeyedIndex, RequirementIdentifier, type RequirementIdentifiers } from "@deep-spec/kernel-domain";
+import { KeyedIndex, RequirementIdentifier, type RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { FunctionalRequirementReferenceClaim } from "./functional-requirement-reference-claim.ts";
 
 export class FunctionalRequirementReferenceIndex {

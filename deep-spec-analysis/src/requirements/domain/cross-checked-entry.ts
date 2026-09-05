@@ -1,4 +1,4 @@
-import type { BackendName, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import type { BackendName, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 
 // クロスチェックに参加したバックエンドと、比較したシナリオの対象 id 列
 // （契約2 crossChecked[]）。バックエンド名順（凍結順）は項目自身の知識

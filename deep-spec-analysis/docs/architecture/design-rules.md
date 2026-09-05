@@ -54,7 +54,7 @@ These three things — **frozen output contracts**, **untrustworthy external pro
 
 ### L2 — Layers are independent packages; dependencies are declared in the manifest
 
-**Rule**: Each `src/<context>/<layer>/` is an independent package (`@deep-spec/<context>-<layer>`) with its own `package.json`. To use another layer, declare it in `dependencies` with `"workspace:*"`. An undeclared layer cannot be imported.
+**Rule**: Each `src/<context>/<layer>/` is an independent package (`@deep-spec-analysis/<context>-<layer>`) with its own `package.json`. To use another layer, declare it in `dependencies` with `"workspace:*"`. An undeclared layer cannot be imported.
 
 **Why**: This makes package resolution — not attentiveness — enforce the direction of dependency. Remove the declaration and the import breaks, so the boundary holds at runtime.
 
@@ -112,7 +112,7 @@ These three things — **frozen output contracts**, **untrustworthy external pro
 
 **In this repository**: Every `index.ts` opens with "explicit enumeration only (`export *` forbidden)," and measurement confirms zero `export *` declarations. Deep-path imports fail to resolve because `package.json`'s `exports` is only `"." : "./index.ts"`.
 
-**Check**: `no-export-star`, `no-cross-package-relative-imports`.
+**Check**: `no-export-star`, `no-cross-package-relative-imports`, `no-same-package-scoped-imports`.
 
 ---
 
@@ -586,7 +586,6 @@ Places where a rule is not being kept are recorded here as known. This is writte
 | The public surface of a closed union | Split between `match<T>` (refcheck) and predicate groups (requirements' `*Verdict`) (D10 not achieved) |
 | `HealthVerdict.document()` | The only conversion not named `toDocument()` |
 | `Ref` and `Reference`, `compareTo` and `compareBy*` | Vocabulary drifts (N5 not achieved) |
-| 17 lines in `design/domain` | Reach a file in the same package via a bare specifier (`@deep-spec/design-domain`). L7's requirement that same-package imports be relative is not achieved, concentrated in files belonging to the unified refinement family. One file (`design-event-catalog.ts`) mixes relative and bare in the same file |
 | The coverage configuration in `bunfig.toml` | The comment says "domain layer only," but `kernel/usecase` and `kernel/infrastructure` are missing from the exclusion list and are, in fact, subject to the floor |
 
 ### On domain events

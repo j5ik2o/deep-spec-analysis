@@ -5,8 +5,8 @@ import type {
   StructuralDebt,
   UnitCoverage,
   VersionAdvisory,
-} from "@deep-spec/doctor-domain";
-import { Check, CheckSeverity } from "@deep-spec/doctor-domain";
+} from "@deep-spec-analysis/doctor-domain";
+import { Check, CheckSeverity } from "@deep-spec-analysis/doctor-domain";
 
 // doctor 検査行の presenter——label/fix の凍結文言はすべてここに封じる
 //（移行 PR9、#22）。installer（scripts/install.ts）が grep する部分文字列

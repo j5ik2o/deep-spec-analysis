@@ -1,4 +1,4 @@
-import { type QueryLabel, TargetIdentifiers, type TriggerName } from "@deep-spec/kernel-domain";
+import { type QueryLabel, TargetIdentifiers, type TriggerName } from "@deep-spec-analysis/kernel-domain";
 import type { ObligationIdentifier } from "./obligation-identifier.ts";
 import type { SatisfiabilityModuloTheoriesQueryVerdicts } from "./satisfiability-modulo-theories-query-verdicts.ts";
 

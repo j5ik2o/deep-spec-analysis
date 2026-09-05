@@ -28,7 +28,7 @@ import {
   InitialStates,
   SUPPORTED_DESIGN_IR_MAJOR,
   UnformalizedTargets,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 import {
   decodeDeclaredBindings,
   extractFences,
@@ -36,7 +36,7 @@ import {
   readContractSchema,
   readIfExists,
   writeFileAtomically,
-} from "@deep-spec/kernel-adapter";
+} from "@deep-spec-analysis/kernel-adapter";
 import {
   ErrorMessage,
   ErrorMessages,
@@ -44,8 +44,8 @@ import {
   IntermediateRepresentationVersion,
   TargetIdentifier,
   TriggerName,
-} from "@deep-spec/kernel-domain";
-import { flatMapResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { flatMapResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 契約3 設計 IR の検査材料ゲートウェイ。markdown フェンスの抽出、JSON 解釈、
 // 契約スキーマの適用、生 Json の寛容な解体、そしてユニットごとの BR 材料
@@ -58,7 +58,7 @@ import { flatMapResult } from "@deep-spec/kernel-infrastructure";
 
 import { existsSync, readFileSync } from "node:fs";
 import { basename, dirname, join } from "node:path";
-import type { DesignIntermediateRepresentationValidationMaterialsRepository } from "@deep-spec/design-usecase";
+import type { DesignIntermediateRepresentationValidationMaterialsRepository } from "@deep-spec-analysis/design-usecase";
 import {
   combineResults,
   err,
@@ -69,8 +69,8 @@ import {
   err as repoErr,
   traverseResult,
   validateSchema,
-} from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+} from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import { parseDesignEntities } from "./design-entities-parser.ts";
 import type { DesignIntermediateRepresentationValidationMaterialsConfiguration } from "./design-intermediate-representation-validation-materials-configuration.ts";
 

@@ -1,4 +1,4 @@
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import { CheckSeverity } from "./check-severity.ts";
 
 // 設置台帳の 1 エントリ——harness 相対パスと、欠けたときの深刻度。

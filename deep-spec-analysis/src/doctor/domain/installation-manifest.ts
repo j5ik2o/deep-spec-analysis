@@ -1,4 +1,4 @@
-import { ArtifactPath } from "@deep-spec/kernel-domain";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import { ManifestEntry } from "./manifest-entry.ts";
 
 const err = (rel: string): ManifestEntry => ManifestEntry.error(ArtifactPath.of(rel));

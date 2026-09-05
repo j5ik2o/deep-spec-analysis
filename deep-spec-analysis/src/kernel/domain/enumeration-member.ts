@@ -1,10 +1,10 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   compareCanonically,
   IllegalArgumentException,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // 列挙宣言のメンバー。所属する列挙内ではリテラルで同定する。
 export class EnumerationMember {

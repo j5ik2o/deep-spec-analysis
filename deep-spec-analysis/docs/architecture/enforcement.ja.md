@@ -25,12 +25,12 @@
 | 規則 | 機械検査 | 何を違反とするか |
 |---|---|---|
 | L1 文脈 × 層で切る | `one-public-type-per-file` ＋ `locationOf` 未分類ゼロの表明 | 分類できない場所にファイルがある |
-| L2 層はパッケージ、依存は宣言 | **`manifest-dependency-direction`** | `package.json` の `name` が `@deep-spec/<文脈>-<層>` でない／`dependencies` のバージョンが `"workspace:*"` でない／自己宣言／許可外の辺を宣言 |
+| L2 層はパッケージ、依存は宣言 | **`manifest-dependency-direction`** | `package.json` の `name` が `@deep-spec-analysis/<文脈>-<層>` でない／`dependencies` のバージョンが `"workspace:*"` でない／自己宣言／許可外の辺を宣言 |
 | L3 依存は内向きだけ | **`layer-direction`** | import 先の層が許可表 `ALLOWED_LAYER_TARGETS` に無く、横断許可表 `SANCTIONED_CROSS_CONTEXT` にも該当しない |
 | L4 kernel/infrastructure は依存ゼロ | **`no-io-in-pure-layers`**（一部） | `infrastructure` が `node:*` を import する |
 | L5 I/O は adapter と entry だけ | **`no-io-in-pure-layers`** ＋ **`process-only-in-entries`** | `domain` が `node:crypto` 以外の `node:*` を import／`usecase` が `node:fs`・`node:child_process`・`node:os` を import／層のファイルが `process.` か `import.meta` を参照 |
 | L6 合成ルートは entry だけ | **`no-entry-imports`** ＋ `process-only-in-entries` | 相対 import の解決先が 10 本の entry のいずれかに一致する |
-| L7 公開面は facade の明示列挙 | **`no-export-star`** ＋ **`no-cross-package-relative-imports`** | `export *` 宣言がある／相対 import が自パッケージの外に出る |
+| L7 公開面は facade の明示列挙 | **`no-export-star`** ＋ **`no-cross-package-relative-imports`** ＋ **`no-same-package-scoped-imports`** | `export *` 宣言がある／相対 import が自パッケージの外に出る／自パッケージをスコープ名で参照する |
 
 ### ドメイン層（D）
 
@@ -93,7 +93,7 @@
 | 経路 | 仕組み | 未宣言の層を import すると |
 |---|---|---|
 | **宣言** | `src/<文脈>/<層>/package.json` の `dependencies` に `"workspace:*"` で列挙 | `manifest-dependency-direction` が落ちる |
-| **実行時** | `bunfig.toml` の `[install] linker = "isolated"` により、各パッケージ直下の `node_modules` には宣言した層だけがリンクされる | `Cannot find module '@deep-spec/…'` で非ゼロ終了 |
+| **実行時** | `bunfig.toml` の `[install] linker = "isolated"` により、各パッケージ直下の `node_modules` には宣言した層だけがリンクされる | `Cannot find module '@deep-spec-analysis/…'` で非ゼロ終了 |
 | **型検査** | 同じ `node_modules` を tsc が見る | `TS2307`（モジュールが見つからない） |
 
 `tests/package-boundaries.test.ts` が、この 3 経路の挙動を**実測で固定**している——一時ディレクトリに実際のパッケージへのシンボリックリンクだけを張った fixture を組み、宣言済み／未宣言／深いパスの 3 通りを実行と型検査の両方にかける。

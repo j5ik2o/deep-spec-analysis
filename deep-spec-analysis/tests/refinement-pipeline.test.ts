@@ -70,7 +70,7 @@ import {
   UnmappedDeclarations,
   UnmappedTarget,
   UnmappedTargetReference,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 import {
   ArtifactPath,
   AttributeKind,
@@ -86,7 +86,7 @@ import {
   RequirementIdentifier,
   TargetIdentifier,
   TriggerName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { scenarioBindings } from "./binding-fixtures.ts";
 
 // レイヤード refinement パイプラインの in-process 検証（PR6、#19）。
@@ -106,8 +106,8 @@ import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:f
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { readContractSchema, SystemClock } from "@deep-spec/kernel-adapter";
-import type { Json } from "@deep-spec/kernel-infrastructure";
+import { readContractSchema, SystemClock } from "@deep-spec-analysis/kernel-adapter";
+import type { Json } from "@deep-spec-analysis/kernel-infrastructure";
 
 import {
   AttributePath,
@@ -115,7 +115,7 @@ import {
   ObligationIdentifier,
   ObligationNature,
   ScenarioIdentifier,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 // テスト用: 検証済みパス VO の短縮構築（fixture パスは常に非空）。
 function ap(raw: string): ArtifactPath {
@@ -135,10 +135,13 @@ import {
   type RefinementSatisfiabilityModuloTheoriesContext,
   RefinementSolverClientImplementation,
   SiblingBackendClientImplementation,
-} from "@deep-spec/design-adapter";
-import { VerifyDesignQuintUseCase, VerifyDesignSatisfiabilityModuloTheoriesUseCase } from "@deep-spec/design-usecase";
+} from "@deep-spec-analysis/design-adapter";
+import {
+  VerifyDesignQuintUseCase,
+  VerifyDesignSatisfiabilityModuloTheoriesUseCase,
+} from "@deep-spec-analysis/design-usecase";
 
-import { buildSmtPlan, FormalModelRepositoryImplementation } from "@deep-spec/requirements-adapter";
+import { buildSmtPlan, FormalModelRepositoryImplementation } from "@deep-spec-analysis/requirements-adapter";
 
 // 被覆状態は class（#71 波22）——期待値は公開の面（checkable / gap / skip）から平文へ射影して比較する。
 const plainStatus = (st: RefinementStatus | undefined) => {

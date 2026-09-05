@@ -27,8 +27,8 @@
 import { randomBytes } from "node:crypto";
 import { mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
-import type { Clock } from "@deep-spec/kernel-usecase";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
+import type { Clock } from "@deep-spec-analysis/kernel-usecase";
 import type { DirectoryFinalizationLockOutcome } from "./directory-finalization-lock-outcome.ts";
 import type { ProcessLiveness } from "./process-liveness.ts";
 

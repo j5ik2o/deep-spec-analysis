@@ -1,5 +1,5 @@
 {
-  "name": "@deep-spec/design-adapter",
+  "name": "@deep-spec-analysis/design-adapter",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,11 +7,11 @@
     ".": "./index.ts"
   },
   "dependencies": {
-    "@deep-spec/design-domain": "workspace:*",
-    "@deep-spec/design-usecase": "workspace:*",
-    "@deep-spec/kernel-adapter": "workspace:*",
-    "@deep-spec/kernel-domain": "workspace:*",
-    "@deep-spec/kernel-infrastructure": "workspace:*",
-    "@deep-spec/kernel-usecase": "workspace:*"
+    "@deep-spec-analysis/design-domain": "workspace:*",
+    "@deep-spec-analysis/design-usecase": "workspace:*",
+    "@deep-spec-analysis/kernel-adapter": "workspace:*",
+    "@deep-spec-analysis/kernel-domain": "workspace:*",
+    "@deep-spec-analysis/kernel-infrastructure": "workspace:*",
+    "@deep-spec-analysis/kernel-usecase": "workspace:*"
   }
 }

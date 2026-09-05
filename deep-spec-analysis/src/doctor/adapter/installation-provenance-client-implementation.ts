@@ -1,8 +1,13 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { InstallationProvenance, InstallationSource, InstalledRelease, PluginVersion } from "@deep-spec/doctor-domain";
-import type { InstallationProvenanceClient } from "@deep-spec/doctor-usecase";
-import { ArtifactPath, ErrorMessage } from "@deep-spec/kernel-domain";
+import {
+  InstallationProvenance,
+  InstallationSource,
+  InstalledRelease,
+  PluginVersion,
+} from "@deep-spec-analysis/doctor-domain";
+import type { InstallationProvenanceClient } from "@deep-spec-analysis/doctor-usecase";
+import { ArtifactPath, ErrorMessage } from "@deep-spec-analysis/kernel-domain";
 
 export class InstallationProvenanceClientImplementation implements InstallationProvenanceClient {
   readonly #path: string;

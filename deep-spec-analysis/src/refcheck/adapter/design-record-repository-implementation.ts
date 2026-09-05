@@ -4,7 +4,7 @@ import {
   readIfExists,
   relArtifact,
   writeFileAtomically,
-} from "@deep-spec/kernel-adapter";
+} from "@deep-spec-analysis/kernel-adapter";
 
 // DesignRecordRepository の実 Gateway 実装。
 // record ルートの発見・関連成果物の読取・解析（形式知識）をここに集約し、
@@ -16,18 +16,18 @@ import {
 
 import { readFileSync } from "node:fs";
 import { basename, dirname, join } from "node:path";
-import { ArtifactPath, ContentHash, RequirementIdentifiers } from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import { ArtifactPath, ContentHash, RequirementIdentifiers } from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import {
   DesignRecord,
   type DesignRecordIdentifier,
   InputAnchor,
   InputAnchors,
   UnitName,
-} from "@deep-spec/refcheck-domain";
-import type { DesignRecordRepository } from "@deep-spec/refcheck-usecase";
+} from "@deep-spec-analysis/refcheck-domain";
+import type { DesignRecordRepository } from "@deep-spec-analysis/refcheck-usecase";
 import { parseComponentCatalog } from "./component-catalog-parser.ts";
 import { assessSpecBlocks, parseContractsTable, parseDeclaredUnits } from "./contract-summary-parser.ts";
 import {

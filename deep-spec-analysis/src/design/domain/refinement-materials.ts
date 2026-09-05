@@ -3,7 +3,7 @@
 // ルートまたは要件モデルが存在しない場合）だけを表す。取得失敗や不正入力は
 // Repository port の Result で運び、この集約の正当な状態に混ぜない。
 
-import { SkipReason, UnitName } from "@deep-spec/kernel-domain";
+import { SkipReason, UnitName } from "@deep-spec-analysis/kernel-domain";
 import { DesignInputAnchors } from "./design-input-anchors.ts";
 import type { DesignModel } from "./design-model.ts";
 import { DesignSkipped } from "./design-skipped.ts";

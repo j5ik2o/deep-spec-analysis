@@ -10,9 +10,9 @@
 //     mapArtifact（witness refs に載る相対パス）を運ぶ
 // 陳腐化・欠落・ユニット帰属の判定は取得されたRefinementMaterialsが所有する。
 
-import type { RefinementMaterials, RefinementMaterialsIdentifier } from "@deep-spec/design-domain";
-import type { Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { RefinementMaterials, RefinementMaterialsIdentifier } from "@deep-spec-analysis/design-domain";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 export interface RefinementMaterialsRepository {
   findById(id: RefinementMaterialsIdentifier): Result<RefinementMaterials, RepositoryError>;

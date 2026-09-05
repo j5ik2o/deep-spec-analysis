@@ -1,6 +1,6 @@
-import { PluginVersion, ReleaseCatalog, StableReleases } from "@deep-spec/doctor-domain";
-import type { ReleaseTagsClient } from "@deep-spec/doctor-usecase";
-import { ErrorMessage } from "@deep-spec/kernel-domain";
+import { PluginVersion, ReleaseCatalog, StableReleases } from "@deep-spec-analysis/doctor-domain";
+import type { ReleaseTagsClient } from "@deep-spec-analysis/doctor-usecase";
+import { ErrorMessage } from "@deep-spec-analysis/kernel-domain";
 import type { GitHubReleaseTagsClientConfiguration } from "./git-hub-release-tags-client-configuration.ts";
 
 type ReleaseTagsResponseParam =

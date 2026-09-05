@@ -6,7 +6,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // 未検証の入力表現。Declarationクラスと区別し、他のドメイン型の構築引数にはしない。
 type DeclarationParam = Json;

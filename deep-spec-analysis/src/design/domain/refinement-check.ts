@@ -1,4 +1,4 @@
-import { type ErrorMessage, SkipReason } from "@deep-spec/kernel-domain";
+import { type ErrorMessage, SkipReason } from "@deep-spec-analysis/kernel-domain";
 import type { DesignReport } from "./design-report.ts";
 import type { RefinementQueryVerdicts } from "./refinement-query-verdicts.ts";
 import type { RefinementSolverPlan } from "./refinement-solver-plan.ts";

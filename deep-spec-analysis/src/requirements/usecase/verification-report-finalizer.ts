@@ -1,7 +1,11 @@
-import type { ArtifactPath, FindingsSchema } from "@deep-spec/kernel-domain";
-import { flatMapResult, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import type { RequirementsModel, VerificationDirectory, VerificationReport } from "@deep-spec/requirements-domain";
+import type { ArtifactPath, FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { flatMapResult, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import type {
+  RequirementsModel,
+  VerificationDirectory,
+  VerificationReport,
+} from "@deep-spec-analysis/requirements-domain";
 import type { VerificationDirectoryRepository } from "./port/verification-directory-repository.ts";
 
 // 保存済み集約を返すCQS例外。適合・クロスチェックは集約が所有し、ここは取得と保存を調整する。

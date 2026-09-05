@@ -4,8 +4,8 @@
 // ReferenceCheckReport を受け取り、適合（conformedTo）→ 永続化を起動する。
 // inputs[] は集約が凍結取得規則で解決済みの文書から自分で記録する。
 
-import type { FindingsSchema } from "@deep-spec/kernel-domain";
-import { matchResult } from "@deep-spec/kernel-infrastructure";
+import type { FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { matchResult } from "@deep-spec-analysis/kernel-infrastructure";
 import type { CheckFunctionalDesignInput } from "./check-functional-design-input.ts";
 import type { CheckOutcome } from "./check-outcome.ts";
 import type { DesignRecordRepository } from "./port/design-record-repository.ts";

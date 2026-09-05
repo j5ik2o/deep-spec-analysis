@@ -3,7 +3,7 @@
 // Repository が not-found / not-applicable で答える——ID は指すだけで、指した
 // 先に集約が実在するかは解決の結果である。
 
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 export class FormalModelIdentifier {
   readonly #path: ArtifactPath;

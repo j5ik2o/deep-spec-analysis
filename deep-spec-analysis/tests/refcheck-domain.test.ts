@@ -6,7 +6,7 @@ import {
   SkipReason,
   TargetIdentifier,
   TargetIdentifiers,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // refcheck/domain の単体テスト（DDD 移行 PR2a、issue #15）。
 // カタログ順序は golden バイトを決める凍結挙動——順位・タイブレークを固定する。
@@ -82,7 +82,7 @@ import {
   UnitNames,
   WitnessReference,
   WitnessReferences,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 
 function finding(kind: string, targets: string[], detail: string): Finding {
   return Finding.of({

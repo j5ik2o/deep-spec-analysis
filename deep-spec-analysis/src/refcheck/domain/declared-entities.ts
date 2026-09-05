@@ -1,4 +1,4 @@
-import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { EntityDeclarations } from "./entity-declarations.ts";
 import { FD_E1, FD_E2, FD_E3, FD_E4, FD_E5, FD_E6 } from "./functional-check-families.ts";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";

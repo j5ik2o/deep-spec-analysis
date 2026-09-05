@@ -5,7 +5,7 @@ import type {
   ReachabilityVerdict,
   SiblingVerificationResult,
   UnitRefinementPlan,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 
 export interface SiblingBackendClient {
   runLowered(

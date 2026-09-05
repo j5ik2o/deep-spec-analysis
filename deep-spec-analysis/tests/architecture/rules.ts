@@ -34,9 +34,9 @@ const CONTEXTS = ["kernel", "requirements", "design", "refinement", "refcheck", 
 const LAYERS = ["infrastructure", "domain", "usecase", "adapter"] as const;
 
 // 層パッケージの bare specifier の接頭辞。src/<ctx>/<layer>/ の 17 層は
-// それぞれ workspace パッケージ @deep-spec/<ctx>-<layer> で、層をまたぐ辺は
-// この形だけで書く（src/entries/ は @deep-spec/entries）。
-const PACKAGE_SCOPE = "@deep-spec/";
+// それぞれ workspace パッケージ @deep-spec-analysis/<ctx>-<layer> で、層をまたぐ辺は
+// この形だけで書く（src/entries/ は @deep-spec-analysis/entries）。
+const PACKAGE_SCOPE = "@deep-spec-analysis/";
 
 type Layer = (typeof LAYERS)[number];
 
@@ -174,8 +174,8 @@ export function importSpecifiers(rawSource: string): string[] {
   return specs;
 }
 
-// bare specifier のターゲットを分類する。@deep-spec/<ctx>-<layer> は層
-// パッケージ、@deep-spec/entries は合成ルート、それ以外（node:* や公認 npm）は
+// bare specifier のターゲットを分類する。@deep-spec-analysis/<ctx>-<layer> は層
+// パッケージ、@deep-spec-analysis/entries は合成ルート、それ以外（node:* や公認 npm）は
 // 層規律の対象外＝null。
 function packageLocationOf(specifier: string): Location | "entry" | null {
   if (!specifier.startsWith(PACKAGE_SCOPE)) return null;
@@ -222,8 +222,8 @@ export function noTestPayloads(relPath: string, _source: string): Violation[] {
 }
 
 // ルール: 外部依存を持ち込まない。許されるのは node:* / パッケージ内の相対
-// import / 層パッケージの bare specifier（@deep-spec/*）/ 公認の optional
-// 依存（z3-solver の動的 import）のみ。@deep-spec/* の行き先が実在する層かは
+// import / 層パッケージの bare specifier（@deep-spec-analysis/*）/ 公認の optional
+// 依存（z3-solver の動的 import）のみ。@deep-spec-analysis/* の行き先が実在する層かは
 // layer-direction が、パッケージの外へ出る相対 import は
 // no-cross-package-relative-imports が受け持つ。
 const ALLOWED_NPM: ReadonlySet<string> = new Set(["z3-solver"]);
@@ -268,7 +268,7 @@ export function noEntryImports(relPath: string, source: string): Violation[] {
 }
 
 // ルール: パッケージの外へ出る相対 import を禁じる（FR1.5）。層をまたぐ辺は
-// bare specifier（@deep-spec/<ctx>-<layer>）で書く——相対で潜り込むと isolated
+// bare specifier（@deep-spec-analysis/<ctx>-<layer>）で書く——相対で潜り込むと isolated
 // linker が張った「宣言済みの依存だけ」というゲートを迂回でき、層規律が実行時に
 // 素通りする。パッケージ内（自分の <ctx>/<layer>/ 配下、entry なら entries/
 // 配下）に閉じる相対 import だけが通る。
@@ -287,6 +287,21 @@ export function noCrossPackageRelativeImports(relPath: string, source: string): 
     });
   }
   return out;
+}
+
+// 自分自身のfacadeへ戻るimportも禁じ、内部参照は相対パスへ統一する。
+export function noSamePackageScopedImports(relPath: string, source: string): Violation[] {
+  const location = locationOf(relPath);
+  if (location === null || location === "data") return [];
+  const ownPackage =
+    location === "entry" ? `${PACKAGE_SCOPE}entries` : `${PACKAGE_SCOPE}${location.context}-${location.layer}`;
+  return importSpecifiers(source)
+    .filter((specifier) => specifier === ownPackage || specifier.startsWith(`${ownPackage}/`))
+    .map((specifier) => ({
+      path: relPath,
+      rule: "no-same-package-scoped-imports",
+      detail: `import "${specifier}" refers to its own package — use a relative path inside the package`,
+    }));
 }
 
 // ルール: domain 層は I/O を知らない。node:* は node:crypto（純計算の sha256）
@@ -924,7 +939,7 @@ export function layerDirection(relPath: string, source: string): Violation[] {
     const targetLoc = relative ? locationOf(target) : packageLocationOf(spec);
     if (targetLoc === null) {
       // 未分類ターゲット（src/ 外への脱出、層に属さないファイル、層パッケージで
-      // ない @deep-spec/*）を素通しにすると検査全体の回避経路になるため
+      // ない @deep-spec-analysis/*）を素通しにすると検査全体の回避経路になるため
       // 違反にする。
       out.push({ path: relPath, rule: "layer-direction", detail: `layered file imports unclassified "${target}"` });
       continue;
@@ -955,7 +970,7 @@ export function layerDirection(relPath: string, source: string): Violation[] {
 // 同じ事実を指すことを固定する。
 //
 // relPath は src/ からの相対（`<ctx>/<layer>/package.json`）。
-const LAYER_PACKAGE_NAME = /^@deep-spec\/([a-z]+)-([a-z]+)$/;
+const LAYER_PACKAGE_NAME = /^@deep-spec-analysis\/([a-z]+)-([a-z]+)$/;
 
 export function manifestDependencyDirection(
   relPath: string,
@@ -976,7 +991,7 @@ export function manifestDependencyDirection(
       { path: relPath, rule, detail: `not a layer package manifest (expected "<context>/<layer>/package.json")` },
     ];
   }
-  const expectedName = `@deep-spec/${context}-${layer}`;
+  const expectedName = `@deep-spec-analysis/${context}-${layer}`;
   if (manifest.name !== expectedName) {
     out.push({
       path: relPath,
@@ -998,7 +1013,7 @@ export function manifestDependencyDirection(
       !(CONTEXTS as readonly string[]).includes(targetContext) ||
       !(LAYERS as readonly string[]).includes(targetLayer)
     ) {
-      // 層パッケージ以外を宣言する経路は塞ぐ——合成ルート（@deep-spec/entries）も
+      // 層パッケージ以外を宣言する経路は塞ぐ——合成ルート（@deep-spec-analysis/entries）も
       // 未知の名前も、層から辿れる依存にはしない。
       out.push({ path: relPath, rule, detail: `declares "${spec}", which is not a layer package` });
       continue;
@@ -1032,6 +1047,7 @@ export const ALL_RULES = [
   onlySanctionedImports,
   noEntryImports,
   noCrossPackageRelativeImports,
+  noSamePackageScopedImports,
   noIoInPureLayers,
   processOnlyInEntries,
   noExportStar,

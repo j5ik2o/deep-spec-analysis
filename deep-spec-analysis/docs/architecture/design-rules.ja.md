@@ -54,7 +54,7 @@
 
 ### L2 — 層は独立したパッケージで、依存は manifest に宣言する
 
-**規則**: 各 `src/<文脈>/<層>/` は `package.json` を持つ独立したパッケージ（`@deep-spec/<文脈>-<層>`）とする。他の層を使うなら `dependencies` に `"workspace:*"` で宣言する。宣言していない層は import できない。
+**規則**: 各 `src/<文脈>/<層>/` は `package.json` を持つ独立したパッケージ（`@deep-spec-analysis/<文脈>-<層>`）とする。他の層を使うなら `dependencies` に `"workspace:*"` で宣言する。宣言していない層は import できない。
 
 **なぜ**: 「依存の向き」を注意力ではなくパッケージ解決に守らせる。宣言を消せば import が壊れるので、境界が実行時に効く。
 
@@ -112,7 +112,7 @@
 
 **実例**: 全 `index.ts` の冒頭に「明示列挙のみ（`export *` 禁止）」と書かれ、実測でも `export *` 宣言は 0 件。深いパスの import は `package.json` の `exports` が `"." : "./index.ts"` だけなので解決に失敗する。
 
-**検査**: `no-export-star`、`no-cross-package-relative-imports`。
+**検査**: `no-export-star`、`no-cross-package-relative-imports`、`no-same-package-scoped-imports`。
 
 ---
 
@@ -586,7 +586,6 @@ JSON境界では、項目の省略・空配列・明示的なnullを契約に従
 | 閉じた union の公開面 | `match<T>`（refcheck）と述語群（requirements の `*Verdict`）に割れている（D10 の未達） |
 | `HealthVerdict.document()` | `toDocument()` でない唯一の変換 |
 | `Ref` と `Reference`、`compareTo` と `compareBy*` | 語彙が揺れている（N5 の未達） |
-| `design/domain` の 17 行 | 同じパッケージのファイルを bare specifier（`@deep-spec/design-domain`）で引いている。同一パッケージ内は相対 import という L7 の未達で、統合された refinement 系のファイルに集中している。1 ファイル（`design-event-catalog.ts`）では相対と bare が混在 |
 | `bunfig.toml` のカバレッジ設定 | コメントは「domain 層のみ」と言うが、除外リストに `kernel/usecase` と `kernel/infrastructure` が無く、実際は床の対象に入っている |
 
 ### ドメインイベントについて

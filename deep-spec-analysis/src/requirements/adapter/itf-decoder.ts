@@ -3,8 +3,8 @@
 // # 始まりのメタキーは落とし、変数名は varToPath で属性パスへ戻す。
 // 旧 decodeItfValue / decodeItfTrace / itfStatus からの逐語移植。
 
-import { err, isObject, type Json, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import { AttributePath, TraceState, TraceValue } from "@deep-spec/requirements-domain";
+import { err, isObject, type Json, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import { AttributePath, TraceState, TraceValue } from "@deep-spec-analysis/requirements-domain";
 
 function decodeItfValue(v: Json): Json {
   if (isObject(v) && typeof v["#bigint"] === "string") return Number.parseInt(v["#bigint"], 10);

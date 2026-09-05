@@ -1,6 +1,6 @@
-import type { Expression } from "@deep-spec/kernel-domain";
-import { type DeclaredBindings, ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { Expression } from "@deep-spec-analysis/kernel-domain";
+import { type DeclaredBindings, ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { BusinessRuleReferences } from "./business-rule-references.ts";
 import type { DesignScenarioIdentifier } from "./design-scenario-identifier.ts";
 

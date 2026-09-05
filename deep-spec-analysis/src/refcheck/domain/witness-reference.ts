@@ -1,5 +1,5 @@
-import { ArtifactPath } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import { ElementPath } from "./element-path.ts";
 
 // refcheck finding の witness ref——成果物・要素パス・任意の値。finding が指す

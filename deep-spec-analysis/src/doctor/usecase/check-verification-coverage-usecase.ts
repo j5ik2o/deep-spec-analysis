@@ -1,4 +1,4 @@
-import type { CoverageAssessment } from "@deep-spec/doctor-domain";
+import type { CoverageAssessment } from "@deep-spec-analysis/doctor-domain";
 import type { DoctorWorkspaceClient } from "./port/doctor-workspace-client.ts";
 
 export class CheckVerificationCoverageUseCase {

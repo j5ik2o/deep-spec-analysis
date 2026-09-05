@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { InitialState } from "./initial-state.ts";
 export class InitialStates {
   readonly #values: readonly InitialState[];

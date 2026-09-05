@@ -1,6 +1,6 @@
-import { NormalizedName } from "@deep-spec/kernel-domain";
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import { NormalizedName } from "@deep-spec-analysis/kernel-domain";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 export class StateName {
   readonly #value: string;

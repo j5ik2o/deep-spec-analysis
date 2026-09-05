@@ -1,10 +1,10 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   compareCanonically,
   IllegalArgumentException,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // eventMap.transitions の要素——写像先の設計 遷移/義務 id への宣言参照。
 export class TransitionReference {

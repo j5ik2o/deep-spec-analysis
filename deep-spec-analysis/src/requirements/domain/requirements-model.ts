@@ -7,8 +7,8 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   type VerificationMethod,
-} from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // RequirementsModel 集約 — 検証済み要件の形式モデル（契約1）のドメイン表現。
 // 生 Json からの寛容な解体（欠損エントリの黙殺）はアダプタのパーサの責務で、

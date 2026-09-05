@@ -21,7 +21,7 @@ import { cpSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { canonicalStringify } from "@deep-spec/kernel-infrastructure";
+import { canonicalStringify } from "@deep-spec-analysis/kernel-infrastructure";
 
 const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const toolsDir = join(pluginRoot, "tools");

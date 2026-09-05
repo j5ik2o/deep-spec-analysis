@@ -8,7 +8,7 @@ import {
   type Result,
   unreachable,
   validateSchema,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // kernel/domain の単体テスト（DDD 移行 PR1、issue #14）。
 //
@@ -25,7 +25,7 @@ import {
   smtLit,
   smtName,
   smtVar,
-} from "@deep-spec/kernel-adapter";
+} from "@deep-spec-analysis/kernel-adapter";
 import {
   AttributeBound,
   AttributeKind,
@@ -44,7 +44,7 @@ import {
   TargetIdentifiers,
   ValidationAssessment,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 describe("ValidationAssessment", () => {
   test("the diagnostics determine the verdict and retain their order", () => {

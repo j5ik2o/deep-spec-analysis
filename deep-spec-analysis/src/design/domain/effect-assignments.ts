@@ -1,4 +1,4 @@
-import { AttributePath, type Expression, ExpressionTree, KeyedIndex } from "@deep-spec/kernel-domain";
+import { AttributePath, type Expression, ExpressionTree, KeyedIndex } from "@deep-spec-analysis/kernel-domain";
 // EffectAssignments — 効果式（prime 代入の連言）を属性パス → 代入項の索引に
 // 解いたもの。キーは AttributePath、内側は KeyedIndex（裁定 3-1、2026-09-03）。
 // 連言でない・代入でない効果はコンストラクタで拒否し、parseはParseErrorを返す
@@ -10,7 +10,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 export class EffectAssignments {
   readonly #values: KeyedIndex<AttributePath, Expression>;

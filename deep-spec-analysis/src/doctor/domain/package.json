@@ -1,5 +1,5 @@
 {
-  "name": "@deep-spec/doctor-domain",
+  "name": "@deep-spec-analysis/doctor-domain",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,7 @@
     ".": "./index.ts"
   },
   "dependencies": {
-    "@deep-spec/kernel-domain": "workspace:*",
-    "@deep-spec/kernel-infrastructure": "workspace:*"
+    "@deep-spec-analysis/kernel-domain": "workspace:*",
+    "@deep-spec-analysis/kernel-infrastructure": "workspace:*"
   }
 }

@@ -4,8 +4,8 @@
 // の ReferenceCheckReport を受け取り、適合（conformedTo）→ 永続化までを起動
 // する。verdict は保存したのと同じ conformed（＝書かれる姿）から導出。
 
-import type { FindingsSchema } from "@deep-spec/kernel-domain";
-import { matchResult } from "@deep-spec/kernel-infrastructure";
+import type { FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { matchResult } from "@deep-spec-analysis/kernel-infrastructure";
 import type { CheckDomainComponentsInput } from "./check-domain-components-input.ts";
 import type { CheckOutcome } from "./check-outcome.ts";
 import type { DesignRecordRepository } from "./port/design-record-repository.ts";

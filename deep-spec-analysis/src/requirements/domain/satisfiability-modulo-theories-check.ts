@@ -1,4 +1,4 @@
-import type { ErrorMessage } from "@deep-spec/kernel-domain";
+import type { ErrorMessage } from "@deep-spec-analysis/kernel-domain";
 import type { RequirementsModel } from "./requirements-model.ts";
 import type { SatisfiabilityModuloTheoriesQueryVerdicts } from "./satisfiability-modulo-theories-query-verdicts.ts";
 import type { SatisfiabilityModuloTheoriesVerificationPlan } from "./satisfiability-modulo-theories-verification-plan.ts";

@@ -1,6 +1,6 @@
-import type { Expression, FunctionalRequirementReferences, TriggerName } from "@deep-spec/kernel-domain";
-import { ExpressionTree, type ObligationNature } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { Expression, FunctionalRequirementReferences, TriggerName } from "@deep-spec-analysis/kernel-domain";
+import { ExpressionTree, type ObligationNature } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // 義務（EARS nature 付き）。分類・event 完全性・式の役割は義務自身が所有し、
 // コンパイラは外部形式への射影だけを担う。
 

@@ -1,8 +1,8 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // 設計文書のエンティティ名。コンストラクタが非空条件を保証する。
 
-import { NormalizedName } from "@deep-spec/kernel-domain";
+import { NormalizedName } from "@deep-spec-analysis/kernel-domain";
 
 export class EntityName {
   readonly #value: string;

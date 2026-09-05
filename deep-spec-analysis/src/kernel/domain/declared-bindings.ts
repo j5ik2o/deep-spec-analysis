@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { BindingDeclaration } from "./binding-declaration.ts";
 
 // 診断用の束縛宣言列。宣言順序を保ち、入力側に配列の所有権を残さない。

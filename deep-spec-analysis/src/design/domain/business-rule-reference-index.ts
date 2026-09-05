@@ -1,7 +1,7 @@
 // BusinessRuleReferenceIndex — rules.md が宣言する業務規則 id の集合（brRef の逆引き
 // 検証の材料）。要素は BusinessRuleReference、内側は KeySet（裁定 3-1、2026-09-03）。
 
-import { KeySet } from "@deep-spec/kernel-domain";
+import { KeySet } from "@deep-spec-analysis/kernel-domain";
 import { BusinessRuleReference } from "./business-rule-reference.ts";
 
 export class BusinessRuleReferenceIndex {

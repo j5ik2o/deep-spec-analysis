@@ -1,4 +1,4 @@
-import { EnumerationMember, EnumerationMembers } from "@deep-spec/kernel-domain";
+import { EnumerationMember, EnumerationMembers } from "@deep-spec-analysis/kernel-domain";
 
 // 属性写像（attrMap の 1 エントリ）。閉じた 3 variant —— 式写像（bool/int）・
 // enum 場合分け・unspecified。α置換の材料（enum 比較の展開・写像式の代入・
@@ -7,7 +7,7 @@ import { EnumerationMember, EnumerationMembers } from "@deep-spec/kernel-domain"
 // gap 文言（凍結面）だけを担う（主従の裁定・#71 波5、裁定 10）。
 // 写像は要件属性パスで識別されるローカルエンティティ（識別規律、2026-09-02）。
 
-import { type Expression, ExpressionTree } from "@deep-spec/kernel-domain";
+import { type Expression, ExpressionTree } from "@deep-spec-analysis/kernel-domain";
 import {
   boundedValueSnapshot,
   err,
@@ -15,8 +15,8 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
-import type { AttributePath } from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/kernel-infrastructure";
+import type { AttributePath } from "@deep-spec-analysis/requirements-domain";
 import { RefinementMapDefect } from "./refinement-map-defect.ts";
 
 type AttributeMappingParam =

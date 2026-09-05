@@ -1,4 +1,4 @@
-import { InitialState } from "@deep-spec/design-domain";
+import { InitialState } from "@deep-spec-analysis/design-domain";
 import {
   ArtifactPath,
   AttributeBound,
@@ -20,8 +20,8 @@ import {
   RequirementIdentifiers,
   TargetIdentifier,
   TriggerName,
-} from "@deep-spec/kernel-domain";
-import type { Json } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import type { Json } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 契約1／契約3 の IR バリデータを in-process で駆動するスイート（PR7）。
 //
@@ -41,7 +41,7 @@ import { fileURLToPath } from "node:url";
 import {
   DesignIntermediateRepresentationValidationMaterialsRepositoryImplementation,
   DesignModelRepositoryImplementation,
-} from "@deep-spec/design-adapter";
+} from "@deep-spec-analysis/design-adapter";
 import {
   BusinessRuleReference,
   BusinessRuleReferenceIndex,
@@ -77,16 +77,16 @@ import {
   DesignUnitIdentifier,
   InitialStates,
   UnformalizedTargets,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 import {
   type ValidateDesignIntermediateRepresentationOutcome,
   ValidateDesignIntermediateRepresentationUseCase,
-} from "@deep-spec/design-usecase";
+} from "@deep-spec-analysis/design-usecase";
 import {
   FormalModelRepositoryImplementation,
   IntermediateRepresentationValidationMaterialsRepositoryImplementation,
   RequirementsSourceRepositoryImplementation,
-} from "@deep-spec/requirements-adapter";
+} from "@deep-spec-analysis/requirements-adapter";
 import {
   BackgroundAssumptionIdentifier,
   FormalModelIdentifier,
@@ -116,11 +116,11 @@ import {
   RequirementsSourceValidation,
   ScenarioIdentifier,
   SourceAnchor,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 import {
   type ValidateIntermediateRepresentationOutcome,
   ValidateIntermediateRepresentationUseCase,
-} from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-usecase";
 
 const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const toolsDir = join(pluginRoot, "tools");

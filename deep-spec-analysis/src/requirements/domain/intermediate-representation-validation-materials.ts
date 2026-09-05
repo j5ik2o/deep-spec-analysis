@@ -11,8 +11,8 @@ import {
   ErrorMessages,
   type IntermediateRepresentationVersion,
   ValidationAssessment,
-} from "@deep-spec/kernel-domain";
-import { ok, type ParseError, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { ok, type ParseError, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { FunctionalRequirementReferenceClaims } from "./functional-requirement-reference-claims.ts";
 import { FunctionalRequirementReferenceIndex } from "./functional-requirement-reference-index.ts";
 import type { IntermediateRepresentationModelDeclaration } from "./intermediate-representation-model-declaration.ts";

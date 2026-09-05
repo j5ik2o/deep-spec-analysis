@@ -9,8 +9,8 @@ import {
   ErrorMessages,
   type IntermediateRepresentationVersion,
   ValidationAssessment,
-} from "@deep-spec/kernel-domain";
-import { ok, type ParseError, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { ok, type ParseError, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { DesignIntermediateRepresentationValidationMaterialsIdentifier } from "./design-intermediate-representation-validation-materials-identifier.ts";
 import { SUPPORTED_DESIGN_IR_MAJOR } from "./design-report.ts";
 import type { DesignUnitDeclarations } from "./design-unit-declarations.ts";

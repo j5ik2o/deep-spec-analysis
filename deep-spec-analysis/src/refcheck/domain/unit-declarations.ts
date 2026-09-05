@@ -1,4 +1,4 @@
-import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import { type ArtifactPath, FindingKind, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import { CD_3 } from "./contract-check-families.ts";
 import type { ContractRows } from "./contract-rows.ts";
 import type { ReferenceCheckReport } from "./reference-check-report.ts";

@@ -3,10 +3,10 @@ import {
   DesignReport,
   DesignReportIdentifier,
   RefinementMaterialsIdentifier,
-} from "@deep-spec/design-domain";
-import { type FindingsSchema, VerificationMethod } from "@deep-spec/kernel-domain";
-import { matchResult } from "@deep-spec/kernel-infrastructure";
-import type { Clock } from "@deep-spec/kernel-usecase";
+} from "@deep-spec-analysis/design-domain";
+import { type FindingsSchema, VerificationMethod } from "@deep-spec-analysis/kernel-domain";
+import { matchResult } from "@deep-spec-analysis/kernel-infrastructure";
+import type { Clock } from "@deep-spec-analysis/kernel-usecase";
 import { DesignReportFinalizer } from "./design-report-finalizer.ts";
 import { DesignVerificationAcquirer } from "./design-verification-acquirer.ts";
 import type { DesignModelRepository } from "./port/design-model-repository.ts";

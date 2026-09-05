@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { TraceState } from "./trace-state.ts";
 
 // 検証結果の証拠。生成済みの型付き文書を保持し、

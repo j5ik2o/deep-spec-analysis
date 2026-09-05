@@ -55,7 +55,7 @@ import {
   SiblingVerdictFindings,
   SiblingVerdictSkip,
   SiblingVerdictSkips,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 import {
   ArtifactPath,
   AttributeKind,
@@ -73,7 +73,7 @@ import {
   TriggerName,
   UnitName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { scenarioBindings } from "./binding-fixtures.ts";
 
 // レイヤード design パイプラインの in-process 検証（PR5、#18）。
@@ -93,8 +93,8 @@ import { cpSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { extractFences, readContractSchema } from "@deep-spec/kernel-adapter";
-import { canonicalStringify, type Json } from "@deep-spec/kernel-infrastructure";
+import { extractFences, readContractSchema } from "@deep-spec-analysis/kernel-adapter";
+import { canonicalStringify, type Json } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 降ろし方は帰属の内部表現（裁定 17）——テストは公開の isKind で射影する。
 const ORIGIN_KINDS = ["passthrough", "transition", "ignore", "vac-dead", "vac-shadow"] as const;
@@ -117,7 +117,7 @@ import {
   renderDesignEntities,
   renderLoweredDocument,
   SiblingBackendClientImplementation,
-} from "@deep-spec/design-adapter";
+} from "@deep-spec-analysis/design-adapter";
 
 const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const toolsDir = join(pluginRoot, "tools");

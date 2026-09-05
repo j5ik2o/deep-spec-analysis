@@ -1,4 +1,4 @@
-import { type AttributePath, KeySet } from "@deep-spec/kernel-domain";
+import { type AttributePath, KeySet } from "@deep-spec-analysis/kernel-domain";
 // 設計属性パス集合のファーストクラスコレクション（lowering・alpha 置換の照会面）。
 export class AttributePaths {
   readonly #values: KeySet<AttributePath>;

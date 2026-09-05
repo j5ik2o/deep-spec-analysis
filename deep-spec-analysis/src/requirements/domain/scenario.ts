@@ -3,9 +3,9 @@ import type {
   FunctionalRequirementReferences,
   ScenarioBindings,
   TriggerName,
-} from "@deep-spec/kernel-domain";
-import { ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // 受け入れ／拒否シナリオ。期待する充足可能性と binding の正準列挙を所有する。
 
 import type { ScenarioIdentifier } from "./scenario-identifier.ts";

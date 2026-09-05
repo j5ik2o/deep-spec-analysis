@@ -7,9 +7,9 @@
 // （往復則）。兄弟成果物は読み取り視点であり、各自の書き込み面は各成果物の
 // Repository が担う。
 
-import type { Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
-import type { DesignRecord, DesignRecordIdentifier } from "@deep-spec/refcheck-domain";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
+import type { DesignRecord, DesignRecordIdentifier } from "@deep-spec-analysis/refcheck-domain";
 
 export interface DesignRecordRepository {
   findById(id: DesignRecordIdentifier): Result<DesignRecord, RepositoryError>;

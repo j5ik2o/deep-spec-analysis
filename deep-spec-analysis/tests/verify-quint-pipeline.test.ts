@@ -13,7 +13,7 @@ import {
   TargetIdentifier,
   TriggerName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { scenarioBindings } from "./binding-fixtures.ts";
 
 // レイヤード verify-quint パイプラインの in-process 検証（PR4、#17）。
@@ -31,10 +31,10 @@ import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } f
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { readContractSchema } from "@deep-spec/kernel-adapter";
+import { readContractSchema } from "@deep-spec-analysis/kernel-adapter";
 
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 // テスト用: 検証済みパス VO の短縮構築（fixture パスは常に非空）。
 function ap(raw: string): ArtifactPath {
@@ -48,7 +48,7 @@ import {
   QuintClientImplementation,
   renderVerificationReportBytes,
   VerificationDirectoryRepositoryImplementation,
-} from "@deep-spec/requirements-adapter";
+} from "@deep-spec-analysis/requirements-adapter";
 import {
   AttributePath,
   type BackgroundAssumption,
@@ -82,12 +82,12 @@ import {
   VerificationReportIdentifier,
   VerificationSkipped,
   VerificationSkips,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 import {
   type FormalModelRepository,
   type QuintClient,
   VerifyRequirementsQuintUseCase,
-} from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-usecase";
 import { InMemoryVerificationDirectoryRepository } from "./doubles/in-memory-verification-directory-repository.ts";
 
 // テスト用: 平文の状態 → TraceState（裁定 2 で値オブジェクトになった）。

@@ -1,4 +1,4 @@
-import type { TriggerName } from "@deep-spec/kernel-domain";
+import type { TriggerName } from "@deep-spec-analysis/kernel-domain";
 import type { TransitionReferences } from "./transition-references.ts";
 
 // eventMap の 1 エントリ——要件トリガから設計 遷移/義務 id 群への写像。

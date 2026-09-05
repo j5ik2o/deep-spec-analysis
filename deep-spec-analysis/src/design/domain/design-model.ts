@@ -2,8 +2,12 @@
 // ユニットのユニット名昇順は集約の不変条件として compose が一度だけ適用する
 // （旧 parseDesignIr 末尾のソートの移設）。
 
-import type { ContentHash, IntermediateRepresentationVersion, VerificationMethod } from "@deep-spec/kernel-domain";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
+import type {
+  ContentHash,
+  IntermediateRepresentationVersion,
+  VerificationMethod,
+} from "@deep-spec-analysis/kernel-domain";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { DesignModelIdentifier } from "./design-model-identifier.ts";
 import { DesignReport, SUPPORTED_DESIGN_IR_MAJOR } from "./design-report.ts";
 import type { DesignReportIdentifier } from "./design-report-identifier.ts";

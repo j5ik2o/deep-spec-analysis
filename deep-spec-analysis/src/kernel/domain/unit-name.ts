@@ -1,5 +1,5 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { IllegalArgumentException, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 // UnitName — unit-of-work 名のドメインプリミティブ。refcheck が検査対象の
 // 帰属（functional センサーの unit キー、契約表の Provider/Consumer/Owner、
 // units エッジブロックの宣言）として話す語彙。

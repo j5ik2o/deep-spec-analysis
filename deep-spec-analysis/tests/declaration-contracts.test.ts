@@ -6,7 +6,7 @@ import {
   LoweredScenario,
   RefinementMapDefect,
   SiblingVerdictFinding,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 import {
   AttributeKind,
   AttributePath,
@@ -19,9 +19,9 @@ import {
   ScenarioBindings,
   TargetIdentifier,
   TriggerName,
-} from "@deep-spec/kernel-domain";
-import { err, flatMapResult, IllegalArgumentException, type Json, ok } from "@deep-spec/kernel-infrastructure";
-import { TraceValue, VerificationWitness } from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/kernel-domain";
+import { err, flatMapResult, IllegalArgumentException, type Json, ok } from "@deep-spec-analysis/kernel-infrastructure";
+import { TraceValue, VerificationWitness } from "@deep-spec-analysis/requirements-domain";
 
 function rejects(value: Json): void {
   expect(() => Declaration.of(value)).toThrow(IllegalArgumentException);

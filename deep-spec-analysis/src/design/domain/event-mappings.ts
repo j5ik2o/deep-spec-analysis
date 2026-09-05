@@ -1,4 +1,4 @@
-import type { TriggerName } from "@deep-spec/kernel-domain";
+import type { TriggerName } from "@deep-spec-analysis/kernel-domain";
 import type { EventMapping } from "./event-mapping.ts";
 
 // eventMap 宣言のファーストクラスコレクション。トリガ索引は旧

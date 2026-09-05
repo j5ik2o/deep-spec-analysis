@@ -5,7 +5,7 @@
 // 識別子の導出（検証対象成果物のパス → 記録ルート）はパス配置の知識なので
 // アダプタが行い、ドメインは受け取った恒等だけを運ぶ。
 
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 export class RequirementsSourceIdentifier {
   readonly #recordRoot: ArtifactPath;

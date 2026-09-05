@@ -7,8 +7,8 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   UnitName,
-} from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 設計 IR の 1 ユニット。rawEntities は契約3 のエンティティスキーマ断片の
 // 素通し（lowering が契約1 文書へそのまま埋め込む）で、enum 値の照会だけを

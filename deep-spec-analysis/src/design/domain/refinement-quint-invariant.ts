@@ -1,8 +1,9 @@
-import { type LoweredIdentifier, LoweredObligation } from "@deep-spec/design-domain";
-import type { Expression, FunctionalRequirementReferences, TargetIdentifier } from "@deep-spec/kernel-domain";
-import { ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
-import type { ObligationIdentifier } from "@deep-spec/requirements-domain";
+import type { Expression, FunctionalRequirementReferences, TargetIdentifier } from "@deep-spec-analysis/kernel-domain";
+import { ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { ObligationIdentifier } from "@deep-spec-analysis/requirements-domain";
+import type { LoweredIdentifier } from "./lowered-identifier.ts";
+import { LoweredObligation } from "./lowered-obligation.ts";
 
 // quint 側の refinement 追加不変量——検査可能な要件義務の alpha 置換済み
 // 表明。quint ユースケースは対象 id を問い、lowering へ載せる義務を

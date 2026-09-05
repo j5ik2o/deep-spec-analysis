@@ -1,10 +1,10 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   compareCanonically,
   IllegalArgumentException,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // RequirementIdentifier — 要件 id（FR-1 / NFR-2 …）のドメインプリミティブ。requirements.md
 // が宣言する id（RequirementIdentifiers）と、義務・シナリオ・規則がそれを指す参照

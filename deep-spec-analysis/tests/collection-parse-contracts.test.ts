@@ -5,7 +5,7 @@ import {
   DesignWitness,
   InitialState,
   InitialStates,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 import {
   AttributePath,
   BindingDeclaration,
@@ -21,9 +21,9 @@ import {
   RequirementIdentifier,
   ScenarioBinding,
   ScenarioBindings,
-} from "@deep-spec/kernel-domain";
-import { IllegalArgumentException, type ParseError, type Result } from "@deep-spec/kernel-infrastructure";
-import { VerificationWitness } from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException, type ParseError, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import { VerificationWitness } from "@deep-spec-analysis/requirements-domain";
 
 function collectionContract<E>(
   factory: {

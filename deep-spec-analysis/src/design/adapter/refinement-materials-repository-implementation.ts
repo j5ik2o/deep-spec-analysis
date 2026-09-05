@@ -1,4 +1,4 @@
-import { decodeScenarioBindings, extractFences, findRecordRoot, relArtifact } from "@deep-spec/kernel-adapter";
+import { decodeScenarioBindings, extractFences, findRecordRoot, relArtifact } from "@deep-spec-analysis/kernel-adapter";
 import {
   ArtifactPath,
   ContentHash,
@@ -8,9 +8,9 @@ import {
   FunctionalRequirementReferences,
   RequirementIdentifier,
   TriggerName,
-} from "@deep-spec/kernel-domain";
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
-import { flatMapResult } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
+import { flatMapResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 // RefinementMaterialsRepository の実 Gateway 実装。レコードルート歩行・要件形式
 // モデルの取得（不在のみ inactive、取得失敗・不正入力は Result）・refinement map の fence/JSON/
@@ -52,8 +52,8 @@ import {
   UnmappedDeclarations,
   UnmappedTarget,
   UnmappedTargetReference,
-} from "@deep-spec/design-domain";
-import type { RefinementMaterialsRepository } from "@deep-spec/design-usecase";
+} from "@deep-spec-analysis/design-domain";
+import type { RefinementMaterialsRepository } from "@deep-spec-analysis/design-usecase";
 import {
   canonicalStringify,
   combineResults,
@@ -65,8 +65,8 @@ import {
   strArr,
   traverseResult,
   validateSchema,
-} from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+} from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import type { RefinementMapParse } from "./refinement-map-parse.ts";
 
 export const REFINEMENT_MAP_BASENAME = "deep-spec-analysis-refinement-map.md";

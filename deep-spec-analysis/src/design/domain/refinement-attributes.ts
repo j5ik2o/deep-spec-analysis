@@ -1,4 +1,4 @@
-import type { AttributePath } from "@deep-spec/requirements-domain";
+import type { AttributePath } from "@deep-spec-analysis/requirements-domain";
 import type { RefinementAttribute } from "./refinement-attribute.ts";
 
 // 要件属性のファーストクラスコレクション。path 索引は旧 new Map(...) の

@@ -5,12 +5,12 @@
 // 理由を問わず不在」も忠実に再現する（PR4 レビューの教訓）。
 
 import { existsSync, readFileSync } from "node:fs";
-import { DesignModel, type DesignModelIdentifier } from "@deep-spec/design-domain";
-import type { DesignModelRepository } from "@deep-spec/design-usecase";
-import { extractFences, writeFileAtomically } from "@deep-spec/kernel-adapter";
-import { ContentHash } from "@deep-spec/kernel-domain";
-import { canonicalStringify, err, type Json, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import { DesignModel, type DesignModelIdentifier } from "@deep-spec-analysis/design-domain";
+import type { DesignModelRepository } from "@deep-spec-analysis/design-usecase";
+import { extractFences, writeFileAtomically } from "@deep-spec-analysis/kernel-adapter";
+import { ContentHash } from "@deep-spec-analysis/kernel-domain";
+import { canonicalStringify, err, type Json, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import { parseDesignModel } from "./design-model-parser.ts";
 
 export class DesignModelRepositoryImplementation implements DesignModelRepository {

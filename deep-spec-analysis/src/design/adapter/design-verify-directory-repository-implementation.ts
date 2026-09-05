@@ -15,15 +15,15 @@
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync } from "node:fs";
 import { join } from "node:path";
-import type { DesignReport } from "@deep-spec/design-domain";
-import { DesignReports, DesignVerifyDirectory } from "@deep-spec/design-domain";
-import type { DesignVerifyDirectoryRepository } from "@deep-spec/design-usecase";
-import type { DirectoryFinalizationLockOutcome, ProcessLiveness } from "@deep-spec/kernel-adapter";
-import { DirectoryFinalizationLock, SystemClock, writeFileAtomically } from "@deep-spec/kernel-adapter";
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
-import type { Json } from "@deep-spec/kernel-infrastructure";
-import { err, ok, type Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { DesignReport } from "@deep-spec-analysis/design-domain";
+import { DesignReports, DesignVerifyDirectory } from "@deep-spec-analysis/design-domain";
+import type { DesignVerifyDirectoryRepository } from "@deep-spec-analysis/design-usecase";
+import type { DirectoryFinalizationLockOutcome, ProcessLiveness } from "@deep-spec-analysis/kernel-adapter";
+import { DirectoryFinalizationLock, SystemClock, writeFileAtomically } from "@deep-spec-analysis/kernel-adapter";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
+import type { Json } from "@deep-spec-analysis/kernel-infrastructure";
+import { err, ok, type Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import { parseSiblingDesignReportDocument, renderDesignReportBytes } from "./design-report-serializer.ts";
 
 const CROSS_CHECK_BASENAME = "cross-check.json";

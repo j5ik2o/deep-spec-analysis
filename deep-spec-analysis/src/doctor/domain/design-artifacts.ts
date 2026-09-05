@@ -3,7 +3,7 @@ import {
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import type { DesignArtifactReference } from "./design-artifact-reference.ts";
 
 // doctor一回の対象台帳。後続の観測数も同じ65,536件以内に保つ。

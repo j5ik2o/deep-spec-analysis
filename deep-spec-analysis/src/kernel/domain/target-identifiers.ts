@@ -4,7 +4,7 @@
 // 名前空間付き id のサニタイズ（safe）は refcheck レポートの材料面として残る
 // （旧自由関数 safeTarget は TargetIdentifiers.safe に従属した——OOUI 裁定）。
 
-import { sortedUniqueCanonically } from "@deep-spec/kernel-infrastructure";
+import { sortedUniqueCanonically } from "@deep-spec-analysis/kernel-infrastructure";
 import { TargetIdentifier } from "./target-identifier.ts";
 
 export class TargetIdentifiers {

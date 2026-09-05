@@ -2,7 +2,7 @@
 // 発火対象の成果物パス。指した先が検査対象の集約として成立するかは
 // Repository の解決の結果（not-found が not-applicable の期待分岐）。
 
-import type { ArtifactPath } from "@deep-spec/kernel-domain";
+import type { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 export class DesignRecordIdentifier {
   readonly #path: ArtifactPath;

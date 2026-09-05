@@ -1,4 +1,4 @@
-import { InitialState } from "@deep-spec/design-domain";
+import { InitialState } from "@deep-spec-analysis/design-domain";
 import {
   AttributeKind,
   EnumerationMember,
@@ -13,7 +13,7 @@ import {
   TriggerName,
   UnitName,
   VerificationMethod,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { scenarioBindings } from "./binding-fixtures.ts";
 
 // design/domain の単体テスト（TDA 波3 — 90% カバレッジ床の維持）。
@@ -74,7 +74,7 @@ import {
   SiblingVerdictFindings,
   SiblingVerdictSkips,
   UnformalizedTargets,
-} from "@deep-spec/design-domain";
+} from "@deep-spec-analysis/design-domain";
 
 const lit = (value: boolean): Expression => ({ op: "lit", value });
 

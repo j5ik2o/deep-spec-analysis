@@ -7,12 +7,12 @@
 // store は集約の原文（sourceDocument）をバイト逐語で書く——findById∘store は
 // バイト恒等（往復則）。
 
-import type { Result } from "@deep-spec/kernel-infrastructure";
-import type { RepositoryError } from "@deep-spec/kernel-usecase";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 import type {
   IntermediateRepresentationValidationMaterials,
   IntermediateRepresentationValidationMaterialsIdentifier,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 export interface IntermediateRepresentationValidationMaterialsRepository {
   findById(

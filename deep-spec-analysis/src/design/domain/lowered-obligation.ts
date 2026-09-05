@@ -1,6 +1,6 @@
-import type { FunctionalRequirementReferences } from "@deep-spec/kernel-domain";
-import { type Expression, ExpressionTree, ObligationNature, TriggerName } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { FunctionalRequirementReferences } from "@deep-spec-analysis/kernel-domain";
+import { type Expression, ExpressionTree, ObligationNature, TriggerName } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 import type { LoweredIdentifier } from "./lowered-identifier.ts";
 

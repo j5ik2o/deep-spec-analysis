@@ -32,7 +32,7 @@ import {
   DesignModelRepositoryImplementation,
   DesignVerifyDirectoryRepositoryImplementation,
   renderDesignReportBytes,
-} from "@deep-spec/design-adapter";
+} from "@deep-spec-analysis/design-adapter";
 import {
   DesignFindings,
   type DesignModel,
@@ -41,12 +41,12 @@ import {
   DesignReportIdentifier,
   DesignSkips,
   type DesignVerifyDirectory,
-} from "@deep-spec/design-domain";
-import type { ProcessLiveness } from "@deep-spec/kernel-adapter";
-import { DirectoryFinalizationLock, readContractSchema } from "@deep-spec/kernel-adapter";
-import { ArtifactPath, FindingsSchema } from "@deep-spec/kernel-domain";
-import type { Result } from "@deep-spec/kernel-infrastructure";
-import type { Clock, RepositoryError } from "@deep-spec/kernel-usecase";
+} from "@deep-spec-analysis/design-domain";
+import type { ProcessLiveness } from "@deep-spec-analysis/kernel-adapter";
+import { DirectoryFinalizationLock, readContractSchema } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath, FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import type { Result } from "@deep-spec-analysis/kernel-infrastructure";
+import type { Clock, RepositoryError } from "@deep-spec-analysis/kernel-usecase";
 
 const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = join(pluginRoot, "src", "entries", "data");

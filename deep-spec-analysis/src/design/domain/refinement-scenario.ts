@@ -1,5 +1,5 @@
-import type { FunctionalRequirementReferences, ScenarioBindings, TriggerName } from "@deep-spec/kernel-domain";
-import type { ScenarioIdentifier } from "@deep-spec/requirements-domain";
+import type { FunctionalRequirementReferences, ScenarioBindings, TriggerName } from "@deep-spec-analysis/kernel-domain";
+import type { ScenarioIdentifier } from "@deep-spec-analysis/requirements-domain";
 
 // 未検証の構築引数。VO・エンティティ本体とは区別する。
 type RefinementScenarioParam = {

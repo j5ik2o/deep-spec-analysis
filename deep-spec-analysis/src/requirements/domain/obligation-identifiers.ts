@@ -1,4 +1,4 @@
-import { TargetIdentifiers } from "@deep-spec/kernel-domain";
+import { TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 import type { ObligationIdentifier } from "./obligation-identifier.ts";
 
 // 義務のファーストクラスコレクション。id 検索と id 列の導出を所有する。

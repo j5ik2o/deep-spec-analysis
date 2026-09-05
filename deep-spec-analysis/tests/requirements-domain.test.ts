@@ -6,7 +6,7 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   TriggerName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 import { scenarioBindings } from "./binding-fixtures.ts";
 
 // requirements/domain の単体テスト（TDA 波3 — 90% カバレッジ床の維持）。
@@ -36,7 +36,7 @@ import {
   TraceValue,
   type VerificationSkipped,
   VerificationWitness,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 
 // テスト用: 平文の状態 → TraceState（裁定 2 で値オブジェクトになった）。
 function st(values: { [path: string]: boolean | number | string }): TraceState {

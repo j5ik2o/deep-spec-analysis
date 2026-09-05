@@ -1,4 +1,4 @@
-import type { UnitCoverage } from "@deep-spec/doctor-domain";
+import type { UnitCoverage } from "@deep-spec-analysis/doctor-domain";
 import type { DoctorWorkspaceClient } from "./port/doctor-workspace-client.ts";
 
 export class CheckFunctionalCoverageUseCase {

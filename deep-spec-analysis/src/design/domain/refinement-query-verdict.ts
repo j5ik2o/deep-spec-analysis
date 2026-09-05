@@ -1,5 +1,5 @@
-import { QueryLabel } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import { QueryLabel } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // refinement クエリ 1 件の判定。主従の裁定（#71 波2）: interpret が吸い出して
 // いた status 分類と witness 材料面（pre/post の 2 状態トレース込み）を判定

@@ -31,6 +31,7 @@ import {
   noNonNullAssertions,
   noPrimitiveFieldsInDomain,
   noReconstitutionBypass,
+  noSamePackageScopedImports,
   noTestPayloads,
   onePublicTypePerFile,
   onlySanctionedImports,
@@ -121,6 +122,39 @@ function walkLayerManifests(): LayerManifest[] {
 }
 
 describe("rule red/green examples (detection power proof)", () => {
+  test("package scope is used across packages, never to reenter the same package", () => {
+    expect(
+      noSamePackageScopedImports(
+        "design/domain/x.ts",
+        'import { DesignUnit } from "@deep-spec-analysis/design-domain";',
+      ),
+    ).toHaveLength(1);
+    expect(
+      noSamePackageScopedImports(
+        "design/domain/x.ts",
+        'export { DesignUnit } from "@deep-spec-analysis/design-domain/design-unit.ts";',
+      ),
+    ).toHaveLength(1);
+    expect(
+      noSamePackageScopedImports(
+        "entries/deep-spec-analysis-doctor.ts",
+        'import { task } from "@deep-spec-analysis/entries";',
+      ),
+    ).toHaveLength(1);
+    expect(
+      noSamePackageScopedImports("design/domain/x.ts", 'import { DesignUnit } from "./design-unit.ts";'),
+    ).toHaveLength(0);
+    expect(
+      noSamePackageScopedImports("design/domain/x.ts", 'import { UnitName } from "@deep-spec-analysis/kernel-domain";'),
+    ).toHaveLength(0);
+    expect(
+      noSamePackageScopedImports(
+        "design/domain/x.ts",
+        '// import { DesignUnit } from "@deep-spec-analysis/design-domain";',
+      ),
+    ).toHaveLength(0);
+  });
+
   test("no-test-payloads flags a test file and a fixtures directory, passes a plain module", () => {
     expect(noTestPayloads("kernel/domain/digest.test.ts", "")).not.toHaveLength(0);
     expect(noTestPayloads("kernel/fixtures/x.ts", "")).not.toHaveLength(0);
@@ -588,30 +622,44 @@ describe("rule red/green examples (detection power proof)", () => {
   test("layer-direction reads the context and layer from a bare package specifier", () => {
     // red: 方向違反（kernel/domain → requirements/domain は同一でも kernel でもない）。
     expect(
-      layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec/requirements-domain";'),
+      layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec-analysis/requirements-domain";'),
     ).not.toHaveLength(0);
     // green: どの層も kernel の同層以下へは降りられる。
-    expect(layerDirection("requirements/domain/x.ts", 'import { y } from "@deep-spec/kernel-domain";')).toHaveLength(0);
-    // red: 同一コンテキストでも層の向きは守る（domain → adapter）。
-    expect(layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec/kernel-adapter";')).not.toHaveLength(0);
-    // green: 公認のコンテキスト横断エッジ（design/domain → requirements/domain）は bare でも通る。
-    expect(layerDirection("design/domain/x.ts", 'import { y } from "@deep-spec/requirements-domain";')).toHaveLength(0);
-    expect(layerDirection("design/usecase/x.ts", 'import { y } from "@deep-spec/design-domain";')).toHaveLength(0);
     expect(
-      layerDirection("requirements/usecase/x.ts", 'import { ok } from "@deep-spec/kernel-infrastructure";'),
+      layerDirection("requirements/domain/x.ts", 'import { y } from "@deep-spec-analysis/kernel-domain";'),
+    ).toHaveLength(0);
+    // red: 同一コンテキストでも層の向きは守る（domain → adapter）。
+    expect(
+      layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec-analysis/kernel-adapter";'),
+    ).not.toHaveLength(0);
+    // green: 公認のコンテキスト横断エッジ（design/domain → requirements/domain）は bare でも通る。
+    expect(
+      layerDirection("design/domain/x.ts", 'import { y } from "@deep-spec-analysis/requirements-domain";'),
+    ).toHaveLength(0);
+    expect(
+      layerDirection("design/usecase/x.ts", 'import { y } from "@deep-spec-analysis/design-domain";'),
+    ).toHaveLength(0);
+    expect(
+      layerDirection("requirements/usecase/x.ts", 'import { ok } from "@deep-spec-analysis/kernel-infrastructure";'),
     ).toHaveLength(0);
     // red: refinement/domain → requirements/domain は旧エッジ——SANCTIONED_CROSS_CONTEXT から削除済みでもう公認されない。
     expect(
-      layerDirection("refinement/domain/x.ts", 'import { y } from "@deep-spec/requirements-domain";'),
+      layerDirection("refinement/domain/x.ts", 'import { y } from "@deep-spec-analysis/requirements-domain";'),
     ).not.toHaveLength(0);
     // red: refinement パッケージ自体が削除済み——旧 refinement package への import を拒否する。
-    expect(layerDirection("design/usecase/x.ts", 'import { y } from "@deep-spec/refinement-domain";')).not.toHaveLength(
+    expect(
+      layerDirection("design/usecase/x.ts", 'import { y } from "@deep-spec-analysis/refinement-domain";'),
+    ).not.toHaveLength(0);
+    // red: 合成ルートのパッケージと、層パッケージでない @deep-spec-analysis/* は素通ししない。
+    expect(layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec-analysis/entries";')).not.toHaveLength(
       0,
     );
-    // red: 合成ルートのパッケージと、層パッケージでない @deep-spec/* は素通ししない。
-    expect(layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec/entries";')).not.toHaveLength(0);
-    expect(layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec/kernel-sneaky";')).not.toHaveLength(0);
-    expect(layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec/unknown-thing";')).not.toHaveLength(0);
+    expect(
+      layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec-analysis/kernel-sneaky";'),
+    ).not.toHaveLength(0);
+    expect(
+      layerDirection("kernel/domain/x.ts", 'import { y } from "@deep-spec-analysis/unknown-thing";'),
+    ).not.toHaveLength(0);
     // green: node:* と公認 npm は only-sanctioned-imports の担当で、方向規律の辺ではない。
     expect(layerDirection("kernel/domain/x.ts", 'import { createHash } from "node:crypto";')).toHaveLength(0);
     expect(layerDirection("kernel/adapter/x.ts", 'const m = await import("z3-solver");')).toHaveLength(0);
@@ -654,7 +702,7 @@ describe("rule red/green examples (detection power proof)", () => {
     ).toHaveLength(0);
     // green: 層をまたぐ正規の書き方（bare specifier）はこの規則の対象外。
     expect(
-      noCrossPackageRelativeImports("kernel/domain/x.ts", 'import { y } from "@deep-spec/kernel-adapter";'),
+      noCrossPackageRelativeImports("kernel/domain/x.ts", 'import { y } from "@deep-spec-analysis/kernel-adapter";'),
     ).toHaveLength(0);
     // コメント中の相対 import には反応しない（他の規則と同じ前処理を通る証明）。
     expect(
@@ -670,97 +718,97 @@ describe("rule red/green examples (detection power proof)", () => {
     // red: 上向きの辺は宣言できない。
     expect(
       manifestDependencyDirection("kernel/domain/package.json", {
-        name: "@deep-spec/kernel-domain",
-        dependencies: { "@deep-spec/design-adapter": ws },
+        name: "@deep-spec-analysis/kernel-domain",
+        dependencies: { "@deep-spec-analysis/design-adapter": ws },
       }),
     ).not.toHaveLength(0);
     expect(
       manifestDependencyDirection("refcheck/usecase/package.json", {
-        name: "@deep-spec/refcheck-usecase",
-        dependencies: { "@deep-spec/refcheck-adapter": ws },
+        name: "@deep-spec-analysis/refcheck-usecase",
+        dependencies: { "@deep-spec-analysis/refcheck-adapter": ws },
       }),
     ).not.toHaveLength(0);
     // red: infrastructure は自分より上を知らない。
     expect(
       manifestDependencyDirection("kernel/infrastructure/package.json", {
-        name: "@deep-spec/kernel-infrastructure",
-        dependencies: { "@deep-spec/kernel-domain": ws },
+        name: "@deep-spec-analysis/kernel-infrastructure",
+        dependencies: { "@deep-spec-analysis/kernel-domain": ws },
       }),
     ).not.toHaveLength(0);
     // red: 公認されていないコンテキスト横断。
     expect(
       manifestDependencyDirection("requirements/domain/package.json", {
-        name: "@deep-spec/requirements-domain",
-        dependencies: { "@deep-spec/design-domain": ws },
+        name: "@deep-spec-analysis/requirements-domain",
+        dependencies: { "@deep-spec-analysis/design-domain": ws },
       }),
     ).not.toHaveLength(0);
     // red: 層パッケージでないものは辿れる依存にしない（合成ルートを含む）。
     expect(
       manifestDependencyDirection("doctor/adapter/package.json", {
-        name: "@deep-spec/doctor-adapter",
-        dependencies: { "@deep-spec/entries": ws },
+        name: "@deep-spec-analysis/doctor-adapter",
+        dependencies: { "@deep-spec-analysis/entries": ws },
       }),
     ).not.toHaveLength(0);
     // red: レジストリから引く宣言はワークスペースの辺ではない。
     expect(
       manifestDependencyDirection("doctor/usecase/package.json", {
-        name: "@deep-spec/doctor-usecase",
-        dependencies: { "@deep-spec/doctor-domain": "^1.0.0" },
+        name: "@deep-spec-analysis/doctor-usecase",
+        dependencies: { "@deep-spec-analysis/doctor-domain": "^1.0.0" },
       }),
     ).not.toHaveLength(0);
     // red: 名前がパスと食い違えば、宣言表はもうそのパッケージの事実ではない。
     expect(
       manifestDependencyDirection("doctor/domain/package.json", {
-        name: "@deep-spec/doctor-usecase",
+        name: "@deep-spec-analysis/doctor-usecase",
         dependencies: {},
       }),
     ).not.toHaveLength(0);
     // red: 自分自身への宣言。
     expect(
       manifestDependencyDirection("design/domain/package.json", {
-        name: "@deep-spec/design-domain",
-        dependencies: { "@deep-spec/design-domain": ws },
+        name: "@deep-spec-analysis/design-domain",
+        dependencies: { "@deep-spec-analysis/design-domain": ws },
       }),
     ).not.toHaveLength(0);
     // green: 下向きの辺・kernel への辺・公認の横断・依存ゼロ。
     expect(
       manifestDependencyDirection("design/adapter/package.json", {
-        name: "@deep-spec/design-adapter",
+        name: "@deep-spec-analysis/design-adapter",
         dependencies: {
-          "@deep-spec/design-usecase": ws,
-          "@deep-spec/design-domain": ws,
-          "@deep-spec/kernel-adapter": ws,
+          "@deep-spec-analysis/design-usecase": ws,
+          "@deep-spec-analysis/design-domain": ws,
+          "@deep-spec-analysis/kernel-adapter": ws,
         },
       }),
     ).toHaveLength(0);
     expect(
       manifestDependencyDirection("refcheck/usecase/package.json", {
-        name: "@deep-spec/refcheck-usecase",
-        dependencies: { "@deep-spec/refcheck-domain": ws, "@deep-spec/kernel-infrastructure": ws },
+        name: "@deep-spec-analysis/refcheck-usecase",
+        dependencies: { "@deep-spec-analysis/refcheck-domain": ws, "@deep-spec-analysis/kernel-infrastructure": ws },
       }),
     ).toHaveLength(0);
     // red: refinement/domain は削除済み——旧 2 辺（→requirements/domain・→design/domain）は
     // SANCTIONED_CROSS_CONTEXT から外れ、宣言しても構造による強制は開かない。
     expect(
       manifestDependencyDirection("refinement/domain/package.json", {
-        name: "@deep-spec/refinement-domain",
-        dependencies: { "@deep-spec/requirements-domain": ws, "@deep-spec/design-domain": ws },
+        name: "@deep-spec-analysis/refinement-domain",
+        dependencies: { "@deep-spec-analysis/requirements-domain": ws, "@deep-spec-analysis/design-domain": ws },
       }),
     ).not.toHaveLength(0);
     // green: 新しい公認のコンテキスト横断エッジ（design/domain → requirements/domain）は宣言できる。
     expect(
       manifestDependencyDirection("design/domain/package.json", {
-        name: "@deep-spec/design-domain",
+        name: "@deep-spec-analysis/design-domain",
         dependencies: {
-          "@deep-spec/kernel-domain": ws,
-          "@deep-spec/kernel-infrastructure": ws,
-          "@deep-spec/requirements-domain": ws,
+          "@deep-spec-analysis/kernel-domain": ws,
+          "@deep-spec-analysis/kernel-infrastructure": ws,
+          "@deep-spec-analysis/requirements-domain": ws,
         },
       }),
     ).toHaveLength(0);
     expect(
       manifestDependencyDirection("kernel/infrastructure/package.json", {
-        name: "@deep-spec/kernel-infrastructure",
+        name: "@deep-spec-analysis/kernel-infrastructure",
       }),
     ).toHaveLength(0);
   });

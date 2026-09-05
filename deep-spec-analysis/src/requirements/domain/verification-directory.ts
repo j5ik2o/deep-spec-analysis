@@ -14,8 +14,8 @@
 //     瞬間に古いクロスチェックは「いまの reports から導いたもの」でなくなる
 //     ので、finalizing は必ずそれを落とす
 
-import type { ArtifactPath, ContentHash, FindingsSchema } from "@deep-spec/kernel-domain";
-import { IllegalArgumentException } from "@deep-spec/kernel-infrastructure";
+import type { ArtifactPath, ContentHash, FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException } from "@deep-spec-analysis/kernel-infrastructure";
 import type { RequirementsModel } from "./requirements-model.ts";
 import type { VerificationReport } from "./verification-report.ts";
 import { VerificationReportIdentifier } from "./verification-report-identifier.ts";

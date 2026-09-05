@@ -1,6 +1,6 @@
-import { DesignSkipped } from "@deep-spec/design-domain";
-import { SkipReason, type TargetIdentifier, UnitName } from "@deep-spec/kernel-domain";
-import { AttributePath } from "@deep-spec/requirements-domain";
+import { SkipReason, type TargetIdentifier, UnitName } from "@deep-spec-analysis/kernel-domain";
+import { AttributePath } from "@deep-spec-analysis/requirements-domain";
+import { DesignSkipped } from "./design-skipped.ts";
 
 // refinement map の欠陥——alpha 置換（要件の式を設計の式へ書き換える処理）が
 // 進めない、地図側の 4 つの事態。ユビキタス言語で名づけた抽象データ型で、

@@ -1,10 +1,10 @@
-import { AttributePath, EnumerationMember, type VerificationMethod } from "@deep-spec/kernel-domain";
+import { AttributePath, EnumerationMember, type VerificationMethod } from "@deep-spec-analysis/kernel-domain";
 import {
   IllegalArgumentException,
   type ParseError,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 import { DesignMachines } from "./design-machines.ts";
 import type { DesignUnit } from "./design-unit.ts";
 import type { LoweredUnit } from "./lowered-unit.ts";

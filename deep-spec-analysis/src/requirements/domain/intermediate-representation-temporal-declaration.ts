@@ -1,6 +1,6 @@
-import type { Expression } from "@deep-spec/kernel-domain";
-import { ExpressionTree } from "@deep-spec/kernel-domain";
-import { type ParseError, parseConstruction, type Result } from "@deep-spec/kernel-infrastructure";
+import type { Expression } from "@deep-spec-analysis/kernel-domain";
+import { ExpressionTree } from "@deep-spec-analysis/kernel-domain";
+import { type ParseError, parseConstruction, type Result } from "@deep-spec-analysis/kernel-infrastructure";
 
 // 契約1 要件 IR の時相宣言（well-formedness 検査材料）: always の assert、
 // leads-to の from / to。式の巡回（いずれも prime 禁止）は宣言自身の知識

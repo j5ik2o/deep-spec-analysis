@@ -8,7 +8,7 @@ import {
   TargetIdentifier,
   TargetIdentifiers,
   TriggerName,
-} from "@deep-spec/kernel-domain";
+} from "@deep-spec-analysis/kernel-domain";
 
 // IR → SMT-LIB の検証計画ビルダ。SMT-LIB という形式の知識（変数名符号化・
 // s 式・仮定間接化つき baseScript・クエリ台本）はすべてここに封じ、判定解釈に
@@ -17,7 +17,7 @@ import {
 // smtOf / buildPlan からの逐語移植（IrDoc → RequirementsModel の読み替えのみ）。
 // 描画語彙（smtVar/smtName/smtLit/smtIntOf）は移行 PR8 で kernel 共有へ。
 
-import { smtIntOf, smtLit, smtName, smtVar } from "@deep-spec/kernel-adapter";
+import { smtIntOf, smtLit, smtName, smtVar } from "@deep-spec-analysis/kernel-adapter";
 import {
   type Obligation,
   ObligationIdentifier,
@@ -28,7 +28,7 @@ import {
   ScenarioIdentifier,
   VerificationSkipped,
   VerificationSkips,
-} from "@deep-spec/requirements-domain";
+} from "@deep-spec-analysis/requirements-domain";
 import type { SatisfiabilityModuloTheoriesChildQuery } from "./satisfiability-modulo-theories-child-query.ts";
 
 export interface SatisfiabilityModuloTheoriesPlan {

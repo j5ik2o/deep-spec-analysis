@@ -1,9 +1,9 @@
 // contract-summary.md と units エッジブロックの解析 — 形式知識をここに封じ、
 // 型付きの outcome へ解く。抽出ロジックは旧センサーの逐語移動。
 
-import { extractFences, parseMarkdownTables, parseYamlSubset } from "@deep-spec/kernel-adapter";
-import { ErrorMessage } from "@deep-spec/kernel-domain";
-import { combineResults, isObject, type Json, traverseResult } from "@deep-spec/kernel-infrastructure";
+import { extractFences, parseMarkdownTables, parseYamlSubset } from "@deep-spec-analysis/kernel-adapter";
+import { ErrorMessage } from "@deep-spec-analysis/kernel-domain";
+import { combineResults, isObject, type Json, traverseResult } from "@deep-spec-analysis/kernel-infrastructure";
 
 import {
   BlockIndex,
@@ -20,7 +20,7 @@ import {
   UnitDeclarations,
   UnitName,
   UnitNames,
-} from "@deep-spec/refcheck-domain";
+} from "@deep-spec-analysis/refcheck-domain";
 
 export function parseDeclaredUnits(depMd: string | null): DeclaredUnitsOutcome {
   if (depMd === null) return DeclaredUnitsOutcome.absent();

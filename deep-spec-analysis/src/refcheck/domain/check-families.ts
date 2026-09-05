@@ -1,4 +1,4 @@
-import { TargetIdentifier, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import { TargetIdentifier, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 
 import type { CheckFamily } from "./check-family.ts";
 

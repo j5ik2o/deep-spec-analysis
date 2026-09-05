@@ -1,4 +1,4 @@
-import { combineResults, ok, traverseResult } from "@deep-spec/kernel-infrastructure";
+import { combineResults, ok, traverseResult } from "@deep-spec-analysis/kernel-infrastructure";
 // RefinementSolverClient の実 Gateway 実装。第 2 コンパイラでクエリ計画を組み、
 // PROVEN v1 z3 子（verify-smt entry の --smt-child）へ実行させ、生のテキスト
 // モデルを decode した型付き判定を返す。クエリゼロは子を起動しない（凍結）。
@@ -8,11 +8,11 @@ import { combineResults, ok, traverseResult } from "@deep-spec/kernel-infrastruc
 // 旧 runRefinementChild からの逐語移植。
 
 import { spawnSync } from "node:child_process";
-import type { UnitRefinementPlan } from "@deep-spec/design-domain";
-import { RefinementCheck, RefinementQueryVerdict, RefinementQueryVerdicts } from "@deep-spec/design-domain";
+import type { UnitRefinementPlan } from "@deep-spec-analysis/design-domain";
+import { RefinementCheck, RefinementQueryVerdict, RefinementQueryVerdicts } from "@deep-spec-analysis/design-domain";
 
-import type { RefinementSolverClient } from "@deep-spec/design-usecase";
-import { ErrorMessage, KeyedIndex, QueryLabel } from "@deep-spec/kernel-domain";
+import type { RefinementSolverClient } from "@deep-spec-analysis/design-usecase";
+import { ErrorMessage, KeyedIndex, QueryLabel } from "@deep-spec-analysis/kernel-domain";
 import type { RefinementChildQuery } from "./refinement-child-query.ts";
 import { buildRefinementQueries, decodeDesignModel } from "./refinement-query-plan.ts";
 import type { RefinementSolverClientConfiguration } from "./refinement-solver-client-configuration.ts";

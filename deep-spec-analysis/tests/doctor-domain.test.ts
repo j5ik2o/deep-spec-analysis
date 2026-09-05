@@ -1,4 +1,4 @@
-import { ArtifactPath } from "@deep-spec/kernel-domain";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 
 // doctor/domain の分岐固定と presenter 文言の凍結ピン（移行 PR9、#22）。
 // 判定書の checks 配列順・label/fix の部分文字列（install.ts が grep する
@@ -8,7 +8,7 @@ import { describe, expect, test } from "bun:test";
 import { mkdirSync, mkdtempSync, rmSync, utimesSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { DoctorPresenter, DoctorWorkspaceClientImplementation } from "@deep-spec/doctor-adapter";
+import { DoctorPresenter, DoctorWorkspaceClientImplementation } from "@deep-spec-analysis/doctor-adapter";
 import {
   ArtifactModifiedAt,
   Check,
@@ -34,16 +34,16 @@ import {
   UnitCoverage,
   VerificationObservation,
   VerificationStaleness,
-} from "@deep-spec/doctor-domain";
-import type { DoctorWorkspaceClient } from "@deep-spec/doctor-usecase";
+} from "@deep-spec-analysis/doctor-domain";
+import type { DoctorWorkspaceClient } from "@deep-spec-analysis/doctor-usecase";
 import {
   CheckFunctionalCoverageUseCase,
   CheckInstallationUseCase,
   CheckStructuralDebtUseCase,
   CheckVerificationCoverageUseCase,
-} from "@deep-spec/doctor-usecase";
-import { ContentHash, UnitName } from "@deep-spec/kernel-domain";
-import { IllegalArgumentException } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/doctor-usecase";
+import { ContentHash, UnitName } from "@deep-spec-analysis/kernel-domain";
+import { IllegalArgumentException } from "@deep-spec-analysis/kernel-infrastructure";
 
 const location = (intent: string) => IntentLocation.of(ArtifactPath.of("default"), ArtifactPath.of(intent));
 const scopes = (...names: string[]) => StageScopes.of(names.map((name) => StageScope.of(name)));

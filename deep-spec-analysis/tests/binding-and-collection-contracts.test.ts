@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { AttributePaths, InitialState, InitialStates } from "@deep-spec/design-domain";
-import { decodeDeclaredBindings, decodeScenarioBindings } from "@deep-spec/kernel-adapter";
+import { AttributePaths, InitialState, InitialStates } from "@deep-spec-analysis/design-domain";
+import { decodeDeclaredBindings, decodeScenarioBindings } from "@deep-spec-analysis/kernel-adapter";
 import {
   AttributeKind,
   AttributePath,
@@ -17,8 +17,8 @@ import {
   RequirementIdentifier,
   ScenarioBinding,
   ScenarioBindings,
-} from "@deep-spec/kernel-domain";
-import { boundedValueSnapshot, IllegalArgumentException } from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-domain";
+import { boundedValueSnapshot, IllegalArgumentException } from "@deep-spec-analysis/kernel-infrastructure";
 
 describe("domain collection element contracts", () => {
   test("ErrorMessages retains diagnostic occurrences and owns its array", () => {

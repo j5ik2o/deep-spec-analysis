@@ -1,12 +1,12 @@
-import type { ContentHash } from "@deep-spec/kernel-domain";
-import { FunctionalRequirementReferences, TargetIdentifiers } from "@deep-spec/kernel-domain";
+import type { ContentHash } from "@deep-spec-analysis/kernel-domain";
+import { FunctionalRequirementReferences, TargetIdentifiers } from "@deep-spec-analysis/kernel-domain";
 // refinement が見る要件形式モデル（契約1）のビュー。requirements コンテキスト
 // とは別の寛容プロファイル（background / temporal / ears を運ばない・不在や
 // 不読は null）で、refinement 検査に必要な面だけを型で持つ。hash は生 IR の
 // 正準 JSON の sha256（アダプタが導出）——map の requirementsIrHash と照合する
 // 識別材料。集まりはファーストクラスコレクションで運ぶ。
 
-import type { FormalModelIdentifier } from "@deep-spec/requirements-domain";
+import type { FormalModelIdentifier } from "@deep-spec-analysis/requirements-domain";
 
 import type { RefinementAttributes } from "./refinement-attributes.ts";
 import type { RefinementObligation } from "./refinement-obligation.ts";

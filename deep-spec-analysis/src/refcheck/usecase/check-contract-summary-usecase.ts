@@ -6,8 +6,8 @@
 // 構造的に防ぐ、オーナー裁定 2026-09-04：Repository は集約の I/O だけを持ち、
 // 適合は usecase が保存前に一度だけ済ませる）。
 
-import type { FindingsSchema } from "@deep-spec/kernel-domain";
-import { matchResult } from "@deep-spec/kernel-infrastructure";
+import type { FindingsSchema } from "@deep-spec-analysis/kernel-domain";
+import { matchResult } from "@deep-spec-analysis/kernel-infrastructure";
 import type { CheckContractSummaryInput } from "./check-contract-summary-input.ts";
 import type { CheckOutcome } from "./check-outcome.ts";
 import type { DesignRecordRepository } from "./port/design-record-repository.ts";

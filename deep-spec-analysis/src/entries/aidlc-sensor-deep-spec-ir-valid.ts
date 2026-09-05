@@ -26,14 +26,14 @@
 
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseFlags } from "@deep-spec/kernel-adapter";
-import { ArtifactPath } from "@deep-spec/kernel-domain";
+import { parseFlags } from "@deep-spec-analysis/kernel-adapter";
+import { ArtifactPath } from "@deep-spec-analysis/kernel-domain";
 import {
   IntermediateRepresentationValidationMaterialsRepositoryImplementation,
   RequirementsSourceRepositoryImplementation,
-} from "@deep-spec/requirements-adapter";
-import { FormalModelIdentifier } from "@deep-spec/requirements-domain";
-import { ValidateIntermediateRepresentationUseCase } from "@deep-spec/requirements-usecase";
+} from "@deep-spec-analysis/requirements-adapter";
+import { FormalModelIdentifier } from "@deep-spec-analysis/requirements-domain";
+import { ValidateIntermediateRepresentationUseCase } from "@deep-spec-analysis/requirements-usecase";
 
 const MAX_REPORTED_ERRORS = 25;
 

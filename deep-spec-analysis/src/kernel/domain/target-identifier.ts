@@ -1,10 +1,10 @@
-import type { ParseError } from "@deep-spec/kernel-infrastructure";
+import type { ParseError } from "@deep-spec-analysis/kernel-infrastructure";
 import {
   compareCanonically,
   IllegalArgumentException,
   parseConstruction,
   type Result,
-} from "@deep-spec/kernel-infrastructure";
+} from "@deep-spec-analysis/kernel-infrastructure";
 
 // 検査対象 ID。生成時に findings スキーマの targetId 形式を保証する。
 // 正準順序は言語基盤の比較器を使い、ID 以外のトークンを ID に包まない。

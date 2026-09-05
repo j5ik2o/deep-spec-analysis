@@ -3,7 +3,7 @@
 // KeyedIndex（裁定 3-1、2026-09-03）。lowered id の書き換え（文言中の `OB-n`、
 // SMT ラベル中の `OB_n`）は索引自身の知識。
 
-import type { AttributePath, KeyedIndex } from "@deep-spec/kernel-domain";
+import type { AttributePath, KeyedIndex } from "@deep-spec-analysis/kernel-domain";
 import type { DesignMachine } from "./design-machine.ts";
 import { DesignMachineIdentifier } from "./design-machine-identifier.ts";
 import type { DesignScenarioIdentifier } from "./design-scenario-identifier.ts";

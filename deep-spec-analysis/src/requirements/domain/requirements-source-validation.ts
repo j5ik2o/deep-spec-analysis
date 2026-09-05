@@ -1,5 +1,10 @@
-import { type DeclaredDigest, ErrorMessage, ErrorMessages, ValidationAssessment } from "@deep-spec/kernel-domain";
-import type { ParseError, Result } from "@deep-spec/kernel-infrastructure";
+import {
+  type DeclaredDigest,
+  ErrorMessage,
+  ErrorMessages,
+  ValidationAssessment,
+} from "@deep-spec-analysis/kernel-domain";
+import type { ParseError, Result } from "@deep-spec-analysis/kernel-infrastructure";
 import type { FunctionalRequirementReferenceIndex } from "./functional-requirement-reference-index.ts";
 import type { IntermediateRepresentationModelDeclaration } from "./intermediate-representation-model-declaration.ts";
 import type { RequirementsSource } from "./requirements-source.ts";
